@@ -80,6 +80,7 @@ export default function Petunjuk() {
         <section className="card sect">
           <h3 className="card-t">Pengolahan Data</h3>
           <dl className="g-list">
+            <Item t="Stasiun Dianalisis">26 dari 27 stasiun. JMB-02 (Muaro Jambi) dikeluarkan karena sensornya berstatus rusak dan hampir seluruh datanya tidak valid. Rumah sakit pasangannya (RS-XXX-27) tidak dimodelkan dan tidak diberi data pengganti.</Item>
             <Item t="Per Jam">
               <M m={EQS.jam} note="n ≥ 3 dari 4 data 15 menit" />
             </Item>

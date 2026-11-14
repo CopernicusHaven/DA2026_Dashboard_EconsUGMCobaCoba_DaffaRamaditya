@@ -6,7 +6,7 @@
   --line: #e7e9ee; --line-2: #d9dce3;
   --ink: #000000;
   --accent: #a3a8b3; --accent-soft: rgba(17, 24, 39, .05);   /* soft gray marks (underlines, ticks) */
-  --crit: #d03b3b; --ok: #1a9a6c; --warn: #d39200;
+  --crit: #d03b3b; --ok: #2a78d6; --warn: #d39200;
   --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 6px 20px rgba(16, 24, 40, .04);
   --pop: 0 12px 32px rgba(16, 24, 40, .12);
   --scrim: rgba(16, 24, 40, .28);
@@ -20,7 +20,7 @@
   --line: #26272c; --line-2: #34353c;
   --ink: #ffffff;
   --accent: #6f7482; --accent-soft: rgba(255, 255, 255, .06);
-  --crit: #ef6b6b; --ok: #3fbf8a; --warn: #e0a53a;
+  --crit: #ef6b6b; --ok: #3987e5; --warn: #e0a53a;
   --shadow: none;
   --pop: 0 12px 32px rgba(0, 0, 0, .5);
   --scrim: rgba(0, 0, 0, .55);
@@ -266,7 +266,7 @@ table.t tr.clickable { cursor: pointer; }
 table.t td.num, table.t th.num { text-align: right; }
 .tag { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-sm); font-weight: 400; line-height: 1.3; white-space: nowrap; vertical-align: middle; }
 .tag::before { content: ""; width: 7px; height: 7px; border-radius: 50%; flex: none; background: var(--line-2); }
-.tag.ok::before { background: var(--ok); } .tag.bad::before { background: var(--crit); } .tag.warn::before { background: var(--warn); }
+.tag.ok::before { background: var(--ok); } .tag.c::before { background: var(--dot); } .tag.bad::before { background: var(--crit); } .tag.warn::before { background: var(--warn); }
 .nowrap { white-space: nowrap; }
 .dot-i { display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; vertical-align: middle; }
 
@@ -439,3 +439,16 @@ footer { margin-top: 32px; padding: 16px 0 calc(12px + env(safe-area-inset-botto
 .tiles-dots { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
 .tiles-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 4px; background: var(--line-2); transition: width .3s var(--ease), background-color .3s; }
 .tiles-dots button.on { width: 20px; background: var(--accent); }
+
+/* ───────── key findings: one card per finding, in the same looping slider as the KPI cards ───────── */
+.car-box { min-width: 0; }
+.findings { min-width: 0; }
+.fd-card { display: grid; grid-template-rows: auto 1fr; height: 100%; padding: 18px 20px 20px; text-align: center; }
+.fd-h { padding-bottom: 12px; border-bottom: 1px solid var(--line); font-size: var(--fs-md); font-weight: 600; line-height: 1.3; }
+.fd-t { padding-top: 14px; font-size: var(--fs-lg); line-height: 1.55; text-wrap: pretty; }
+.fd-t b { font-weight: 400; }
+.fd-one { max-width: 560px; margin: 0 auto; }
+
+/* station that is in the dataset but not analysed (defective sensor) */
+.st-off { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; margin: 6px 8px 2px; padding: 10px 0 2px; border-top: 1px dashed var(--line-2); font-size: var(--fs-sm); line-height: 1.4; }
+.st-off b { font-size: var(--fs-md); font-weight: 600; }

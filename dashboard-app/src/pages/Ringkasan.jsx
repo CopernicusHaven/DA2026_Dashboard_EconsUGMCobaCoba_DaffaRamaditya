@@ -48,7 +48,7 @@ export default function Ringkasan() {
       series: [{ type: 'bar', barWidth: '56%', data: isl.map(x => ({ value: +x.v.toFixed(1), itemStyle: { color: C_ISL[x.i], borderRadius: [0, 8, 8, 0] } })),
         label: { show: true, position: 'right', color: INK2, fontSize: 12, formatter: p => nf(p.value, 1) },
         markLine: { symbol: 'none', silent: true, lineStyle: { color: INK2, type: 'dashed' }, label: { formatter: 'Baku mutu tahunan PM2.5 (15 µg/m³)' }, data: [{ xAxis: 15 }] } }],
-    }, `Tertinggi di ${isl[isl.length - 1].i} (${nf(isl[isl.length - 1].v, 1)} µg/m³), terendah di ${isl[0].i} (${nf(isl[0].v, 1)} µg/m³).`];
+    }, isl.length > 1 ? <><b>{isl[isl.length - 1].i}</b> mencatat PM2.5 rata-rata tertinggi ({nf(isl[isl.length - 1].v, 1)} µg/m³), sedangkan <b>{isl[0].i}</b> terendah ({nf(isl[0].v, 1)} µg/m³).</> : null];
   }, [k, F]);
 
   const ispuOpt = useMemo(() => {
@@ -67,8 +67,14 @@ export default function Ringkasan() {
     };
   }, [k, F, sts, agg]);
 
+  const findings = k.avg == null ? [] : [
+    <>Rata-rata PM2.5 seluruh stasiun <b>{nf(k.avg, 1)} µg/m³</b>, atau {nf(k.avg / 15, 1)} kali baku mutu tahunan (15 µg/m³). Sebanyak {k.means.filter(x => x.m.mean > 15).length} dari {k.means.length} stasiun berada di atas baku mutu tersebut.</>,
+    islCap,
+    <>Sebanyak <b>{pct(k.unhealthy, 1)}</b> hari-stasiun berada pada kategori ISPU Tidak Sehat atau lebih buruk, dan tercatat {nf(k.haze, 0)} hari-stasiun berkabut asap.</>,
+  ];
+
   return (
-    <PageLayout icon="home" kicker="Gambaran umum" title="Ringkasan kualitas udara" tiles={tiles}>
+    <PageLayout icon="home" kicker="Gambaran umum" title="Ringkasan kualitas udara" tiles={tiles} findings={findings}>
       <Row eager id="sebaran" title="Sebaran PM2.5" height={440} slides={[
         { key: 'peta', label: '', caption: '',
           content: () => <><MapView markers={markers} height={400} /><Legend items={ISPU_L.map((l, i) => [ISPU_C[i], l])} /></> },

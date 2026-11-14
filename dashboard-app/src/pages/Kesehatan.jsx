@@ -34,7 +34,7 @@ export default function Kesehatan() {
     const areas = [];
     if (used) { let s0 = null; seq.forEach((i, k) => { const on = i >= 0 && dd.haze[i] === 1; if (on && s0 == null) s0 = k; if ((!on || k === seq.length - 1) && s0 != null) { areas.push([{ xAxis: lab[s0] }, { xAxis: lab[on ? k : k - 1] }]); s0 = null; } }); }
     const tc = cs.reduce((a, b) => a + (b || 0), 0), nPm = pmRaw.filter(v => v != null).length;
-    const sub = `${nf(tc, 0)} kasus` + (used ? `; ${areas.length ? `${areas.length} episode kabut asap (area merah)` : 'tidak terdapat episode kabut asap'}; data PM2.5 tersedia pada ${nf(nPm, 0)} dari ${nf(days.length, 0)} hari.` : '; stasiun pasangannya (JMB-02) rusak.');
+    const sub = null;
     return [{
       grid: [{ left: 66, right: 24, top: 40, height: '34%' }, { left: 66, right: 24, top: '56%', height: '26%' }],
       legend: { top: 0, left: 0, textStyle: { fontSize: 11, color: INK2 } },
@@ -95,7 +95,7 @@ export default function Kesehatan() {
       xAxis: ax({ type: 'value', name: 'Kenaikan kasus saat berkabut (%)', axisLabel: { formatter: '{value}%', color: INK2, fontSize: 11 } }), yAxis: ax({ type: 'category', data: hv.map(x => OUT[x.o]), axisLine: { show: false } }),
       series: [{ type: 'bar', barWidth: '60%', data: hv.map(x => ({ value: +x.v.toFixed(1), itemStyle: { color: C_OUT[x.o], borderRadius: [0, 5, 5, 0], opacity: x.o === out ? 1 : 0.55 } })),
         label: { show: true, position: 'right', fontSize: 11.5, color: INK2, formatter: p => pct(p.value, 0, true) } }],
-    }, `Perbandingan kasus harian saat kabut asap dengan hari biasa (${hz.n} rumah sakit).`, hz.pct[out]];
+    }, hz.pct[out] == null ? null : <>Pada hari berkabut asap, kasus {OUT[out]} rata-rata {hz.pct[out] >= 0 ? 'lebih tinggi' : 'lebih rendah'} <b>{pct(Math.abs(hz.pct[out]), 0)}</b> dibandingkan hari biasa ({hz.n} rumah sakit).</>, hz.pct[out]];
   }, [agg, hosps, out]);
 
   const [atOpt, atSub, atT] = useMemo(() => {
@@ -122,8 +122,20 @@ export default function Kesehatan() {
     { icon: 'users', l: 'Kasus akibat PM2.5', v: <CountUp value={atT.attributable} format={v => nf(v, 0)} />, ring: atT.attributable_pct / 100 },
   ];
 
+  const lagRest = E.D.dlm.filter(r => r.outcome === out && r.lag !== 'kumulatif 0-7' && r.lag !== '0');
+  const restSig = lagRest.filter(r => r.pct_low > 0 || r.pct_high < 0).length;
+  const riskTop = E.D.band.filter(x => x.outcome === OUT_FULL[out]).sort((a, b) => b.RR - a.RR)[0];
+  const vAll = vuln.find(r => r.scope === 'Semua RS');
+  const findings = [
+    <>Setiap kenaikan PM2.5 sebesar 10 µg/m³ menaikkan kasus {OUT[out]} pada hari yang sama sebesar <b>{pct(lag0.pct_increase_per10, 1, true)}</b> (lag 0). {restSig ? <>Efek juga terlihat pada {restSig} hari jeda berikutnya.</> : <>Pada hari pertama hingga ketujuh setelah paparan, efeknya tidak bermakna secara statistik.</>}</>,
+    hzSub,
+    atT ? <>Sekitar <b>{nf(atT.attributable, 0)} kasus {OUT[out]}</b> ({pct(atT.attributable_pct, 1)} dari total) dapat diatribusikan pada PM2.5.</> : null,
+    riskTop ? <>Risiko {OUT[out]} tertinggi terjadi pada kategori <b>{riskTop.band.split(' (')[0]}</b>, yaitu {nf(riskTop.RR, 2)} kali risiko pada hari berkategori Baik.</> : null,
+    vAll && vAll.z != null ? <>Kenaikan kasus ISPA akibat PM2.5 pada balita {vAll.d >= 0 ? 'lebih tinggi' : 'lebih rendah'} {nf(Math.abs(vAll.d), 2)} poin persen dibandingkan lansia ({vAll.n} rumah sakit). Perbedaan ini {Math.abs(vAll.z) >= 1.96 ? <b>signifikan</b> : 'tidak signifikan'} secara statistik (z = {nf(vAll.z, 2)}).</> : null,
+  ];
+
   return (
-    <PageLayout icon="heart" kicker="Tujuan 4" title="Dampak terhadap kesehatan" tiles={tiles}
+    <PageLayout icon="heart" kicker="Tujuan 4" title="Dampak terhadap kesehatan" tiles={tiles} findings={findings}
       actions={<><span className="lbl">Jenis Kasus</span><Seg id="out" items={Object.entries(OUT)} value={out} onChange={v => setUi('out', v)} label="Jenis kasus" /></>}>
       <Row eager id="paparan" title="Paparan dan kasus harian" height={540} slides={[
         { key: 'deret', label: 'Paparan dan kasus harian', caption: tsSub,

@@ -36,7 +36,7 @@ export default function Faktor() {
   const [trafOpt, trafSub] = useMemo(() => {
     const t = ui.traf, pts = E.D.wet.filter(r => codes.has(r.station) && r[t] != null);
     const rho = E.D.sitefac.find(r => r.pollutant === t && r.factor === 'traffic_intensity_per_h');
-    const sub = (rho.p_value < 0.05 && rho.spearman_r >= 0.5 ? `Semakin padat lalu lintas, semakin tinggi ${POL[t]}` : rho.p_value < 0.05 ? `Lalu lintas berkorelasi lemah dengan ${POL[t]}` : `Tidak ditemukan hubungan yang bermakna antara lalu lintas dan ${POL[t]}`) + ` (ρ = ${nf(rho.spearman_r, 2)}; ${rho.n_stasiun} stasiun).`;
+    const sub = <>{rho.p_value < 0.05 && rho.spearman_r >= 0.5 ? <>Semakin padat lalu lintas, semakin tinggi {POL[t]}</> : rho.p_value < 0.05 ? <>Lalu lintas berkorelasi lemah dengan {POL[t]}</> : <>Tidak ditemukan hubungan yang bermakna antara lalu lintas dan {POL[t]}</>} (<b>ρ = {nf(rho.spearman_r, 2)}</b>, {rho.n_stasiun} stasiun).</>;
     if (!pts.length) return [emptyOption('Tidak ada data untuk filter ini'), sub];
     const sz = d => 8 + 18 * (1 - (Math.log(d) - Math.log(6)) / (Math.log(250) - Math.log(6)));
     const keep = new Set([...[...pts].sort((a, b) => b[t] - a[t]).slice(0, 5), ...[...pts].sort((a, b) => b.traffic_intensity_per_h - a.traffic_intensity_per_h).slice(0, 3), ...[...pts].sort((a, b) => a[t] - b[t]).slice(0, 2)].map(r => r.station));
@@ -73,11 +73,22 @@ export default function Faktor() {
     { icon: 'cloud', l: 'Faktor utama', v: top.group.replace(' (bulan)', ''), ring: top.share_pct / 100 },
     { icon: 'target', l: 'Akurasi model (R²)', v: nf(E.D.meta.rf_r2, 2) },
     { icon: 'car', l: 'Korelasi lalu lintas', v: nf(rho.spearman_r, 2), tone: 'alert' },
-    { icon: 'wind', l: 'Pengaruh arah angin', v: <>{nWind.filter(r => r.sector_ratio >= 1.1).length}<small>/ {nWind.length}</small></>, ring: nWind.length ? nWind.filter(r => r.sector_ratio >= 1.1).length / nWind.length : null },
+    { icon: 'wind', l: 'Pengaruh arah angin', v: <>{nWind.filter(r => r.sector_ratio >= 1.1).length}<small>/ {nWind.length} stasiun</small></>, ring: nWind.length ? nWind.filter(r => r.sector_ratio >= 1.1).length / nWind.length : null },
+  ];
+
+  const imp3 = useMemo(() => [...E.D.importance].sort((a, b) => b.importance - a.importance).slice(0, 3), [E]);
+  const met = useMemo(() => [...E.D.meteo].sort((a, b) => Math.abs(b.r_rata2) - Math.abs(a.r_rata2)), [E]);
+  const windTop = nWind.length ? [...nWind].sort((a, b) => b.sector_ratio - a.sector_ratio)[0] : null;
+  const rr = r => <>{POL[r.pollutant]} dengan {FL[FA.indexOf(r.factor)].toLowerCase()} (r = {nf(r.r_rata2, 2)})</>;
+  const findings = [
+    <><b>{imp3[0].group}</b> menjadi faktor terpenting bagi PM2.5 ({pct(imp3[0].share_pct, 0)} dari total tingkat kepentingan), diikuti {imp3[1].group.toLowerCase()} ({pct(imp3[1].share_pct, 0)}) dan {imp3[2].group.toLowerCase()} ({pct(imp3[2].share_pct, 0)}). Model ini menjelaskan <b>{pct(E.D.meta.rf_r2 * 100, 0)}</b> variasi PM2.5 (R² = {nf(E.D.meta.rf_r2, 2)}).</>,
+    trafSub,
+    <>Hubungan cuaca terkuat adalah {rr(met[0])} dan {rr(met[1])}. Korelasi polutan lain dengan cuaca lemah (|r| ≤ {nf(Math.abs(met[2].r_rata2), 2)}).</>,
+    windTop ? <>Sebanyak <b>{nWind.filter(r => r.sector_ratio >= 1.1).length} dari {nWind.length} stasiun</b> mencatat PM2.5 minimal 10% lebih tinggi saat angin bertiup dari arah tertentu, tertinggi di {windTop.station} ({pct((windTop.sector_ratio - 1) * 100, 0, true)} dari arah {SEKTOR[windTop.dirtiest_sector].toLowerCase()}).</> : null,
   ];
 
   return (
-    <PageLayout icon="sliders" kicker="Tujuan 3" title="Faktor penyebab" tiles={tiles}>
+    <PageLayout icon="sliders" kicker="Tujuan 3" title="Faktor penyebab" tiles={tiles} findings={findings}>
       <Row eager id="dominan" title="Faktor dominan" height={420} slides={[
         { key: 'imp', label: 'Tingkat kepentingan faktor', caption: '',
           content: () => <EChart option={impOpt} height={420} ariaLabel="Kepentingan faktor" /> },

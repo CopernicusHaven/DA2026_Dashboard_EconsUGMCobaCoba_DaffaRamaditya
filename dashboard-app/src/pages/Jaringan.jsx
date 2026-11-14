@@ -9,6 +9,7 @@ import { ax, emptyOption, tipRow } from '../lib/chartBase.js';
 import { nf, scope } from '../lib/engine.js';
 import { INK2, MUTED, AXIS, SURF, STROKE, SERIES, REL_C, REL_LABEL, CRIT } from '../lib/constants.js';
 
+const joinId = a => a.length <= 1 ? a.join('') : a.slice(0, -1).join(', ') + ' dan ' + a[a.length - 1];
 const W = { polusi: 0.25, kabut_asap: 0.20, beban_kesehatan: 0.20, defisit_data: 0.20, keterisolasian: 0.15 };
 const WL = { polusi: 'Polusi', kabut_asap: 'Kabut asap', beban_kesehatan: 'Beban rumah sakit', defisit_data: 'Defisit data', keterisolasian: 'Keterisolasian' };
 export default function Jaringan() {
@@ -31,9 +32,9 @@ export default function Jaringan() {
     const comp = s => { const ks = Object.keys(W).filter(k => s['komp_' + k] != null), ws = ks.reduce((a, k) => a + W[k], 0); return Object.fromEntries(Object.keys(W).map(k => [k, s['komp_' + k] == null ? 0 : s['komp_' + k] * W[k] / ws * 100])); };
     return [{
       grid: { left: 62, right: 30, top: 48, bottom: 30 }, legend: { top: 0, left: 0, itemWidth: 12, itemHeight: 10, textStyle: { fontSize: 11.5, color: INK2 } },
-      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: ps => { const s = E.SM[ps[0].name]; return `<b>${s.station}, skor ${nf(s.priority_score, 1)}` + ps.map(p => tipRow(p.color, p.seriesName, nf(p.value, 1))).join('') + (s.komponen_tidak_tersedia ? `<div style="color:${MUTED};font-size:11px;margin-top:4px">Tanpa komponen: ${s.komponen_tidak_tersedia.replace(/_/g, ' ')}</div>` : ''); } },
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: ps => { const s = E.SM[ps[0].name]; return `<b>${s.station}, skor ${nf(s.priority_score, 1)}</b>` + ps.map(p => tipRow(p.color, p.seriesName, nf(p.value, 1))).join('') + (s.komponen_tidak_tersedia ? `<div style="color:${MUTED};font-size:11px;margin-top:4px">Tanpa komponen: ${s.komponen_tidak_tersedia.replace(/_/g, ' ')}</div>` : ''); } },
       xAxis: ax({ type: 'value', max: 100, name: 'Skor prioritas (0–100)' }), yAxis: ax({ type: 'category', data: pr.map(s => s.station), axisLine: { show: false }, axisLabel: { interval: 0, color: INK2, fontSize: 11.5 } }),
-      series: Object.keys(W).map((k, i) => ({ name: `${WL[k]} (${W[k] * 100}%)`, type: 'bar', stack: 'p', barWidth: '64%', itemStyle: { color: SERIES[i], borderColor: SURF, borderWidth: 1 }, emphasis: { focus: 'series' }, data: pr.map(s => +comp(s)[k].toFixed(2)) })),
+      series: [...Object.keys(W).map((k, i) => ({ name: `${WL[k]} (${W[k] * 100}%)`, type: 'bar', stack: 'p', barWidth: '72%', itemStyle: { color: SERIES[i], borderColor: SURF, borderWidth: 1 }, emphasis: { focus: 'series' }, data: pr.map(s => +comp(s)[k].toFixed(2)) }))],
     }, pr];
   }, [sts, E]);
   const prioClick = useMemo(() => ({ click: p => prio[p.dataIndex] && openStation(prio[p.dataIndex].station) }), [prio, openStation]);
@@ -41,20 +42,32 @@ export default function Jaringan() {
   const gaps = E.D.gaps.filter(g => F.isl.has(g.island)).sort((a, b) => b.jarak_km - a.jarak_km);
   const cov = E.D.coverage.filter(r => F.isl.has(r.island));
   const tiles = [
-    { icon: 'shield', l: 'Alat berfungsi baik', v: <>{sts.filter(s => s.reliability === 'Baik').length}<small>/ {sts.length}</small></>, ring: sts.length ? sts.filter(s => s.reliability === 'Baik').length / sts.length : null, tone: 'ok' },
+    { icon: 'shield', l: 'Alat berfungsi baik', v: <>{sts.filter(s => s.reliability === 'Baik').length}<small>/ {sts.length} alat</small></>, ring: sts.length ? sts.filter(s => s.reliability === 'Baik').length / sts.length : null, tone: 'ok' },
     { icon: 'map', l: 'Jarak stasiun terjauh', v: gaps[0] ? nf(gaps[0].jarak_km, 0) : '–', u: gaps[0] ? 'km' : '', tone: gaps[0] && gaps[0].jarak_km >= 300 ? 'alert' : '' },
     { icon: 'target', l: 'Prioritas utama', v: prio.length ? prio[prio.length - 1].station : '–' },
     { icon: 'pin', l: 'Provinsi terpantau', v: cov.reduce((a, r) => a + r.n_provinsi_tercakup, 0) },
   ];
 
+  const good = sts.filter(s => s.reliability === 'Baik').length;
+  const broken = sts.filter(s => s.reliability !== 'Baik').sort((a, b) => (a.reliability === 'Kritis - ganti/perbaiki' ? -1 : 0) - (b.reliability === 'Kritis - ganti/perbaiki' ? -1 : 0));
+  const crit = sts.filter(s => s.reliability === 'Kritis - ganti/perbaiki');
+  const unused = sts.filter(s => !s.used_in_analysis);
+  const wide = gaps.filter(g => g.jarak_km >= 300);
+  const top3 = prio.slice(-3).reverse();
+  const findings = sts.length ? [
+    <>Sebanyak <b>{good} dari {sts.length} alat</b> berfungsi baik.{crit.length ? <> Alat berstatus kritis adalah {joinId(crit.map(s => s.station))}.</> : null}{unused.length ? <> Data {joinId(unused.map(s => s.station))} tidak dipakai karena sensornya rusak, sehingga analisis polusi memakai {sts.length - unused.length} stasiun.</> : null}{broken.length - crit.length > 0 ? <> Sebanyak {broken.length - crit.length} alat lain perlu penyesuaian atau kalibrasi.</> : null}</>,
+    gaps[0] ? <>Jarak terjauh antarstasiun bertetangga mencapai <b>{nf(gaps[0].jarak_km, 0)} km</b>, yaitu antara {gaps[0].station_a} dan {gaps[0].station_b} di {gaps[0].island}. {wide.length > 1 ? <>Terdapat {wide.length} pasangan stasiun yang berjarak 300 km atau lebih.</> : null}</> : null,
+    top3.length ? <>Prioritas utama penambahan atau perbaikan alat adalah <b>{top3[0].station}</b> (skor {nf(top3[0].priority_score, 1)}){top3.length > 1 ? <>, diikuti {top3.slice(1).map(s => `${s.station} (${nf(s.priority_score, 1)})`).join(' dan ')}</> : null}.</> : null,
+  ] : [];
+
   return (
-    <PageLayout icon="network" kicker="Tujuan 5" title="Jaringan pemantauan" tiles={tiles}>
+    <PageLayout icon="network" kicker="Tujuan 5" title="Jaringan pemantauan" tiles={tiles} findings={findings}>
       <Row eager id="jaringan" title="Sebaran stasiun" height={520} slides={[
         { key: 'peta', label: '', caption: '',
           content: () => <><MapView markers={markers} lines={lines} height={480} />
             <Legend items={[...Object.entries(REL_C).map(([k, c]) => [c, REL_LABEL[k] || k]), [CRIT, 'jarak ≥300 km', 'ln']]} /></> },
         { key: 'prioritas', label: 'Skor prioritas stasiun', caption: '',
-          content: () => <EChart option={prioOpt} height={580} onEvents={prioClick} ariaLabel="Skor prioritas" /> },
+          content: () => <EChart option={prioOpt} height={Math.max(420, prio.length * 30 + 90)} onEvents={prioClick} ariaLabel="Skor prioritas" /> },
         { key: 'cakupan', label: 'Cakupan per pulau', caption: '',
           content: () => <DataTable rows={cov} rowKey={r => r.island} cols={[
             { key: 'island', label: 'Pulau' }, { key: 'n_stasiun', label: 'Stasiun', num: true }, { key: 'n_stasiun_andal', label: 'Andal', num: true },

@@ -6,7 +6,9 @@ import Row from '../components/Row.jsx';
 import { CountUp, PageLayout, Seg, Tag } from '../components/ui.jsx';
 import { ax, emptyOption, tipRow } from '../lib/chartBase.js';
 import { nf, pct, scope } from '../lib/engine.js';
-import { ISL, C_ISL, CAT_S, ISPU_C, ISPU_L, INK2, MUTED, AXIS, GRID, SURF, SERIES, YEARS, POL, BM_Y, WHO_Y, BM_24, MONTHS } from '../lib/constants.js';
+import { ISL, C_ISL, CAT_S, ISPU_C, ISPU_L, INK2, MUTED, AXIS, GRID, SURF, SERIES, YEARS, POL, BM_Y, WHO_Y, BM_24, MONTHS, IKU_IDX } from '../lib/constants.js';
+
+const MONTH_F = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
 export default function Kondisi() {
   const { E, F, agg, ui, setUi, openStation } = useDash();
@@ -20,7 +22,7 @@ export default function Kondisi() {
     const ml = [];
     if (bm) ml.push({ xAxis: bm, lineStyle: { type: 'dashed', color: INK2 }, label: { formatter: `Baku mutu tahunan (${bm} µg/m³)` } });
     if (who) ml.push({ xAxis: who, lineStyle: { type: 'dotted', color: MUTED }, label: { formatter: `Pedoman WHO 2021 (${who} µg/m³)` } });
-    const cap = `Tertinggi di ${top.s.station} (${nf(top.m.mean, 1)} µg/m³)` + (bm ? `; ${arr.filter(x => x.m.mean > bm).length} dari ${arr.length} stasiun melampaui baku mutu tahunan.` : '.');
+    const cap = <><b>{top.s.station}</b> ({top.s.kota_kabupaten}) mencatat {POL[pol]} rata-rata tertinggi, yaitu {nf(top.m.mean, pol === 'co' ? 0 : 1)} µg/m³.{bm ? <> Sebanyak <b>{arr.filter(x => x.m.mean > bm).length} dari {arr.length} stasiun</b> melampaui baku mutu tahunan ({bm} µg/m³).</> : null}</>;
     return [{
       grid: { left: 70, right: 56, top: 30, bottom: 30 },
       legend: { top: 0, left: 0, data: ISL.filter(i => F.isl.has(i)), itemWidth: 12, itemHeight: 10, textStyle: { fontSize: 11, color: INK2 } },
@@ -71,14 +73,13 @@ export default function Kondisi() {
       yAxis: ax({ type: 'value', name: `${POL[pol]} (µg/m³)` }),
       dataZoom: [{ type: 'slider', height: 18, bottom: 8, borderColor: GRID, fillerColor: 'rgba(57,135,229,.14)' }],
       series,
-    }, `Rata-rata bulanan tertinggi: ${best.n}, ${MONTHS[+best.m.slice(5) - 1]} ${best.m.slice(0, 4)} (${nf(best.v, 1)} µg/m³).`];
+    }, <>Rata-rata bulanan {POL[pol]} tertinggi terjadi di <b>{best.n}</b> pada <b>{MONTH_F[+best.m.slice(5) - 1]} {best.m.slice(0, 4)}</b> ({nf(best.v, pol === 'co' ? 0 : 1)} µg/m³).</>];
   }, [sts, agg, pol, F, E]);
 
   const codes = useMemo(() => new Set(sts.map(s => s.station)), [sts]);
   const ann = useMemo(() => E.D.annual.filter(r => r.year === ui.year && codes.has(r.station)), [E, ui.year, codes]);
   // value with a red dot when it exceeds the annual standard (explained in the card header)
   const pv = k => r => <span className="nowrap">{r['lolos_bm_' + k] === false && <i className="dot-i over" />}{nf(r[k + '_tahunan'], 1)}</span>;
-  const ikuKind = c => c === 'Sangat Baik' || c === 'Baik' ? 'ok' : c === 'Sedang' ? 'warn' : 'bad';
 
   const yoyOpt = useMemo(() => {
     const yo = sts.filter(s => s.pm25_2024_jan_14okt != null).sort((a, b) => a.pm25_2026_jan_14okt - b.pm25_2026_jan_14okt);
@@ -108,14 +109,22 @@ export default function Kondisi() {
       pmean: pv.length ? pv.reduce((a, m) => a + m.mean, 0) / pv.length : null };
   }, [sts, agg, pol, F]);
   const tiles = [
-    { icon: 'alert', l: 'Melampaui baku mutu', v: <><CountUp value={t.over} format={v => nf(v, 0)} /><small>/ {t.n}</small></>, ring: t.n ? t.over / t.n : null, tone: t.over ? 'alert' : 'ok' },
+    { icon: 'alert', l: 'Melampaui baku mutu', v: <><CountUp value={t.over} format={v => nf(v, 0)} /><small>/ {t.n} stasiun</small></>, ring: t.n ? t.over / t.n : null, tone: t.over ? 'alert' : 'ok' },
     { icon: 'map', l: 'Pulau paling tercemar', v: t.isl ? t.isl.i : '–' },
-    { icon: 'trend', l: 'Stasiun PM2.5 naik', v: <><CountUp value={t.worse} format={v => nf(v, 0)} /><small>/ {sts.length}</small></>, ring: sts.length ? t.worse / sts.length : null, tone: t.worse ? 'alert' : '' },
+    { icon: 'trend', l: 'Stasiun PM2.5 naik', v: <><CountUp value={t.worse} format={v => nf(v, 0)} /><small>/ {sts.length} stasiun</small></>, ring: sts.length ? t.worse / sts.length : null, tone: t.worse ? 'alert' : '' },
     { icon: 'gauge', l: 'Rata-rata', v: <CountUp value={t.pmean} format={v => nf(v, pol === 'co' ? 0 : 1)} />, u: 'µg/m³' },
   ];
 
+  const ikuGap = ann.filter(r => r.lolos_bm_pm25 === false && IKU_IDX[r.IKU_kategori] === 0).length;
+  const findings = [
+    rankCap || null,
+    trendCap || null,
+    sts.length ? <>Sebanyak <b>{t.worse} dari {sts.length} stasiun</b> mengalami kenaikan PM2.5 dari 2024 ke 2026 (periode yang sama, 1 Januari hingga 14 Oktober).</> : null,
+    ann.length ? <>IKU hanya dihitung dari NO₂ dan SO₂. Karena itu, {ikuGap ? <><b>{ikuGap} stasiun</b> yang melampaui baku mutu PM2.5 pada {ui.year} tetap berkategori IKU Baik atau Sangat Baik.</> : <>kategori IKU tidak mencerminkan tingkat PM2.5.</>}</> : null,
+  ];
+
   return (
-    <PageLayout icon="wind" kicker="Tujuan 1" title="Kualitas udara" tiles={tiles}
+    <PageLayout icon="wind" kicker="Tujuan 1" title="Kualitas udara" tiles={tiles} findings={findings}
       actions={<><span className="lbl">Polutan</span><Seg id="pol" items={Object.entries(POL)} value={pol} onChange={v => setUi('pol', v)} label="Polutan" /></>}>
       <Row eager id="tingkat" title="Tingkat pencemaran" height={620} slides={[
         { key: 'rank', label: 'Peringkat stasiun', caption: rankCap,
@@ -128,7 +137,7 @@ export default function Kondisi() {
             { key: 'station', label: 'Stasiun' },
             { key: 'pm25_tahunan', label: 'PM2.5 (15)', num: true, render: pv('pm25') }, { key: 'pm10_tahunan', label: 'PM10 (40)', num: true, render: pv('pm10') },
             { key: 'no2_tahunan', label: 'NO₂ (50)', num: true, render: pv('no2') }, { key: 'o3_tahunan', label: 'O₃ (35)', num: true, render: pv('o3') },
-            { key: 'IKU', label: 'IKU', num: true, render: r => nf(r.IKU, 1) }, { key: 'IKU_kategori', label: 'Kategori', render: r => <Tag kind={ikuKind(r.IKU_kategori)}>{r.IKU_kategori}</Tag> },
+            { key: 'IKU', label: 'IKU (NO₂, SO₂)', num: true, render: r => nf(r.IKU, 1) }, { key: 'IKU_kategori', label: 'Kategori IKU', render: r => <Tag color={ISPU_C[IKU_IDX[r.IKU_kategori] ?? 1]}>{r.IKU_kategori}</Tag> },
             { key: 'kelengkapan_pct', label: 'Data', num: true, render: r => <span>{nf(r.kelengkapan_pct, 0)}%</span> },
           ]} /> },
       ]} />

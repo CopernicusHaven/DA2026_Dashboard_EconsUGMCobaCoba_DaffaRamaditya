@@ -10,6 +10,7 @@ export default memo(function StationPanel() {
   const [tab, setTab] = useState('top');
   const rows = useMemo(() => E.ST.filter(s => s.used_in_analysis && F.isl.has(s.island) && F.cat.has(s.site_category))
     .map(s => ({ s, v: agg.stMean(s.station, 'pm25') })).filter(x => x.v.ok).map(x => ({ s: x.s, v: x.v.mean })), [E, F, agg]);
+  const off = useMemo(() => E.ST.filter(s => !s.used_in_analysis && F.isl.has(s.island) && F.cat.has(s.site_category)), [E, F]);
   const max = Math.max(...rows.map(r => r.v), 1);
   const list = [...rows].sort((a, b) => tab === 'top' ? b.v - a.v : a.v - b.v);
   const TABS = [['top', 'Tertinggi'], ['low', 'Terbersih']];
@@ -41,6 +42,12 @@ export default memo(function StationPanel() {
             </motion.div>
           ))}
         </AnimatePresence>
+        {off.map(s => (
+          <div key={s.station} className="st-off" onClick={() => openStation(s.station)}>
+            <b>{s.station}</b>
+            <span>{s.kota_kabupaten.replace('Kabupaten ', 'Kab. ')}. Sensor rusak, data tidak dipakai dalam analisis.</span>
+          </div>
+        ))}
       </div>
     </section>
   );

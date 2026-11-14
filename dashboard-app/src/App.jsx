@@ -59,13 +59,9 @@ const setThemeDom = t => {
   setTimeout(() => html.classList.remove('theming'), 120);
 };
 
+// While the data loads nothing is shown (no logo flash on refresh); only a load error gets a message.
 function Loader({ error }) {
-  return (
-    <div className="loader">
-      <div className="loader-logo"><img src="./logo_gelar_rasa.png" alt="Logo Gelar Rasa" /></div>
-      {error ? <p>Data gagal dimuat ({error}).</p> : <div className="loader-bar"><motion.i initial={{ x: '-100%' }} animate={{ x: '250%' }} transition={{ repeat: Infinity, duration: 1.1, ease: 'easeInOut' }} /></div>}
-    </div>
-  );
+  return error ? <div className="loader"><p>Data gagal dimuat ({error}).</p></div> : null;
 }
 
 function Dashboard({ D, theme, toggleTheme, active, onHome }) {
@@ -267,7 +263,8 @@ export default function App() {
   }, []);
   // opening page first; entering is instant (the dashboard's own elements then slide in),
   // going back to the opening page fades the dashboard out
-  const [entered, setEntered] = useState(CAPTURE);
+  // a link straight to a page (for example #kondisi) opens that page without the opening screen
+  const [entered, setEntered] = useState(() => CAPTURE || ['ringkasan', 'kondisi', 'kritis', 'faktor', 'kesehatan', 'jaringan', 'petunjuk'].includes(location.hash.slice(1)));
   const enter = useCallback(() => setEntered(true), []);
   const enterGuide = useCallback(() => { location.hash = '#petunjuk'; setEntered(true); }, []);
   const home = useCallback(() => { window.scrollTo({ top: 0 }); setEntered(false); }, []);

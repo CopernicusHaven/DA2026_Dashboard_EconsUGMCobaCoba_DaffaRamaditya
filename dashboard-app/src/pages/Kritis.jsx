@@ -6,9 +6,13 @@ import Row from '../components/Row.jsx';
 import { CountUp, PageLayout, Seg } from '../components/ui.jsx';
 import { ax, emptyOption, tipRow } from '../lib/chartBase.js';
 import { nf, pct, scope } from '../lib/engine.js';
-import { ISL, CATS, CAT_S, C_ISL, C_CAT, INK, INK2, GRID, SURF, THEME, SERIES, SEQ, POL, MONTHS } from '../lib/constants.js';
+import { ISL, CATS, CAT_S, C_ISL, C_CAT, INK, INK2, GRID, SURF, THEME, SERIES, HEAT, POL, MONTHS } from '../lib/constants.js';
 
 const H24 = [...Array(24).keys()];
+const DOW = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+const MONTH_F = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+const hh = h => String(h).padStart(2, '0') + '.00';
+const joinId = a => a.length <= 1 ? a.join('') : a.slice(0, -1).join(', ') + ' dan ' + a[a.length - 1];
 
 export default function Kritis() {
   const { E, F, agg, ui, setUi, openStation } = useDash();
@@ -31,43 +35,63 @@ export default function Kritis() {
       tooltip: { trigger: 'axis', formatter: ps => `<b>Pukul ${String(ps[0].axisValue).padStart(2, '0')}.00</b>` + ps.filter(p => p.value != null).sort((a, b) => b.value - a.value).map(p => tipRow(p.color, p.seriesName, nf(p.value, ui.diur === 'co' ? 0 : 1) + ' µg/m³')).join('') },
       xAxis: ax({ type: 'category', data: H24, boundaryGap: false, name: 'Jam (WIB)', axisLabel: { color: INK2, fontSize: 11, interval: 2 } }),
       yAxis: ax({ type: 'value', name: `${POL[ui.diur]} (µg/m³)`, scale: true }), series: ser,
-    }, `Puncak pagi pukul ${String(pk[0]).padStart(2, '0')}.00 dan puncak sore pukul ${String(pk[1]).padStart(2, '0')}.00 WIB. Pita kuning menandai jam sibuk.`];
+    }, <>{POL[ui.diur]} memuncak pada <b>pukul {hh(pk[0])}</b> pagi dan <b>pukul {hh(pk[1])} WIB</b> sore, bertepatan dengan jam sibuk (pita kuning).</>];
   }, [sts, ui.diur, per, F, E]);
 
   const [weekOpt, weekSub] = useMemo(() => {
-    if (!sts.length) return [emptyOption('Tidak ada data untuk filter ini'), ''];
-    const prof = key => H24.map(h => { const v = sts.map(s => (E.D.diurnal[s.station] || {})[key]).filter(Boolean).map(a => a[h]).filter(x => x != null); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; });
-    const wd = prof(ui.week + '_wd'), we = prof(ui.week + '_we');
-    const mwd = wd.reduce((a, b) => a + (b || 0), 0) / 24, mwe = we.reduce((a, b) => a + (b || 0), 0) / 24;
+    if (!sts.length) return [emptyOption('Tidak ada data untuk filter ini'), null];
+    // each station: mean of its daily values per day of the week, then the average over stations
+    const per = sts.map(s => {
+      const a = E.D.daily[s.station][ui.week], sum = new Float64Array(7), n = new Int32Array(7);
+      if (!a) return null;
+      for (let i = 0; i < E.NDAYS; i++) if (agg.mask[i] && a[i] != null) { const d = (new Date(E.T0 + i * 864e5).getUTCDay() + 6) % 7; sum[d] += a[i]; n[d]++; }
+      return Array.from(sum, (v, d) => n[d] >= 4 ? v / n[d] : null);
+    }).filter(Boolean);
+    const dow = DOW.map((_, d) => { const v = per.map(p => p[d]).filter(x => x != null); return v.length ? v.reduce((x, y) => x + y, 0) / v.length : null; });
+    if (dow.every(v => v == null)) return [emptyOption('Tidak ada data untuk filter ini'), null];
+    const avg = xs => { const v = xs.filter(x => x != null); return v.length ? v.reduce((x, y) => x + y, 0) / v.length : null; };
+    const mwd = avg(dow.slice(0, 5)), mwe = avg(dow.slice(5)), d = ui.week === 'co' ? 0 : 1;
+    const bar = (keep, c) => dow.map((v, k) => (keep(k) && v != null ? { value: +v.toFixed(2), itemStyle: { color: c, borderRadius: [6, 6, 0, 0] } } : null));
     return [{
-      grid: { left: 50, right: 16, top: 34, bottom: 34 }, legend: { top: 0, left: 0, itemWidth: 18, itemHeight: 3, textStyle: { fontSize: 11, color: INK2 } },
-      tooltip: { trigger: 'axis', formatter: ps => `<b>Pukul ${String(ps[0].axisValue).padStart(2, '0')}.00</b>` + ps.map(p => tipRow(p.color, p.seriesName, nf(p.value, 1) + ' µg/m³')).join('') },
-      xAxis: ax({ type: 'category', data: H24, boundaryGap: false, name: 'Jam (WIB)', axisLabel: { color: INK2, fontSize: 11, interval: 2 } }),
-      yAxis: ax({ type: 'value', name: `${POL[ui.week]} (µg/m³)`, scale: true }),
-      series: [{ name: 'Hari kerja (Sen–Jum)', type: 'line', symbol: 'none', lineStyle: { width: 3, color: SERIES[0] }, itemStyle: { color: SERIES[0] }, data: wd.map(v => v == null ? null : +v.toFixed(2)) },
-        { name: 'Akhir pekan (Sab–Min)', type: 'line', symbol: 'none', lineStyle: { width: 2, color: SERIES[1], type: 'dashed' }, itemStyle: { color: SERIES[1] }, data: we.map(v => v == null ? null : +v.toFixed(2)) }],
-    }, `Selisih akhir pekan terhadap hari kerja hanya ${pct((mwe / mwd - 1) * 100, 2, true)} (${sts.length} stasiun).`];
-  }, [sts, ui.week, E]);
+      grid: { left: 56, right: 16, top: 40, bottom: 34 }, legend: { top: 0, left: 0, itemWidth: 12, itemHeight: 10, textStyle: { fontSize: 11, color: INK2 } },
+      tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: ps => { const p = ps.find(x => x.value != null); return p ? `<b>${p.name}</b>` + tipRow(p.color, POL[ui.week], nf(p.value, d) + ' µg/m³') : ''; } },
+      xAxis: ax({ type: 'category', data: DOW, name: 'Hari', axisLabel: { color: INK2, fontSize: 11.5, interval: 0 } }),
+      yAxis: ax({ type: 'value', name: `${POL[ui.week]} rata-rata harian (µg/m³)`, min: 0 }),
+      series: [
+        { name: 'Hari kerja (Senin–Jumat)', type: 'bar', barWidth: '56%', barGap: '-100%', itemStyle: { color: SERIES[0] }, data: bar(k => k < 5, SERIES[0]),
+          label: { show: true, position: 'top', fontSize: 11.5, color: INK2, formatter: p => nf(p.value, d) },
+          markLine: { symbol: 'none', silent: true, lineStyle: { type: 'dashed', color: INK2 }, label: { formatter: `Rata-rata hari kerja (${nf(mwd, d)})`, color: INK2, fontSize: 11, position: 'insideEndTop' }, data: [{ yAxis: +mwd.toFixed(2) }] } },
+        { name: 'Akhir pekan (Sabtu–Minggu)', type: 'bar', barWidth: '56%', barGap: '-100%', itemStyle: { color: SERIES[1] }, data: bar(k => k >= 5, SERIES[1]),
+          label: { show: true, position: 'top', fontSize: 11.5, color: INK2, formatter: p => nf(p.value, d) } },
+      ],
+    }, mwd && mwe != null ? (Math.abs(mwe / mwd - 1) < 0.05
+      ? <>Rata-rata {POL[ui.week]} pada akhir pekan hanya berselisih <b>{pct(Math.abs(mwe / mwd - 1) * 100, 1)}</b> dari hari kerja ({per.length} stasiun), sehingga tidak terdapat perbedaan berarti antara keduanya.</>
+      : <>Rata-rata {POL[ui.week]} pada akhir pekan {mwe > mwd ? 'lebih tinggi' : 'lebih rendah'} <b>{pct(Math.abs(mwe / mwd - 1) * 100, 1)}</b> dibandingkan hari kerja ({per.length} stasiun).</>) : null];
+  }, [sts, ui.week, agg, E]);
 
   const [heatOpt, heatSub, heatRows] = useMemo(() => {
     const hs = sts.map(s => ({ s, m: agg.stMean(s.station, ui.heat) })).filter(x => x.m.ok).sort((a, b) => b.m.mean - a.m.mean);
-    const cells = []; let vmax = 0;
+    const cells = [];
     hs.forEach((x, r) => {
       const d = E.D.daily[x.s.station], hsum = d['hs_' + ui.heat], hn = d['hn_' + ui.heat], sum = new Float64Array(12), n = new Int32Array(12);
       for (let i = 0; i < E.NDAYS; i++) if (agg.mask[i] && hn[i] > 0 && hsum[i] != null) { sum[E.DAY_M[i]] += hsum[i]; n[E.DAY_M[i]] += hn[i]; }
-      for (let m = 0; m < 12; m++) if (n[m]) { const v = sum[m] / n[m]; vmax = Math.max(vmax, v); cells.push([m, r, +v.toFixed(1)]); }
+      for (let m = 0; m < 12; m++) if (n[m]) cells.push([m, r, +(sum[m] / n[m]).toFixed(1)]);
     });
     if (!cells.length) return [emptyOption('Tidak ada data untuk filter ini'), '', []];
     const hot = cells.reduce((b, c) => (!b || c[2] > b[2]) ? c : b, null);
+    const sorted = cells.map(c => c[2]).sort((x, y) => x - y), top = Math.max(1, Math.ceil(sorted[Math.floor(0.95 * (sorted.length - 1))]));
+    // stations whose highest month is August, September or October
+    const peakAO = hs.filter((x, r) => { const mine = cells.filter(c => c[1] === r); const b = mine.reduce((p, c) => (!p || c[2] > p[2]) ? c : p, null); return b && b[0] >= 7 && b[0] <= 9; }).length;
+    const lab = v => (v / top > 0.62) === (THEME !== 'dark') ? '#ffffff' : '#1b1b1b';
     return [{
-      grid: { left: 70, right: 80, top: 20, bottom: 30 },
-      tooltip: { trigger: 'item', formatter: p => `<b>${hs[p.value[1]].s.station}, ${MONTHS[p.value[0]]}</b><br>${tipRow(SEQ[SEQ.length - 1], POL[ui.heat], nf(p.value[2], 1) + ' µg/m³')}` },
+      grid: { left: 70, right: 96, top: 20, bottom: 30 },
+      tooltip: { trigger: 'item', formatter: p => `<b>${hs[p.value[1]].s.station}, ${MONTHS[p.value[0]]}</b><br>${tipRow(HEAT[HEAT.length - 2], POL[ui.heat], nf(p.value[2], 1) + ' µg/m³')}` },
       xAxis: ax({ type: 'category', data: MONTHS, name: 'Bulan', axisLine: { show: false } }),
       yAxis: ax({ type: 'category', data: hs.map(x => x.s.station), inverse: true, axisLine: { show: false } }),
-      visualMap: { min: 0, max: Math.ceil(vmax), dimension: 2, calculable: true, orient: 'vertical', right: 0, top: 'middle', itemHeight: 160, inRange: { color: SEQ }, textStyle: { color: INK2, fontSize: 11 }, text: ['µg/m³', ''] },
-      series: [{ type: 'heatmap', data: cells.map(c => ({ value: c, label: { color: INK } })), itemStyle: { borderColor: SURF, borderWidth: 1 },
+      visualMap: { min: 0, max: top, dimension: 2, calculable: true, orient: 'vertical', right: 0, top: 'middle', itemHeight: 220, inRange: { color: HEAT }, textStyle: { color: INK2, fontSize: 11 }, text: ['µg/m³', ''], formatter: v => (v >= top ? '≥' : '') + nf(v, 0) },
+      series: [{ type: 'heatmap', data: cells.map(c => ({ value: c, label: { color: lab(c[2]) } })), itemStyle: { borderColor: SURF, borderWidth: 1 },
         label: { show: true, fontSize: 11, formatter: p => nf(p.value[2], 0) }, emphasis: { itemStyle: { borderColor: INK, borderWidth: 1.5 } } }],
-    }, `Rata-rata tertinggi: ${hs[hot[1]].s.station} pada bulan ${MONTHS[hot[0]]} (${nf(hot[2], 1)} µg/m³).`, hs];
+    }, <>Rata-rata bulanan {POL[ui.heat]} tertinggi tercatat di <b>{hs[hot[1]].s.station}</b> pada bulan <b>{MONTH_F[hot[0]]}</b> ({nf(hot[2], ui.heat === 'co' ? 0 : 1)} µg/m³).{peakAO ? <> Pada <b>{peakAO} dari {hs.length} stasiun</b>, bulan dengan rata-rata tertinggi jatuh pada Agustus hingga Oktober.</> : null}</>, hs];
   }, [sts, agg, ui.heat, E]);
 
   const codes = useMemo(() => new Set(sts.map(s => s.station)), [sts]);
@@ -90,7 +114,7 @@ export default function Kritis() {
           return shape && { type: 'rect', shape: Object.assign(shape, { r: 3 }), style: api.style() };
         },
         data: eps.filter(e => e.island === i).map(e => ({ value: [rows.indexOf(e.station), Date.parse(e.start + 'T00:00:00Z'), Date.parse(e.end + 'T00:00:00Z') + 864e5], e })) })),
-    }, `${eps.length} episode kabut asap dengan total ${nf(eps.reduce((a, e) => a + e.days, 0), 0)} hari-stasiun.`, eps, pk];
+    }, <>Terdapat <b>{eps.length} kejadian kabut asap</b> dengan total {nf(eps.reduce((a, e) => a + e.days, 0), 0)} hari-stasiun, seluruhnya di {joinId(ISL.filter(i => eps.some(e => e.island === i)))}. PM2.5 harian tertinggi mencapai <b>{nf(pk.pm25_peak_daily, 0)} µg/m³</b> di {pk.station} ({E.fmtDay(E.idxOf(pk.start))} hingga {E.fmtDay(E.idxOf(pk.end))}).</>, eps, pk];
   }, [codes, F, E]);
 
   const crit = useMemo(() => E.D.critical.map((r, i) => ({ ...r, rank: i + 1 })).filter(r => codes.has(r.station)), [E, codes]);
@@ -107,7 +131,7 @@ export default function Kritis() {
   const sel = (id, items) => <Seg id={id} items={items} value={ui[id]} onChange={v => setUi(id, v)} label="Polutan" />;
 
   return (
-    <PageLayout icon="clock" kicker="Tujuan 2" title="Identifikasi waktu dan wilayah" tiles={tiles}>
+    <PageLayout icon="clock" kicker="Tujuan 2" title="Identifikasi waktu dan wilayah" tiles={tiles} findings={[diurSub || null, weekSub, heatSub || null, ganttSub || null]}>
       <Row eager id="pola" title="Pola waktu" height={420} slides={[
         { key: 'jam', label: 'Pola per jam', controls: sel('diur', [['pm25', 'PM2.5'], ['no2', 'NO₂'], ['co', 'CO'], ['o3', 'O₃']]), caption: diurSub,
           content: () => <EChart option={diurOpt} height={420} ariaLabel="Pola per jam" /> },
