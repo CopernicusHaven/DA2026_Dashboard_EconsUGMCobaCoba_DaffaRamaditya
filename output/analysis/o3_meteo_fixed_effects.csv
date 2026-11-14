@@ -1,0 +1,5 @@
+,coef_log,se,p_value,pct_change_per_1sd,sd_unit
+temperature_c_z,0.0551,0.0481,0.2516,5.6671,1.4259
+humidity_pct_z,-0.0293,0.0347,0.3985,-2.886,2.9653
+wind_speed_ms_z,0.0018,0.006,0.759,0.1847,0.3516
+_model,0.8147,,,,

@@ -1,0 +1,76 @@
+station,pollutant,weekday_mean,weekend_mean,weekend_vs_weekday_pct,p_value,site_category,island,traffic_intensity_per_h
+BGL-01,pm25,25.5607,25.5895,0.1129,0.8568,Perkotaan,Sumatera,950.0
+BGL-01,no2,19.8098,19.8157,0.0297,0.6902,Perkotaan,Sumatera,950.0
+BGL-01,co,349.8444,350.1561,0.0891,0.4346,Perkotaan,Sumatera,950.0
+BGR-01,pm25,13.2243,13.257,0.2478,0.2512,Latar Bersih,Jawa,350.0
+BGR-01,no2,20.0099,19.9586,-0.256,0.2384,Latar Bersih,Jawa,350.0
+BGR-01,co,564.8451,565.119,0.0485,0.9261,Latar Bersih,Jawa,350.0
+BGR-02,pm25,19.2316,19.2484,0.0875,0.7999,Tepi Jalan (Lalu Lintas),Jawa,2400.0
+BGR-02,no2,20.0033,19.9934,-0.0498,0.7528,Tepi Jalan (Lalu Lintas),Jawa,2400.0
+BGR-02,co,564.7826,563.1367,-0.2914,0.0821,Tepi Jalan (Lalu Lintas),Jawa,2400.0
+BJB-01,pm25,43.0906,42.9773,-0.2629,0.2353,Gambut / Karhutla,Kalimantan,1400.0
+BJB-01,no2,31.3056,31.0568,-0.7945,0.041,Gambut / Karhutla,Kalimantan,1400.0
+BJB-01,co,563.7205,565.2462,0.2706,0.1738,Gambut / Karhutla,Kalimantan,1400.0
+BTM-01,pm25,35.6331,35.4607,-0.484,0.7576,Industri,Sumatera,2200.0
+BTM-01,no2,19.7901,19.773,-0.0863,0.7101,Industri,Sumatera,2200.0
+BTM-01,co,349.7279,349.5735,-0.0441,0.7056,Industri,Sumatera,2200.0
+IDP-01,pm25,9.3229,9.3754,0.5631,0.5134,Latar Bersih,Sumatera,200.0
+IDP-01,no2,10.9715,10.9667,-0.0437,0.9129,Latar Bersih,Sumatera,200.0
+IDP-01,co,160.5515,160.4575,-0.0585,0.8377,Latar Bersih,Sumatera,200.0
+JKT-01,pm25,48.1229,48.0059,-0.2431,0.4047,Perkotaan,Jawa,1850.0
+JKT-01,no2,56.0622,55.8782,-0.3283,0.0319,Perkotaan,Jawa,1850.0
+JKT-01,co,1588.0309,1588.296,0.0167,0.8246,Perkotaan,Jawa,1850.0
+JKT-02,pm25,60.1002,59.9756,-0.2073,0.2971,Industri,Jawa,1400.0
+JKT-02,no2,61.9929,61.9615,-0.0507,0.5716,Industri,Jawa,1400.0
+JKT-02,co,1738.9528,1738.1709,-0.045,0.634,Industri,Jawa,1400.0
+JKT-03,pm25,54.0932,53.9841,-0.2018,0.5169,Tepi Jalan (Lalu Lintas),Jawa,3200.0
+JKT-03,no2,60.0355,59.9736,-0.1031,0.654,Tepi Jalan (Lalu Lintas),Jawa,3200.0
+JKT-03,co,1836.8495,1839.1354,0.1244,0.1543,Tepi Jalan (Lalu Lintas),Jawa,3200.0
+JMB-01,pm25,29.7969,29.7733,-0.0792,0.684,Gambut / Karhutla,Sumatera,1600.0
+JMB-01,no2,19.8139,19.7652,-0.2454,0.2031,Gambut / Karhutla,Sumatera,1600.0
+JMB-01,co,350.3037,349.4931,-0.2314,0.0473,Gambut / Karhutla,Sumatera,1600.0
+KTB-01,pm25,18.0046,18.0373,0.1811,0.8784,Latar Bersih,Sumatera,150.0
+KTB-01,no2,19.8055,19.7902,-0.0776,0.3778,Latar Bersih,Sumatera,150.0
+KTB-01,co,350.1226,350.0053,-0.0335,0.7782,Latar Bersih,Sumatera,150.0
+KTG-01,pm25,25.3825,25.4955,0.4453,0.9297,Perkotaan,Kalimantan,450.0
+KTG-01,no2,21.998,21.842,-0.7088,0.0232,Perkotaan,Kalimantan,450.0
+KTG-01,co,675.7453,674.0508,-0.2508,0.5408,Perkotaan,Kalimantan,450.0
+KTG-02,pm25,24.9185,25.3332,1.6639,0.1514,Gambut / Karhutla,Kalimantan,850.0
+KTG-02,no2,22.0644,21.8831,-0.8215,0.0081,Gambut / Karhutla,Kalimantan,850.0
+KTG-02,co,672.8453,672.8813,0.0053,0.893,Gambut / Karhutla,Kalimantan,850.0
+MDN-01,pm25,53.9806,54.4297,0.8321,0.7034,Perkotaan,Sumatera,2850.0
+MDN-01,no2,37.6764,37.4459,-0.6117,0.3822,Perkotaan,Sumatera,2850.0
+MDN-01,co,698.5294,696.8554,-0.2396,0.3686,Perkotaan,Sumatera,2850.0
+MLG-01,pm25,30.6802,30.7021,0.0715,0.8973,Perkotaan,Jawa,1400.0
+MLG-01,no2,19.8123,19.841,0.1445,0.1836,Perkotaan,Jawa,1400.0
+MLG-01,co,349.9655,350.2672,0.0862,0.3662,Perkotaan,Jawa,1400.0
+MRS-01,pm25,36.835,36.8214,-0.0368,0.9901,Industri,Sulawesi,1900.0
+MRS-01,no2,19.8047,19.7734,-0.1576,0.2644,Industri,Sulawesi,1900.0
+MRS-01,co,350.3367,349.7679,-0.1624,0.2611,Industri,Sulawesi,1900.0
+PKN-01,pm25,22.3701,22.2996,-0.3152,0.9606,Gambut / Karhutla,Kalimantan,700.0
+PKN-01,no2,19.7953,19.7921,-0.0162,0.9598,Gambut / Karhutla,Kalimantan,700.0
+PKN-01,co,349.9355,349.7297,-0.0588,0.4371,Gambut / Karhutla,Kalimantan,700.0
+PKU-01,pm25,32.5026,32.494,-0.0262,0.8829,Gambut / Karhutla,Sumatera,1800.0
+PKU-01,no2,19.8077,19.7852,-0.1138,0.6911,Gambut / Karhutla,Sumatera,1800.0
+PKU-01,co,349.9561,349.6498,-0.0875,0.5542,Gambut / Karhutla,Sumatera,1800.0
+PLB-01,pm25,51.2693,51.5443,0.5364,0.8668,Gambut / Karhutla,Sumatera,1950.0
+PLB-01,no2,22.4428,22.4549,0.0538,0.8374,Gambut / Karhutla,Sumatera,1950.0
+PLB-01,co,482.5934,484.6021,0.4162,0.6045,Gambut / Karhutla,Sumatera,1950.0
+PLU-01,pm25,11.2561,11.2677,0.1029,0.947,Latar Bersih,Sulawesi,50.0
+PLU-01,no2,19.8025,19.8327,0.1525,0.4893,Latar Bersih,Sulawesi,50.0
+PLU-01,co,350.4937,349.8642,-0.1796,0.1025,Latar Bersih,Sulawesi,50.0
+PSW-01,pm25,48.0611,47.7051,-0.7406,0.788,Perkotaan,Sumatera,1850.0
+PSW-01,no2,20.7176,20.6932,-0.1176,0.7166,Perkotaan,Sumatera,1850.0
+PSW-01,co,444.3835,444.5309,0.0332,0.5885,Perkotaan,Sumatera,1850.0
+SM2-01,pm25,52.9666,50.312,-5.0118,0.5447,Industri,Kalimantan,1650.0
+SM2-01,no2,24.9692,24.9755,0.0254,0.9243,Industri,Kalimantan,1650.0
+SM2-01,co,699.3141,695.1677,-0.5929,0.3735,Industri,Kalimantan,1650.0
+SRG-01,pm25,18.3923,18.3431,-0.2674,0.7944,Latar Bersih,Papua,600.0
+SRG-01,no2,19.8012,19.7711,-0.1523,0.564,Latar Bersih,Papua,600.0
+SRG-01,co,350.2605,349.8437,-0.119,0.2369,Latar Bersih,Papua,600.0
+STG-01,pm25,21.7072,21.3409,-1.6874,0.6495,Gambut / Karhutla,Kalimantan,450.0
+STG-01,no2,19.8178,19.7872,-0.1547,0.3784,Gambut / Karhutla,Kalimantan,450.0
+STG-01,co,350.016,349.4003,-0.1759,0.1084,Gambut / Karhutla,Kalimantan,450.0
+YKY-01,pm25,39.2891,40.8796,4.048,0.0,Perkotaan,Jawa,1600.0
+YKY-01,no2,27.2834,27.3329,0.1814,0.1796,Perkotaan,Jawa,1600.0
+YKY-01,co,552.1267,551.4042,-0.1309,0.1834,Perkotaan,Jawa,1600.0

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DA2026 Dashboard — Udara & Kesehatan Indonesia 2024–2026</title>
+<meta name="description" content="Dashboard Analysis Gelar Rasa 2026: kualitas udara 27 stasiun AQMS dan dampaknya pada kesehatan 27 rumah sakit rujukan, 1 Jan 2024 – 14 Okt 2026.">
+<link rel="icon" href="assets/logo_gelar_rasa.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <img class="logo" src="assets/logo_gelar_rasa.png" alt="Logo Gelar Rasa">
+    <div class="titles">
+      <h1>Udara yang Kita Hirup, Kesehatan yang Dipertaruhkan</h1>
+      <p class="theme"><b>From Roots to Clarity</b> — menelusuri akar pencemaran udara di 27 wilayah Indonesia hingga dampaknya pada balita dan lansia, 1 Jan 2024 – 14 Okt 2026.</p>
+    </div>
+    <div class="src">Sumber: Dataset DA Gelar Rasa 2026 (sintetis) — 27 stasiun AQMS, 27 RS rujukan.<br>Acuan: PP 22/2021 · ISPU Permen LHK 14/2020 · IKU Permen LHK 27/2021 · WHO AQG 2021</div>
+  </div>
+  <div class="accent"></div>
+</header>
+
+<div class="bar" id="bar">
+  <div class="bar-inner">
+    <nav class="tabs" role="tablist" aria-label="Halaman dashboard">
+      <button class="tab" role="tab" data-page="ringkasan"><span class="n">0</span>Ringkasan</button>
+      <button class="tab" role="tab" data-page="kondisi"><span class="n">1</span>Kondisi Udara</button>
+      <button class="tab" role="tab" data-page="kritis"><span class="n">2</span>Waktu &amp; Wilayah Kritis</button>
+      <button class="tab" role="tab" data-page="faktor"><span class="n">3</span>Faktor Penyebab</button>
+      <button class="tab" role="tab" data-page="kesehatan"><span class="n">4</span>Dampak Kesehatan</button>
+      <button class="tab" role="tab" data-page="jaringan"><span class="n">5</span>Jaringan &amp; Rekomendasi</button>
+      <button class="tab" role="tab" data-page="metode"><span class="n">6</span>Data &amp; Metode</button>
+    </nav>
+    <div class="filters" aria-label="Filter global">
+      <div class="fgroup"><span class="lbl">Pulau</span><span id="f-island"></span></div>
+      <div class="fgroup"><span class="lbl">Tipe lokasi</span><span id="f-cat"></span></div>
+      <div class="fgroup dd"><span class="lbl">Stasiun</span>
+        <button class="btn" id="dd-btn" aria-haspopup="true" aria-expanded="false">Semua stasiun ▾</button>
+        <div class="dd-panel" id="dd-panel" hidden>
+          <input type="search" id="dd-search" placeholder="Cari kode / kota…" aria-label="Cari stasiun">
+          <div class="dd-actions"><button class="btn" id="dd-all">Tampilkan semua stasiun</button><button class="btn" id="dd-none" hidden>Kosongkan</button></div>
+          <div id="dd-list"></div>
+        </div>
+      </div>
+      <div class="fgroup"><span class="lbl">Periode</span>
+        <select id="f-period" aria-label="Periode">
+          <option value="all">Seluruh periode</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026 (s.d. 14 Okt)</option>
+          <option value="last12">12 bulan terakhir</option>
+          <option value="custom">Kustom…</option>
+        </select>
+        <input type="date" id="f-d0" aria-label="Tanggal awal" min="2024-01-01" max="2026-10-14" hidden>
+        <input type="date" id="f-d1" aria-label="Tanggal akhir" min="2024-01-01" max="2026-10-14" hidden>
+      </div>
+      <div class="fgroup"><span class="lbl">Musim</span>
+        <select id="f-season" aria-label="Musim">
+          <option value="all">Semua musim</option>
+          <option value="wet">Hujan (Nov–Apr)</option>
+          <option value="dry">Kemarau (Mei–Okt)</option>
+          <option value="haze">Puncak kabut asap (Agu–Okt)</option>
+        </select>
+      </div>
+      <button class="btn primary" id="f-reset">Reset filter</button>
+    </div>
+    <div class="summary" id="f-summary" aria-live="polite"></div>
+  </div>
+</div>
+
+<main>
+<!-- ===================== 0. RINGKASAN ===================== -->
+<section class="page" id="p-ringkasan" data-title="Ringkasan">
+  <div class="phead"><div>
+    <div class="kicker">Gambaran besar</div>
+    <h2>Seberapa bersih udara kita, dan siapa yang menanggung akibatnya?</h2>
+    <p class="q">Ringkasan ini merespons semua filter di atas. Klik titik stasiun di peta atau kartu temuan untuk menelusuri lebih dalam.</p>
+  </div></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="grid">
+    <div class="card c7">
+      <div class="card-h"><div><h3>Peta rata-rata PM2.5 per stasiun</h3><p class="sub">Warna = kelas konsentrasi (batas ISPU PM2.5), ukuran = besarnya PM2.5. Klik titik untuk detail &amp; filter stasiun.</p></div><span class="badge live">Ikut filter</span></div>
+      <div class="map" id="map-home"></div>
+      <div class="legend-inline" id="legend-home"></div>
+    </div>
+    <div class="card c5">
+      <div class="card-h"><div><h3>Lima temuan utama</h3><p class="sub">Klik untuk membuka halaman terkait.</p></div><span class="badge static">Seluruh periode</span></div>
+      <div class="insights">
+        <button class="ins" data-go="kondisi"><div class="t">1 · Kondisi udara</div><div class="b">Hanya <strong>3 dari 26</strong> stasiun memenuhi baku mutu tahunan PM2.5 (15 µg/m³) di setiap tahun; <strong>tidak satu pun</strong> memenuhi pedoman WHO (5 µg/m³).</div></button>
+        <button class="ins" data-go="kritis"><div class="t">2 · Waktu &amp; wilayah kritis</div><div class="b">Kabut asap <strong>Agustus–Oktober</strong> di Sumatera &amp; Kalimantan makin parah: musim kabut Kalimantan Tengah naik <strong>49 → 96 → 371 µg/m³</strong> (2024→2026).</div></button>
+        <button class="ins" data-go="faktor"><div class="t">3 · Faktor penyebab</div><div class="b"><strong>Musim</strong> (42%) dan <strong>tipe lokasi</strong> (21%) paling menentukan PM2.5; antarstasiun, <strong>lalu lintas</strong> berkorelasi kuat (ρ = 0,75).</div></button>
+        <button class="ins" data-go="kesehatan"><div class="t">4 · Dampak kesehatan</div><div class="b">Setiap +10 µg/m³ PM2.5 menaikkan ISPA balita <strong>+13,6%</strong> pada <strong>hari yang sama</strong>; saat kabut asap kasus ISPA balita naik <strong>+156%</strong>.</div></button>
+        <button class="ins" data-go="jaringan"><div class="t">5 · Jaringan pemantauan</div><div class="b"><strong>6 dari 27</strong> stasiun tidak andal; celah antarstasiun hingga <strong>1.319 km</strong> (Papua). Prioritas: Kalimantan Tengah, Lampung, Sumatera Selatan.</div></button>
+      </div>
+    </div>
+    <div class="card c6">
+      <div class="card-h"><div><h3>Rata-rata PM2.5 per pulau</h3><p class="sub" id="sub-island"></p></div><span class="badge live">Ikut filter</span></div>
+      <div class="chart short" id="ch-island"></div>
+    </div>
+    <div class="card c6">
+      <div class="card-h"><div><h3>Komposisi hari menurut kategori ISPU</h3><p class="sub" id="sub-ispu-all"></p></div><span class="badge live">Ikut filter</span></div>
+      <div class="chart short" id="ch-ispu-all"></div>
+    </div>
+  </div>
+  <div class="pnav"><span></span><button class="btn primary" data-go="kondisi">Berikutnya: Kondisi Udara →</button></div>
+</section>
+
+<!-- ===================== 1. KONDISI ===================== -->
+<section class="page" id="p-kondisi" data-title="Kondisi Udara" hidden>
+  <div class="phead"><div>
+    <div class="kicker">Tujuan 1</div>
+    <h2>Bagaimana kondisi kualitas udara antarstasiun &amp; antarpulau, dan ke mana kecenderungannya?</h2>
+    <p class="q">Dievaluasi terhadap baku mutu PP 22/2021, kategori ISPU, penilaian IKU, dan pedoman WHO 2021.</p>
+  </div></div>
+  <div class="answer"><b class="lead">Jawaban singkat.</b>
+    <ul>
+      <li>PM2.5 melewati baku mutu tahunan di 23 dari 26 stasiun; Kalimantan (57) &gt; Sumatera (41) &gt; Jawa (38) &gt; Sulawesi (24) &gt; Papua (17 µg/m³).</li>
+      <li>Jakarta: NO₂ dan O₃ tahunan melewati baku mutu setiap tahun; IKU <i>Kurang</i>–<i>Sangat Kurang</i>. Baku mutu 1 jam tidak pernah terlampaui.</li>
+      <li>12 stasiun di Sumatera &amp; Kalimantan memburuk &gt;10% (2024→2026), didorong kabut asap; Jawa, Sulawesi, Papua stabil.</li>
+    </ul>
+  </div>
+  <div class="grid">
+    <div class="card c7">
+      <div class="card-h"><div><h3>Peringkat stasiun</h3><p class="sub" id="sub-rank"></p></div><span class="badge live">Ikut filter</span></div>
+      <div class="ctrl"><div class="seg" id="seg-pol"></div></div>
+      <div class="chart xl" id="ch-rank"></div>
+      <div class="note">Garis putus-putus = baku mutu tahunan PP 22/2021; garis titik = pedoman WHO 2021. * = kelengkapan data &lt;75%. Klik batang untuk memfilter stasiun.</div>
+    </div>
+    <div class="card c5">
+      <div class="card-h"><div><h3>Kategori ISPU harian per stasiun</h3><p class="sub">% hari; diurutkan dari paling bersih.</p></div><span class="badge live">Ikut filter</span></div>
+      <div class="chart xl" id="ch-ispu-st"></div>
+    </div>
+    <div class="card c12">
+      <div class="card-h"><div><h3>Tren bulanan</h3><p class="sub" id="sub-trend"></p></div><span class="badge live">Ikut filter</span></div>
+      <div class="chart" id="ch-trend"></div>
+      <div class="note">Per pulau; bila memilih 1–6 stasiun, garis menjadi per stasiun. Geser slider untuk memperbesar periode.</div>
+    </div>
+    <div class="card c7">
+      <div class="card-h"><div><h3>Kepatuhan baku mutu tahunan &amp; IKU</h3><p class="sub">Per tahun kalender (2026 = 1 Jan–14 Okt). Merah = melewati baku mutu PP 22/2021.</p></div><span class="badge static">Hasil tahunan</span></div>
+      <div class="ctrl"><div class="seg" id="seg-year"></div></div>
+      <div class="tbl-wrap tbl-scroll" id="tb-annual"></div>
+      <div class="note">IKU = 100 − (50/0,9)(Ieu − 0,1); Ieu = ((NO₂/40) + (SO₂/20))/2. Kategori: Sangat Baik ≥90, Baik ≥70, Sedang ≥50, Kurang ≥25.</div>
+    </div>
+    <div class="card c5">
+      <div class="card-h"><div><h3>Tren 2024 → 2026 (1 Jan–14 Okt)</h3><p class="sub">Rata-rata PM2.5 tiap tahun pada periode yang sama.</p></div><span class="badge static">Periode tetap</span></div>
+      <div class="chart xl" id="ch-yoy"></div>
+    </div>
+  </div>
+  <div class="pnav"><button class="btn" data-go="ringkasan">← Ringkasan</button><button class="btn primary" data-go="kritis">Berikutnya: Waktu &amp; Wilayah Kritis →</button></div>
+</section>
+
+<!-- ===================== 2. KRITIS ===================== -->
+<section class="page" id="p-kritis" data-title="Waktu & Wilayah Kritis" hidden>
+  <div class="phead"><div>
+    <div class="kicker">Tujuan 2</div>
+    <h2>Kapan dan di mana pencemaran paling kritis?</h2>
+    <p class="q">Pola jam, hari kerja vs akhir pekan, musim, episode kabut asap karhutla, dan beda kawasan perkotaan, industri, latar bersih.</p>
+  </div></div>
+  <div class="answer"><b class="lead">Jawaban singkat.</b>
+    <ul>
+      <li>Dua puncak harian, <b>07–08</b> dan <b>18–19 WIB</b>, di semua tipe lokasi; tidak ada efek akhir pekan (selisih &lt;±1%).</li>
+      <li>Kritis musiman: <b>Agustus–Oktober</b>; 84 episode kabut asap (2.322 hari-stasiun), puncak harian 1.128 µg/m³ (KTG-01, 2026).</li>
+      <li>Industri paling sering melewati baku mutu harian; gambut paling musiman (+177% saat kemarau); tepi jalan tertinggi NO₂ &amp; CO.</li>
+    </ul>
+  </div>
+  <div class="grid">
+    <div class="card c6">
+      <div class="card-h"><div><h3>Pola per jam</h3><p class="sub" id="sub-diur"></p></div><span class="badge live">Ikut filter stasiun</span></div>
+      <div class="ctrl"><div class="seg" id="seg-diur"></div></div>
+      <div class="chart" id="ch-diur"></div>
+      <div class="note">Hari non-kabut asap, seluruh periode. Per tipe lokasi; bila memilih 1–6 stasiun, per stasiun.</div>
+    </div>
+    <div class="card c6">
+      <div class="card-h"><div><h3>Hari kerja vs akhir pekan</h3><p class="sub" id="sub-week"></p></div><span class="badge live">Ikut filter stasiun</span></div>
+      <div class="ctrl"><div class="seg" id="seg-week"></div></div>
+      <div class="chart" id="ch-week"></div>
+    </div>
+    <div class="card c12">
+      <div class="card-h"><div><h3>Kalender bulan kritis: stasiun × bulan</h3><p class="sub" id="sub-heat"></p></div><span class="badge live">Ikut filter</span></div>
+      <div class="ctrl"><div class="seg" id="seg-heat"></div></div>
+      <div class="chart tall" id="ch-heat"></div>
+    </div>
+    <div class="card c12">
+      <div class="card-h"><div><h3>Linimasa episode kabut asap</h3><p class="sub" id="sub-gantt"></p></div><span class="badge live">Ikut filter</span></div>
+      <div class="chart" id="ch-gantt"></div>
+      <div class="note">Episode = ≥3 hari berturut-turut PM2.5 harian &gt;55,4 µg/m³ dan &gt;2× median musim hujan stasiun tersebut. Arahkan kursor untuk detail (CO naik tajam = indikasi api dekat stasiun).</div>
+    </div>
+    <div class="card c7">
+      <div class="card-h"><div><h3>Karakter kawasan: perkotaan vs industri vs latar bersih</h3><p class="sub">Rata-rata per tipe lokasi (µg/m³).</p></div><span class="badge static">Seluruh periode</span></div>
+      <div class="tbl-wrap" id="tb-cat"></div>
+    </div>
+    <div class="card c5">
+      <div class="card-h"><div><h3>Wilayah paling kritis</h3><p class="sub">Skor gabungan: level PM2.5, % hari &gt; baku mutu 24 jam, P98, hari ISPU Tidak Sehat+.</p></div><span class="badge static">Seluruh periode</span></div>
+      <div class="tbl-wrap tbl-scroll" id="tb-crit"></div>
+    </div>
+  </div>
+  <div class="pnav"><button class="btn" data-go="kondisi">← Kondisi Udara</button><button class="btn primary" data-go="faktor">Berikutnya: Faktor Penyebab →</button></div>
+</section>
+
+<!-- ===================== 3. FAKTOR ===================== -->
+<section class="page" id="p-faktor" data-title="Faktor Penyebab" hidden>
+  <div class="phead"><div>
+    <div class="kicker">Tujuan 3</div>
+    <h2>Faktor apa yang paling memengaruhi variasi polutan?</h2>
+    <p class="q">Suhu, kelembapan, kecepatan &amp; arah angin, intensitas lalu lintas, jarak ke jalan raya, dan tipe lokasi.</p>
+  </div></div>
+  <div class="answer"><b class="lead">Jawaban singkat.</b>
+    <ul>
+      <li>PM2.5 terutama ditentukan <b>musim</b> (42%) dan <b>tipe lokasi</b> (21%) — model Random Forest, R² uji 2026 = <span id="r2"></span>.</li>
+      <li>Antarstasiun, <b>lalu lintas</b> berkorelasi kuat dengan PM2.5 (ρ 0,75) dan PM10 (ρ 0,80): +10% kendaraan ≈ +4,8% PM2.5. Jarak ke jalan tidak signifikan setelah lalu lintas dikontrol.</li>
+      <li>Cuaca hanya kuat pada <b>O₃</b> (naik saat panas, turun saat lembap di 26/26 stasiun). Arah angin berpengaruh &gt;10% hanya di 3 stasiun.</li>
+    </ul>
+  </div>
+  <div class="grid">
+    <div class="card c6">
+      <div class="card-h"><div><h3>Kepentingan faktor terhadap PM2.5 harian</h3><p class="sub">Permutation importance (penurunan R² bila faktor diacak), data uji 2026.</p></div><span class="badge static">Hasil model</span></div>
+      <div class="chart" id="ch-imp"></div>
+    </div>
+    <div class="card c6">
+      <div class="card-h"><div><h3>Korelasi polutan × cuaca</h3><p class="sub">Rata-rata Spearman r per jam antarstasiun (hari non-kabut asap). Biru = negatif, merah = positif.</p></div><span class="badge static">Seluruh periode</span></div>
+      <div class="chart" id="ch-corr"></div>
+    </div>
+    <div class="card c7">
+      <div class="card-h"><div><h3>Intensitas lalu lintas vs konsentrasi polutan</h3><p class="sub" id="sub-traf"></p></div><span class="badge live">Ikut filter stasiun</span></div>
+      <div class="ctrl"><div class="seg" id="seg-traf"></div></div>
+      <div class="chart tall" id="ch-traf"></div>
+      <div class="note">Rata-rata musim hujan (Nov–Apr) agar efek kabut asap tidak mendominasi. Warna = tipe lokasi; ukuran = jarak ke jalan (makin besar makin dekat).</div>
+    </div>
+    <div class="card c5">
+      <div class="card-h"><div><h3>Pengaruh arah angin</h3><p class="sub">PM2.5 saat angin dari sektor terkotor vs terbersih.</p></div><span class="badge live">Ikut filter stasiun</span></div>
+      <div class="chart tall" id="ch-wind"></div>
+    </div>
+  </div>
+  <div class="pnav"><button class="btn" data-go="kritis">← Waktu &amp; Wilayah Kritis</button><button class="btn primary" data-go="kesehatan">Berikutnya: Dampak Kesehatan →</button></div>
+</section>
+
+<!-- ===================== 4. KESEHATAN ===================== -->
+<section class="page" id="p-kesehatan" data-title="Dampak Kesehatan" hidden>
+  <div class="phead"><div>
+    <div class="kicker">Tujuan 4</div>
+    <h2>Seberapa besar dampak PM2.5 pada kesehatan, kapan muncul, dan siapa yang paling rentan?</h2>
+    <p class="q">ISPA balita &amp; lansia, darurat asma, PPOK, kardiovaskular, kematian — termasuk efek jeda setelah paparan.</p>
+  </div></div>
+  <div class="answer"><b class="lead">Jawaban singkat.</b>
+    <ul>
+      <li>Efek muncul <b>pada hari yang sama</b> (lag 0); jeda 1–7 hari tidak menambah risiko (0 dari 49 koefisien signifikan).</li>
+      <li>Per +10 µg/m³: ISPA balita +13,6%, ISPA lansia +13,8%, PPOK +13,4%, asma +12,6%, kematian +6,6%, kardiovaskular +4,9%.</li>
+      <li>Balita sedikit lebih sensitif (+13,7% vs +13,2%, z = 2,9); lansia menyumbang kasus lebih banyak. Pada kategori <i>Berbahaya</i> risiko kematian ×7,5.</li>
+    </ul>
+  </div>
+  <div class="ctrl" style="margin-bottom:10px"><span class="lbl" style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase">Jenis kasus</span><div class="seg" id="seg-out"></div></div>
+  <div class="grid">
+    <div class="card c12">
+      <div class="card-h"><div><h3>PM2.5 dan kasus harian di rumah sakit</h3><p class="sub" id="sub-ts"></p></div><span class="badge live">Ikut filter</span></div>
+      <div class="ctrl"><select id="sel-hosp" aria-label="Pilih rumah sakit"></select></div>
+      <div class="chart tall" id="ch-ts"></div>
+      <div class="note">Panel atas: PM2.5 harian stasiun pasangan RS; panel bawah: jumlah kasus harian (garis tebal = rata-rata 7 hari). Area berarsir = episode kabut asap.</div>
+    </div>
+    <div class="card c6">
+      <div class="card-h"><div><h3>Efek per hari jeda (lag 0–7)</h3><p class="sub" id="sub-lag"></p></div><span class="badge static">Hasil model</span></div>
+      <div class="chart" id="ch-lag"></div>
+      <div class="note">Distributed lag model quasi-Poisson; kontrol tren waktu, suhu, kelembapan, hari, efek tetap RS; hari dengan PM2.5 ≤150,4 µg/m³. Garis vertikal = 95% CI.</div>
+    </div>
+    <div class="card c6">
+      <div class="card-h"><div><h3>Risiko relatif menurut kategori ISPU PM2.5</h3><p class="sub">Dibanding hari <i>Baik</i> (rata-rata PM2.5 3 hari).</p></div><span class="badge static">Hasil model</span></div>
+      <div class="chart" id="ch-band"></div>
+    </div>
+    <div class="card c6">
+      <div class="card-h"><div><h3>Kenaikan kasus saat kabut asap</h3><p class="sub" id="sub-hz"></p></div><span class="badge live">Ikut filter</span></div>
+      <div class="chart" id="ch-hz"></div>
+    </div>
+    <div class="card c6">
+      <div class="card-h"><div><h3>Kasus teratribusi PM2.5 di atas kategori <i>Baik</i></h3><p class="sub" id="sub-attr"></p></div><span class="badge static">Seluruh periode</span></div>
+      <div class="chart" id="ch-attr"></div>
+    </div>
+    <div class="card c12">
+      <div class="card-h"><div><h3>Kerentanan: balita vs lansia</h3><p class="sub">% kenaikan kasus ISPA per +10 µg/m³ (rata-rata 3 hari).</p></div><span class="badge static">Hasil model</span></div>
+      <div class="tbl-wrap" id="tb-vuln"></div>
+    </div>
+  </div>
+  <div class="pnav"><button class="btn" data-go="faktor">← Faktor Penyebab</button><button class="btn primary" data-go="jaringan">Berikutnya: Jaringan &amp; Rekomendasi →</button></div>
+</section>
+
+<!-- ===================== 5. JARINGAN ===================== -->
+<section class="page" id="p-jaringan" data-title="Jaringan & Rekomendasi" hidden>
+  <div class="phead"><div>
+    <div class="kicker">Tujuan 5</div>
+    <h2>Apakah jaringan pemantauan memadai, dan di mana perlu ditambah?</h2>
+    <p class="q">Ditinjau dari sebaran, keandalan alat, kelengkapan data, polusi, kabut asap, dan beban kesehatan — hanya dari data yang tersedia.</p>
+  </div></div>
+  <div class="answer"><b class="lead">Jawaban singkat.</b>
+    <ul>
+      <li>Hanya 21 dari 27 stasiun andal: JMB-02 rusak, MER-01 hanya 20% data, BJB-01 sensor macet 7.329 jam, MDN-01 3.632 jam hilang.</li>
+      <li>Celah terlebar: SRG-01–MER-01 1.319 km (Papua), PKU-01–MDN-01 453 km, KTG-01–SM2-01 409 km, BGR-01–YKY-01 394 km, MRS-01–PLU-01 378 km.</li>
+    </ul>
+  </div>
+  <div class="grid">
+    <div class="card c7">
+      <div class="card-h"><div><h3>Sebaran stasiun, keandalan, dan celah pemantauan</h3><p class="sub">Garis = pohon rentang minimum antarstasiun per pulau; merah putus-putus = celah ≥300 km.</p></div><span class="badge live">Ikut filter</span></div>
+      <div class="map" id="map-net"></div>
+      <div class="legend-inline" id="legend-net"></div>
+    </div>
+    <div class="card c5">
+      <div class="card-h"><div><h3>Skor prioritas penguatan pemantauan</h3><p class="sub">0–100; komponen tanpa data tidak diimputasi.</p></div><span class="badge live">Ikut filter</span></div>
+      <div class="chart xl" id="ch-prio"></div>
+    </div>
+    <div class="card c7">
+      <div class="card-h"><div><h3>Cakupan per pulau</h3><p class="sub">Dari koordinat &amp; status stasiun dalam dataset.</p></div><span class="badge static">Dataset</span></div>
+      <div class="tbl-wrap" id="tb-cov"></div>
+    </div>
+    <div class="card c5">
+      <div class="card-h"><div><h3>Rekomendasi</h3><p class="sub">Disusun dari temuan Tujuan 1–5.</p></div><span class="badge static">Kesimpulan</span></div>
+      <div class="recs">
+        <div class="rec"><b>Peringatan dini di hari yang sama.</b> Efek kesehatan muncul pada lag 0 — sampaikan peringatan ISPU hari itu juga; prioritaskan balita dan kapasitas rawat lansia saat ISPU <i>Tidak Sehat</i>.</div>
+        <div class="rec"><b>Siaga kabut asap Juli–Oktober</b> di KTG-01/02, PKN-01, PLB-01, PKU-01, JMB-01, BTM-01, PSW-01: kasus ISPA balita naik ±2,5 kali saat episode.</div>
+        <div class="rec"><b>Kendalikan jam sibuk 07–08 &amp; 18–19 WIB, tujuh hari seminggu</b> di Jakarta (NO₂ &amp; O₃ tahunan melewati baku mutu).</div>
+        <div class="rec"><b>Perbaiki alat:</b> ganti JMB-02, pulihkan MER-01, kalibrasi BJB-01 &amp; MDN-01, seragamkan ekspor logger ke µg/m³ per jam, tambahkan deteksi <i>flatline</i> pada QC.</div>
+        <div class="rec"><b>Tambah titik pantau di celah terlebar:</b> SRG-01–MER-01, PKU-01–MDN-01, IDP-01–MDN-01, KTG-01–SM2-01, BGR-01–YKY-01, MRS-01–PLU-01.</div>
+        <div class="rec"><b>Investigasi sumber di Samarinda (SM2-01):</b> tingkat dasar PM2.5 naik 23% per tahun.</div>
+      </div>
+    </div>
+  </div>
+  <div class="pnav"><button class="btn" data-go="kesehatan">← Dampak Kesehatan</button><button class="btn primary" data-go="metode">Berikutnya: Data &amp; Metode →</button></div>
+</section>
+
+<!-- ===================== 6. METODE ===================== -->
+<section class="page" id="p-metode" data-title="Data & Metode" hidden>
+  <div class="phead"><div>
+    <div class="kicker">Transparansi</div>
+    <h2>Dari data mentah ke data siap analisis</h2>
+    <p class="q">Hanya 33 file dataset panitia yang dipakai. File asli tidak diubah; tidak ada data yang ditambahkan, diimputasi, atau dipinjam dari stasiun lain — 5.878.268 nilai bersih telah dicek identik dengan nilai asli.</p>
+  </div></div>
+  <div class="grid">
+    <div class="card c7">
+      <div class="card-h"><div><h3>Penanganan kualitas data</h3><p class="sub">Aturan pembersihan dan jumlah nilai/baris terdampak.</p></div><span class="badge static">Log pembersihan</span></div>
+      <div class="tbl-wrap tbl-scroll" id="tb-clean"></div>
+    </div>
+    <div class="card c5">
+      <div class="card-h"><div><h3>Konversi satuan ppm → µg/m³</h3><p class="sub">BJB-01, MDN-01, PSW-01. µg/m³ = ppm × M × 1000 / 24,45 (25 °C, 1 atm).</p></div><span class="badge static">Metode</span></div>
+      <div class="tbl-wrap" id="tb-conv"></div>
+      <div class="note">Gas: berat molekul (ppm volume). PM tidak memiliki berat molekul, sehingga ppm dibaca sebagai fraksi massa terhadap udara (M udara kering 28,97 ≈ densitas udara 1,185 kg/m³). Sensitivitas: konversi ×1000 menurunkan PM ketiga stasiun 16%, kesimpulan tetap.</div>
+    </div>
+    <div class="card c12">
+      <div class="card-h"><div><h3>Kualitas data per stasiun</h3><p class="sub">Kelengkapan PM2.5 setelah pembersihan dan status alat.</p></div><span class="badge static">Dataset</span></div>
+      <div class="tbl-wrap tbl-scroll" id="tb-quality"></div>
+    </div>
+    <div class="card c12">
+      <div class="card-h"><div><h3>Definisi &amp; acuan</h3></div></div>
+      <div style="font-size:13px;color:var(--ink-2)">
+        <p><b>Data harian</b> dihitung bila ≥18 dari 24 jam valid. <b>ISPU</b> (Permen LHK 14/2020): PM2.5, PM10, SO₂ rata-rata 24 jam; CO 8 jam maksimum; O₃ dan NO₂ 1 jam maksimum. <b>Baku mutu</b> PP 22/2021: PM2.5 24 jam 55 / tahunan 15; PM10 75 / 40; SO₂ 1 jam 150 / 24 jam 75 / tahunan 45; NO₂ 200 / 65 / 50; CO 1 jam 10.000 / 8 jam 4.000; O₃ 1 jam 150 / 8 jam 100 / tahunan 35 µg/m³. <b>WHO 2021</b>: PM2.5 tahunan 5, 24 jam 15.</p>
+        <p><b>Kesehatan</b> (sesuai klarifikasi panitia): <code>resp_admissions_under5</code> = ISPA balita; <code>resp_admissions_over60</code> = ISPA lansia &gt;60 tahun; <code>resp</code> = rawat inap gangguan pernapasan umum semua umur &amp; jenis. Pasangan RS–stasiun mengikuti tabel booklet (RS-XXX-NN ↔ SENS-0NN). RS-XXX-27 tidak dimodelkan karena stasiun pasangannya (JMB-02) rusak.</p>
+        <p><b>Pulau</b>: lima pulau sesuai booklet; Kepulauan Riau (BTM-01) dikelompokkan ke Sumatera. <b>Musim</b>: hujan Nov–Apr, kemarau Mei–Okt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pnav"><button class="btn" data-go="jaringan">← Jaringan &amp; Rekomendasi</button><button class="btn primary" data-go="ringkasan">Kembali ke Ringkasan ↺</button></div>
+</section>
+</main>
+
+<footer><div class="inner">
+  <span id="foot-team">Dashboard Analysis Gelar Rasa 2026</span>
+  <span>Data: Dataset DA Gelar Rasa 2026 (sintetis). Peta dasar © Esri / © OpenStreetMap contributors (latar visual, bukan data analisis).</span>
+</div></footer>
+<div class="toast" id="toast" hidden><span id="toast-msg"></span><button id="toast-reset">Reset</button></div>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data/data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

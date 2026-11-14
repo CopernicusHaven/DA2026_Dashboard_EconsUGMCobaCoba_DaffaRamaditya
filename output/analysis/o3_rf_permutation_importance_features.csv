@@ -1,0 +1,21 @@
+feature,importance,std,group
+temperature_c,0.05584,0.0008,Suhu
+humidity_pct,0.05964,0.00082,Kelembapan
+wind_speed_ms,0.02582,0.00131,Kecepatan angin
+wd_sin,-0.00054,0.00013,Arah angin
+wd_cos,0.02022,0.00078,Arah angin
+month_sin,0.60121,0.01804,Musim (bulan)
+month_cos,0.04883,0.00385,Musim (bulan)
+dow,4e-05,0.00012,Hari dalam minggu
+traffic_intensity_per_h,0.1333,0.00269,Intensitas lalu lintas
+distance_to_road_m,0.12399,0.0021,Jarak ke jalan raya
+tipe_Gambut / Karhutla,9e-05,4e-05,Tipe lokasi
+tipe_Industri,-0.00049,0.00095,Tipe lokasi
+tipe_Latar Bersih,0.32894,0.00484,Tipe lokasi
+tipe_Perkotaan,0.00092,7e-05,Tipe lokasi
+tipe_Tepi Jalan (Lalu Lintas),0.00453,4e-05,Tipe lokasi
+pulau_Jawa,0.11916,0.00434,Pulau
+pulau_Kalimantan,0.00526,0.00046,Pulau
+pulau_Papua,0.00059,3e-05,Pulau
+pulau_Sulawesi,0.01631,0.00213,Pulau
+pulau_Sumatera,0.01577,0.00075,Pulau

@@ -1,0 +1,19 @@
+pollutant,factor,r_rata2,r_median,n_stasiun_abs_r_gt_0_3,n_stasiun
+CO,Kelembapan,-0.04,-0.003,1,26
+CO,Suhu,0.038,0.007,1,26
+CO,Kecepatan angin,0.035,0.002,2,26
+NO₂,Kelembapan,-0.048,-0.03,1,26
+NO₂,Suhu,-0.063,-0.177,1,26
+NO₂,Kecepatan angin,0.033,0.022,1,26
+O₃,Kelembapan,-0.411,-0.392,26,26
+O₃,Suhu,0.409,0.39,26,26
+O₃,Kecepatan angin,-0.127,-0.14,3,26
+PM10,Kelembapan,-0.025,0.019,4,26
+PM10,Suhu,-0.043,-0.174,4,26
+PM10,Kecepatan angin,0.086,0.103,1,26
+PM2.5,Kelembapan,-0.026,0.021,4,26
+PM2.5,Suhu,-0.042,-0.176,4,26
+PM2.5,Kecepatan angin,0.088,0.104,1,26
+SO₂,Kelembapan,-0.057,-0.06,0,26
+SO₂,Suhu,0.052,0.045,1,26
+SO₂,Kecepatan angin,0.168,0.023,12,26

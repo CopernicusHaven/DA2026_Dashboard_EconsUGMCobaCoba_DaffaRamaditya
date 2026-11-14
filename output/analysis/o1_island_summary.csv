@@ -1,0 +1,6 @@
+island,n_stasiun,pm25_mean,pm25_max_station,pm10_mean,no2_mean,so2_mean,co_mean,pct_days_exceed_bm24h_pm25,n_stasiun_lolos_bm_tahunan_pm25,pct_hari_1 Baik,pct_hari_2 Sedang,pct_hari_3 Tidak Sehat,pct_hari_4 Sangat Tidak Sehat,pct_hari_5 Berbahaya,hari_episode_kabut_asap_total
+Sumatera,9,41.33,65.22,59.63,21.2,7.2,397.19,20.96054476089108,1,21.86,58.98,18.39,0.78,0.0,1100
+Jawa,7,37.87,60.07,58.4,37.88,15.16,1027.93,19.365703059219758,1,14.29,66.49,19.23,0.0,0.0,0
+Kalimantan,6,57.12,78.84,80.58,23.29,9.35,639.67,23.504136423769022,0,1.42,75.59,19.84,1.39,1.76,1222
+Sulawesi,2,24.04,36.83,35.95,19.8,7.04,350.24,0.0,1,49.95,50.05,0.0,0.0,0.0,0
+Papua,2,17.23,18.37,26.19,16.94,6.5,350.66,0.0,0,35.59,64.41,0.0,0.0,0.0,0

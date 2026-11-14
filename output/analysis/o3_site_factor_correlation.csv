@@ -1,0 +1,7 @@
+pollutant,factor,spearman_r,p_value,n_stations
+pm25,traffic_intensity_per_h,0.7537,0.0,25
+pm25,distance_to_road_m,-0.6476,0.0005,25
+no2,traffic_intensity_per_h,0.3624,0.075,25
+no2,distance_to_road_m,-0.3022,0.1421,25
+co,traffic_intensity_per_h,0.3412,0.0951,25
+co,distance_to_road_m,-0.3192,0.1199,25

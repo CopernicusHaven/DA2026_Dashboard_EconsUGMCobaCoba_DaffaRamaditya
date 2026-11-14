@@ -1,0 +1,11 @@
+.DS_Store
+.claude/
+node_modules/
+dashboard-app/dist/
+.env.local
+*.local
+.vercel/
+output/clean/aqms_hourly_clean.csv
+output/clean/*.parquet
+report/figures/_jpg/
+.vercel

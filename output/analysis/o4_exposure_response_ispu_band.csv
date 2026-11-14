@@ -1,0 +1,36 @@
+outcome,band,RR,RR_low,RR_high,n_days
+ISPA balita (<5 th),"Baik (≤15,5)",1.0,1.0,1.0,4161
+ISPA balita (<5 th),"Sedang (15,5–55,4)",1.1534,1.1047,1.2043,14962
+ISPA balita (<5 th),"Tidak Sehat (55,4–150,4)",2.0797,1.9812,2.183,3794
+ISPA balita (<5 th),"Sangat Tidak Sehat (150,4–250,4)",3.3783,3.1144,3.6645,36
+ISPA balita (<5 th),"Berbahaya (>250,4)",3.9307,3.6944,4.182,91
+ISPA lansia (>60 th),"Baik (≤15,5)",1.0,1.0,1.0,4161
+ISPA lansia (>60 th),"Sedang (15,5–55,4)",1.1052,1.0622,1.1498,14962
+ISPA lansia (>60 th),"Tidak Sehat (55,4–150,4)",1.9215,1.8377,2.0091,3794
+ISPA lansia (>60 th),"Sangat Tidak Sehat (150,4–250,4)",2.9832,2.7602,3.2241,36
+ISPA lansia (>60 th),"Berbahaya (>250,4)",3.8161,3.6019,4.0431,91
+Darurat asma,"Baik (≤15,5)",1.0,1.0,1.0,4161
+Darurat asma,"Sedang (15,5–55,4)",1.0994,1.0459,1.1557,14962
+Darurat asma,"Tidak Sehat (55,4–150,4)",1.8986,1.7948,2.0083,3794
+Darurat asma,"Sangat Tidak Sehat (150,4–250,4)",2.6304,2.4064,2.8753,36
+Darurat asma,"Berbahaya (>250,4)",3.8184,3.5483,4.109,91
+PPOK,"Baik (≤15,5)",1.0,1.0,1.0,4161
+PPOK,"Sedang (15,5–55,4)",1.0984,1.0532,1.1457,14962
+PPOK,"Tidak Sehat (55,4–150,4)",1.9944,1.8998,2.0937,3794
+PPOK,"Sangat Tidak Sehat (150,4–250,4)",3.1348,2.8801,3.4122,36
+PPOK,"Berbahaya (>250,4)",3.9973,3.7418,4.2702,91
+Pernapasan umum (semua umur),"Baik (≤15,5)",1.0,1.0,1.0,4161
+Pernapasan umum (semua umur),"Sedang (15,5–55,4)",1.0934,1.0638,1.1239,14962
+Pernapasan umum (semua umur),"Tidak Sehat (55,4–150,4)",1.7503,1.6968,1.8055,3794
+Pernapasan umum (semua umur),"Sangat Tidak Sehat (150,4–250,4)",2.7732,2.6165,2.9393,36
+Pernapasan umum (semua umur),"Berbahaya (>250,4)",3.5204,3.3821,3.6643,91
+Kardiovaskular,"Baik (≤15,5)",1.0,1.0,1.0,4161
+Kardiovaskular,"Sedang (15,5–55,4)",1.0072,0.9806,1.0345,14962
+Kardiovaskular,"Tidak Sehat (55,4–150,4)",1.262,1.2224,1.3029,3794
+Kardiovaskular,"Sangat Tidak Sehat (150,4–250,4)",1.7109,1.5965,1.8336,36
+Kardiovaskular,"Berbahaya (>250,4)",7.3964,7.0859,7.7205,91
+Kematian,"Baik (≤15,5)",1.0,1.0,1.0,4161
+Kematian,"Sedang (15,5–55,4)",1.0141,0.9568,1.0749,14962
+Kematian,"Tidak Sehat (55,4–150,4)",1.3227,1.2365,1.4148,3794
+Kematian,"Sangat Tidak Sehat (150,4–250,4)",1.9065,1.6629,2.1858,36
+Kematian,"Berbahaya (>250,4)",7.4815,6.8698,8.1476,91

@@ -1,0 +1,79 @@
+station,year,pm25_tahunan,pm10_tahunan,so2_tahunan,no2_tahunan,o3_tahunan,jam_valid_pm25,kelengkapan_pct,tahun_parsial,lolos_bm_pm25,lolos_bm_pm10,lolos_bm_so2,lolos_bm_no2,lolos_bm_o3,island,site_category,Ieu,IKU,IKU_kategori
+BGL-01,2024,25.632,38.327,7.031,19.845,13.418,8751,99.624,False,False,True,True,True,True,Sumatera,Perkotaan,0.424,82.009,Baik
+BGL-01,2025,25.668,38.404,7.019,19.804,13.398,8703,99.349,False,False,True,True,True,True,Sumatera,Perkotaan,0.423,82.054,Baik
+BGL-01,2026,25.353,37.898,7.035,19.779,13.425,6853,99.492,True,False,True,True,True,True,Sumatera,Perkotaan,0.423,82.05,Baik
+BGR-01,2024,13.216,20.658,7.498,19.962,27.637,8532,97.131,False,True,True,True,True,True,Jawa,Latar Bersih,0.437,81.279,Baik
+BGR-01,2025,13.225,20.683,7.469,20.055,27.664,8483,96.838,False,True,True,True,True,True,Jawa,Latar Bersih,0.437,81.255,Baik
+BGR-01,2026,13.267,20.757,7.494,19.961,27.628,6673,96.879,True,True,True,True,True,True,Jawa,Latar Bersih,0.437,81.285,Baik
+BGR-02,2024,19.239,30.085,7.526,20.008,27.636,8540,97.222,False,False,True,True,True,True,Jawa,Tepi Jalan (Lalu Lintas),0.438,81.208,Baik
+BGR-02,2025,19.222,30.06,7.518,20.023,27.652,8486,96.872,False,False,True,True,True,True,Jawa,Tepi Jalan (Lalu Lintas),0.438,81.208,Baik
+BGR-02,2026,19.251,30.102,7.469,19.962,27.656,6669,96.821,True,False,True,True,True,True,Jawa,Tepi Jalan (Lalu Lintas),0.436,81.32,Baik
+BJB-01,2024,50.911,73.759,7.867,31.354,27.885,6000,68.306,False,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.589,72.856,Baik
+BJB-01,2025,70.965,102.965,7.916,31.255,27.894,4215,48.116,False,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.589,72.856,Baik
+BJB-01,2026,57.014,82.688,7.889,31.141,27.912,6888,100.0,True,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.586,72.973,Baik
+BTM-01,2024,43.277,64.72,7.046,19.762,13.372,8729,99.374,False,False,False,True,True,True,Sumatera,Industri,0.423,82.046,Baik
+BTM-01,2025,48.001,71.025,7.038,19.782,13.414,8702,99.338,False,False,False,True,True,True,Sumatera,Industri,0.423,82.043,Baik
+BTM-01,2026,52.535,75.92,7.04,19.821,13.413,6847,99.405,True,False,False,True,True,True,Sumatera,Industri,0.424,82.013,Baik
+IDP-01,2024,9.215,15.428,4.51,10.97,19.578,8750,99.613,False,True,True,True,True,True,Sumatera,Latar Bersih,0.25,91.674,Sangat Baik
+IDP-01,2025,9.199,15.397,4.498,10.977,19.591,8715,99.486,False,True,True,True,True,True,Sumatera,Latar Bersih,0.25,91.686,Sangat Baik
+IDP-01,2026,9.669,16.163,4.506,10.962,19.519,6857,99.55,True,True,True,True,True,True,Sumatera,Latar Bersih,0.25,91.685,Sangat Baik
+JKT-01,2024,48.036,75.119,20.005,55.957,35.935,8410,95.742,False,False,False,True,False,False,Jawa,Perkotaan,1.2,38.911,Kurang
+JKT-01,2025,48.046,75.154,20.009,56.018,36.042,8419,96.107,False,False,False,True,False,False,Jawa,Perkotaan,1.2,38.864,Kurang
+JKT-01,2026,48.21,75.369,20.041,56.077,35.988,6625,96.182,True,False,False,True,False,False,Jawa,Perkotaan,1.202,38.778,Kurang
+JKT-02,2024,59.985,93.788,32.018,61.99,35.995,8441,96.095,False,False,False,True,False,False,Jawa,Industri,1.575,18.037,Sangat Kurang
+JKT-02,2025,60.033,93.905,32.012,61.9,36.005,8410,96.005,False,False,False,True,False,False,Jawa,Industri,1.574,18.108,Sangat Kurang
+JKT-02,2026,60.208,94.141,31.915,62.081,35.973,6629,96.24,True,False,False,True,False,False,Jawa,Industri,1.574,18.117,Sangat Kurang
+JKT-03,2024,54.043,84.504,21.992,60.077,35.898,8437,96.05,False,False,False,True,False,False,Jawa,Tepi Jalan (Lalu Lintas),1.301,33.292,Kurang
+JKT-03,2025,54.003,84.403,21.985,59.934,36.017,8419,96.107,False,False,False,True,False,False,Jawa,Tepi Jalan (Lalu Lintas),1.299,33.399,Kurang
+JKT-03,2026,54.149,84.687,22.089,60.049,36.014,6614,96.022,True,False,False,True,False,False,Jawa,Tepi Jalan (Lalu Lintas),1.303,33.175,Kurang
+JMB-01,2024,38.641,57.775,7.037,19.782,13.443,8718,99.249,False,False,False,True,True,True,Sumatera,Gambut / Karhutla,0.423,82.045,Baik
+JMB-01,2025,45.033,65.289,7.045,19.8,13.403,8691,99.212,False,False,False,True,True,True,Sumatera,Gambut / Karhutla,0.424,82.021,Baik
+JMB-01,2026,51.105,69.322,7.047,19.81,13.409,6855,99.521,True,False,False,True,True,True,Sumatera,Gambut / Karhutla,0.424,82.011,Baik
+KTB-01,2024,15.294,22.868,7.024,19.82,13.423,8746,99.567,False,False,True,True,True,True,Sumatera,Latar Bersih,0.423,82.037,Baik
+KTB-01,2025,18.524,27.728,7.04,19.808,13.431,8708,99.406,False,False,True,True,True,True,Sumatera,Latar Bersih,0.424,82.023,Baik
+KTB-01,2026,23.108,34.009,7.024,19.771,13.417,6851,99.463,True,False,True,True,True,True,Sumatera,Latar Bersih,0.423,82.07,Baik
+KTG-01,2024,30.342,37.484,11.02,21.949,27.673,8469,96.414,False,False,True,True,True,True,Kalimantan,Perkotaan,0.55,75.008,Baik
+KTG-01,2025,44.685,55.244,10.996,21.979,27.662,8414,96.05,False,False,False,True,True,True,Kalimantan,Perkotaan,0.55,75.02,Baik
+KTG-01,2026,121.73,150.401,11.005,21.922,27.683,6623,96.153,True,False,False,True,True,True,Kalimantan,Perkotaan,0.549,75.047,Baik
+KTG-02,2024,30.399,37.543,11.044,22.011,27.668,8481,96.551,False,False,True,True,True,True,Kalimantan,Gambut / Karhutla,0.551,74.931,Baik
+KTG-02,2025,44.855,55.432,10.998,22.0,27.63,8427,96.199,False,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.55,75.003,Baik
+KTG-02,2026,120.226,148.635,10.965,22.004,27.691,6616,96.051,True,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.549,75.046,Baik
+MDN-01,2024,53.463,80.187,9.139,37.55,33.964,5997,68.272,False,False,False,True,True,True,Sumatera,Perkotaan,0.698,66.786,Sedang
+MDN-01,2025,53.723,80.55,9.171,37.705,34.032,5924,67.626,False,False,False,True,True,True,Sumatera,Perkotaan,0.701,66.634,Sedang
+MDN-01,2026,55.019,82.693,9.215,37.793,33.748,4719,68.51,True,False,False,True,True,True,Sumatera,Perkotaan,0.703,66.512,Sedang
+MER-01,2024,16.063,24.925,5.91,14.157,24.665,1875,21.346,False,False,True,True,True,True,Papua,Latar Bersih,0.325,87.517,Baik
+MER-01,2025,16.138,25.004,5.984,14.148,24.93,1641,18.733,False,False,True,True,True,True,Papua,Latar Bersih,0.326,87.419,Baik
+MER-01,2026,16.036,24.753,6.02,13.934,24.19,1375,19.962,True,False,True,True,True,True,Papua,Latar Bersih,0.325,87.518,Baik
+MLG-01,2024,30.778,46.045,7.042,19.823,13.421,8740,99.499,False,False,False,True,True,True,Jawa,Perkotaan,0.424,82.009,Baik
+MLG-01,2025,30.801,46.085,7.049,19.819,13.433,8709,99.418,False,False,False,True,True,True,Jawa,Perkotaan,0.424,82.002,Baik
+MLG-01,2026,30.43,45.512,7.049,19.819,13.404,6842,99.332,True,False,False,True,True,True,Jawa,Perkotaan,0.424,82.002,Baik
+MRS-01,2024,36.948,55.208,7.041,19.796,13.434,8729,99.374,False,False,False,True,True,True,Sulawesi,Industri,0.423,82.03,Baik
+MRS-01,2025,36.981,55.286,7.041,19.81,13.394,8690,99.201,False,False,False,True,True,True,Sulawesi,Industri,0.424,82.02,Baik
+MRS-01,2026,36.489,54.538,7.029,19.777,13.443,6846,99.39,True,False,False,True,True,True,Sulawesi,Industri,0.423,82.058,Baik
+PKN-01,2024,34.127,51.022,7.043,19.778,13.429,8735,99.442,False,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.423,82.039,Baik
+PKN-01,2025,44.793,62.158,7.032,19.782,13.431,8708,99.406,False,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.423,82.052,Baik
+PKN-01,2026,60.139,79.127,7.033,19.806,13.395,6843,99.347,True,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.423,82.034,Baik
+PKU-01,2024,41.455,61.99,7.028,19.803,13.402,8742,99.522,False,False,False,True,True,True,Sumatera,Gambut / Karhutla,0.423,82.043,Baik
+PKU-01,2025,47.685,68.91,7.025,19.808,13.408,8703,99.349,False,False,False,True,True,True,Sumatera,Gambut / Karhutla,0.423,82.043,Baik
+PKU-01,2026,53.537,72.904,7.043,19.804,13.403,6855,99.521,True,False,False,True,True,True,Sumatera,Gambut / Karhutla,0.424,82.021,Baik
+PLB-01,2024,56.568,77.198,8.481,22.469,11.394,6634,75.524,False,False,False,True,True,True,Sumatera,Gambut / Karhutla,0.493,78.173,Baik
+PLB-01,2025,66.645,87.973,8.508,22.414,11.477,6644,75.845,False,False,False,True,True,True,Sumatera,Gambut / Karhutla,0.493,78.174,Baik
+PLB-01,2026,74.465,97.107,8.475,22.415,11.477,5174,75.116,True,False,False,True,True,True,Sumatera,Gambut / Karhutla,0.492,78.219,Baik
+PLU-01,2024,11.312,16.915,7.056,19.776,13.403,8741,99.51,False,True,True,True,True,True,Sulawesi,Latar Bersih,0.424,82.023,Baik
+PLU-01,2025,11.314,16.932,7.045,19.839,13.421,8700,99.315,False,True,True,True,True,True,Sulawesi,Latar Bersih,0.424,81.994,Baik
+PLU-01,2026,11.121,16.639,7.033,19.819,13.453,6849,99.434,True,True,True,True,True,True,Sulawesi,Latar Bersih,0.424,82.024,Baik
+PSW-01,2024,57.008,81.52,7.512,20.698,11.616,8744,99.545,False,False,False,True,True,True,Sumatera,Perkotaan,0.447,80.749,Baik
+PSW-01,2025,60.636,86.799,7.492,20.729,11.604,8703,99.349,False,False,False,True,True,True,Sumatera,Perkotaan,0.446,80.754,Baik
+PSW-01,2026,63.301,90.608,7.505,20.739,11.626,6847,99.405,True,False,False,True,True,True,Sumatera,Perkotaan,0.447,80.73,Baik
+SM2-01,2024,72.934,120.329,11.806,24.944,22.371,7602,86.544,False,False,False,True,True,True,Kalimantan,Industri,0.607,71.836,Baik
+SM2-01,2025,77.6,129.424,12.04,24.996,22.351,7440,84.932,False,False,False,True,True,True,Kalimantan,Industri,0.613,71.475,Baik
+SM2-01,2026,88.307,148.151,12.624,24.887,22.194,5725,83.116,True,False,False,True,True,True,Kalimantan,Industri,0.627,70.739,Baik
+SRG-01,2024,18.41,27.505,7.031,19.774,13.414,8728,99.362,False,False,True,True,True,True,Papua,Latar Bersih,0.423,82.059,Baik
+SRG-01,2025,18.477,27.645,7.039,19.813,13.432,8705,99.372,False,False,True,True,True,True,Papua,Latar Bersih,0.424,82.02,Baik
+SRG-01,2026,18.198,27.208,7.035,19.792,13.418,6844,99.361,True,False,True,True,True,True,Papua,Latar Bersih,0.423,82.039,Baik
+STG-01,2024,30.123,45.027,7.036,19.822,13.441,8734,99.431,False,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.424,82.018,Baik
+STG-01,2025,38.529,54.883,7.042,19.801,13.444,8719,99.532,False,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.424,82.024,Baik
+STG-01,2026,48.109,63.845,7.042,19.798,13.425,6846,99.39,True,False,False,True,True,True,Kalimantan,Gambut / Karhutla,0.424,82.027,Baik
+YKY-01,2024,39.609,58.274,10.048,27.29,24.732,8732,99.408,False,False,False,True,True,True,Jawa,Perkotaan,0.592,72.649,Baik
+YKY-01,2025,39.643,58.381,10.07,27.286,24.729,8708,99.406,False,False,False,True,True,True,Jawa,Perkotaan,0.593,72.621,Baik
+YKY-01,2026,40.019,58.929,10.063,27.323,24.75,6851,99.463,True,False,False,True,True,True,Jawa,Perkotaan,0.593,72.605,Baik

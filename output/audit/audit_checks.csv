@@ -1,0 +1,42 @@
+area,pemeriksaan,status,detail
+Handbook/User,33 file asli tidak diubah (MD5 = unduhan asli),LULUS,33/33 identik
+Handbook,Hanya dataset panitia yang dibaca (tanpa dataset eksternal),LULUS,input: 33 file panitia + tabel turunan output/clean & output/analysis
+Booklet,Pemetaan stasiun-sensor-RS sama dengan tabel Daftar Stasiun booklet (bagian E),LULUS,27/27 cocok
+Booklet,sensor_id di setiap file AQMS sesuai booklet,LULUS,
+User (tanpa tambah data),Tidak ada jam baru: setiap jam di data bersih ada di file asli,LULUS,"655,808 jam bersih; jam tambahan = 0"
+User (tanpa tambah data),Tidak ada nilai rekaan: setiap nilai bersih = nilai asli (× faktor ppm bila ada),LULUS,"5,878,268 nilai dicek; selisih = 0"
+User (tanpa tambah data),Jam yang hilang (MDN-01) tidak diisi,LULUS,"MDN-01 bersih 20,800 jam = 20.800 baris asli"
+User (tanpa tambah data),Tidak ada hari tanpa rekaman di tabel harian,LULUS,"27,467 hari-stasiun"
+User (tanpa tambah data),Angka kasus kesehatan identik dengan file asli,LULUS,"27,486 baris = 27,491 asli − 5 baris 2023-12-31"
+User (tanpa tambah data),RS-XXX-27 tanpa data paparan pinjaman (tanpa proksi),LULUS,
+User (tanpa tambah data),JMB-02 tidak diberi nilai polusi pinjaman di skor jaringan,LULUS,
+QnA 1 & 3,"Konversi ppm: satu rumus konsisten (ppm × M × 1000 / 24,45), terdokumentasi",LULUS,tabel unit_conversion_ppm + subbab 2.3.1 laporan
+QnA 1 & 3,Tidak ada kolom ppm tersisa; semua polutan dalam µg/m³,LULUS,
+QnA 2,`resp` diperlakukan sebagai pernapasan umum semua umur & jenis,LULUS,
+QnA 2,`resp_admissions_over60` diperlakukan sebagai ISPA lansia,LULUS,
+Kualitas analisis,Semua model kesehatan konvergen (dispersi wajar),LULUS,dispersi maks 1.30
+Handbook (template),Struktur bab mengikuti template laporan,LULUS,lengkap
+Handbook (template),Semua gambar di laporan tersedia,LULUS,15 gambar
+User (tanpa substansi tambahan),Laporan tanpa fakta wilayah dari luar dataset,LULUS,
+Booklet,Tujuan 1–5 masing-masing punya subbab hasil,LULUS,
+Booklet T1,Banding antarstasiun & antarpulau,LULUS,
+Booklet T1,"Evaluasi vs baku mutu PP 22/2021 (tahunan per tahun kalender, 24 jam, 8 jam, 1 jam)",LULUS,
+Booklet T1,Kategori ISPU (Permen LHK 14/2020),LULUS,
+Booklet T1,Penilaian IKU (Permen LHK 27/2021),LULUS,rumus Ieu/IKU KLHK — cocokkan dengan lampiran Permen LHK 27/2021
+Booklet T1,Pedoman kesehatan (WHO 2021),LULUS,
+Booklet T1,Kecenderungan perbaikan/pemburukan,LULUS,
+Booklet T2,Pola per jam,LULUS,
+Booklet T2,Hari kerja vs akhir pekan,LULUS,
+Booklet T2,Musim,LULUS,
+Booklet T2,Episode kabut asap karhutla/gambut,LULUS,
+Booklet T2,"Beda karakteristik perkotaan, industri, latar bersih",LULUS,
+Booklet T3,"Suhu, kelembapan, kecepatan angin — untuk semua polutan",LULUS,
+Booklet T3,Arah angin,LULUS,
+Booklet T3,"Lalu lintas, jarak ke jalan, tipe lokasi",LULUS,
+Booklet T3,Faktor paling berpengaruh ditentukan,LULUS,
+Booklet T4,"PM2.5 vs ISPA, asma, PPOK, kardiovaskular, kematian",LULUS,
+Booklet T4,Efek jeda setelah paparan,LULUS,
+Booklet T4,Banding kerentanan balita vs lansia,LULUS,
+Booklet T5,Tinjau sebaran stasiun & rekomendasi wilayah prioritas,LULUS,
+Booklet (33 file),metadata_sensors.csv dipakai (validasi kategori QC & satuan),LULUS,
+Booklet,Tujuan 6: dashboard interaktif dibangun (dengan logo Gelar Rasa),LULUS,web app dashboard-app/dist siap; BELUM dipublikasikan — link & subbab 3.2–3.3 laporan masih kosong

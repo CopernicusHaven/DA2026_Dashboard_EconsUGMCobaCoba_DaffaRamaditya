@@ -1,0 +1,8 @@
+outcome,outcome_label,lag,pct_increase_per10,cumulative_pct_0_7,cum_low,cum_high
+asthma_emergency_cases,Darurat asma,0,12.619,13.308,12.982,13.634
+copd_admissions,PPOK,0,13.419,13.769,13.469,14.069
+cvd,Kardiovaskular,0,4.887,5.042,4.801,5.284
+death,Kematian,0,6.547,6.602,6.119,7.088
+resp,Pernapasan umum (semua umur),0,11.194,11.024,10.866,11.183
+resp_admissions_over60,ISPA lansia (>60 th),0,13.76,13.366,13.125,13.608
+resp_admissions_under5,ISPA balita (<5 th),0,13.636,13.83,13.566,14.095

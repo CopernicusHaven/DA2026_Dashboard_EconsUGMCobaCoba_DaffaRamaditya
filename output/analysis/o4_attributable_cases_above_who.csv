@@ -1,0 +1,43 @@
+island,total_cases,attributable,attributable_pct,outcome
+Jawa,60919.0,15183.79,24.92,ISPA balita (<5 th)
+Kalimantan,40162.0,12947.86,32.24,ISPA balita (<5 th)
+Papua,4103.0,353.11,8.61,ISPA balita (<5 th)
+Sulawesi,10363.0,824.86,7.96,ISPA balita (<5 th)
+Sumatera,48589.0,13398.44,27.58,ISPA balita (<5 th)
+Total,164136.0,42708.07,26.02,ISPA balita (<5 th)
+Jawa,76712.0,16202.57,21.12,ISPA lansia (>60 th)
+Kalimantan,46705.0,13186.9,28.23,ISPA lansia (>60 th)
+Papua,5094.0,311.73,6.12,ISPA lansia (>60 th)
+Sulawesi,12660.0,720.9,5.69,ISPA lansia (>60 th)
+Sumatera,58515.0,13752.81,23.5,ISPA lansia (>60 th)
+Total,199686.0,44174.92,22.12,ISPA lansia (>60 th)
+Jawa,33575.0,6865.25,20.45,Darurat asma
+Kalimantan,31763.0,7979.95,25.12,Darurat asma
+Papua,2527.0,145.55,5.76,Darurat asma
+Sulawesi,6212.0,337.13,5.43,Darurat asma
+Sumatera,29270.0,6763.78,23.11,Darurat asma
+Total,103347.0,22091.66,21.38,Darurat asma
+Jawa,29477.0,6067.96,20.59,PPOK
+Kalimantan,22553.0,6647.06,29.47,PPOK
+Papua,3069.0,179.31,5.84,PPOK
+Sulawesi,7482.0,401.01,5.36,PPOK
+Sumatera,33764.0,8090.04,23.96,PPOK
+Total,96345.0,21385.37,22.2,PPOK
+Jawa,261362.0,46708.0,17.87,Pernapasan umum (semua umur)
+Kalimantan,157516.0,39003.65,24.76,Pernapasan umum (semua umur)
+Papua,17806.0,992.83,5.58,Pernapasan umum (semua umur)
+Sulawesi,41531.0,2025.13,4.88,Pernapasan umum (semua umur)
+Sumatera,178824.0,34975.8,19.56,Pernapasan umum (semua umur)
+Total,657039.0,123705.42,18.83,Pernapasan umum (semua umur)
+Jawa,54487.0,3202.23,5.88,Kardiovaskular
+Kalimantan,41925.0,5837.67,13.92,Kardiovaskular
+Papua,7097.0,33.06,0.47,Kardiovaskular
+Sulawesi,14623.0,54.41,0.37,Kardiovaskular
+Sumatera,55554.0,3085.52,5.55,Kardiovaskular
+Total,173686.0,12212.88,7.03,Kardiovaskular
+Jawa,17108.0,1418.25,8.29,Kematian
+Kalimantan,11359.0,1931.62,17.01,Kematian
+Papua,1509.0,13.63,0.9,Kematian
+Sulawesi,3259.0,23.73,0.73,Kematian
+Sumatera,12845.0,954.43,7.43,Kematian
+Total,46080.0,4341.66,9.42,Kematian

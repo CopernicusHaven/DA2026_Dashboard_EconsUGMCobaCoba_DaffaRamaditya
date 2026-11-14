@@ -1,0 +1,6 @@
+ispu_kategori,resp_admissions_under5,resp_admissions_over60,asthma_emergency_cases,copd_admissions,resp,cvd,death,n_hari_rs
+1 Baik,1.862,2.401,1.108,1.203,9.262,3.182,0.762,4253
+2 Sedang,2.977,3.632,1.85,1.829,12.228,3.499,0.866,15405
+3 Tidak Sehat,6.668,7.899,3.947,3.89,23.444,4.666,1.381,3966
+4 Sangat Tidak Sehat,7.375,8.351,5.308,4.63,21.78,4.458,1.286,140
+5 Berbahaya,19.045,21.427,10.496,9.912,74.163,23.9,7.698,98

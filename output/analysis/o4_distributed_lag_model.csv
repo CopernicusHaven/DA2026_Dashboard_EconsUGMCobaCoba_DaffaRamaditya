@@ -1,0 +1,64 @@
+outcome,outcome_label,lag,beta,se,pct_increase_per10,pct_low,pct_high,p_value,n
+resp_admissions_under5,ISPA balita (<5 th),0,0.1278,0.0049,13.6364,12.5406,14.743,0.0,22493
+resp_admissions_under5,ISPA balita (<5 th),1,0.0028,0.0074,0.2835,-1.1667,1.7551,0.7032,22493
+resp_admissions_under5,ISPA balita (<5 th),2,-0.0017,0.0075,-0.1736,-1.6374,1.312,0.8177,22493
+resp_admissions_under5,ISPA balita (<5 th),3,-0.0035,0.0074,-0.349,-1.7896,1.1128,0.638,22493
+resp_admissions_under5,ISPA balita (<5 th),4,-0.0005,0.0073,-0.0538,-1.4809,1.394,0.9415,22493
+resp_admissions_under5,ISPA balita (<5 th),5,-0.0025,0.0076,-0.248,-1.7155,1.2414,0.7426,22493
+resp_admissions_under5,ISPA balita (<5 th),6,0.0062,0.0078,0.62,-0.9012,2.1645,0.4265,22493
+resp_admissions_under5,ISPA balita (<5 th),7,0.0009,0.0053,0.0948,-0.9382,1.1385,0.8579,22493
+resp_admissions_under5,ISPA balita (<5 th),kumulatif 0-7,0.1295,0.0012,13.8304,13.5664,14.0949,0.0,22493
+resp_admissions_over60,ISPA lansia (>60 th),0,0.1289,0.0045,13.7605,12.7511,14.7789,0.0,22493
+resp_admissions_over60,ISPA lansia (>60 th),1,-0.0013,0.0069,-0.1304,-1.4647,1.222,0.8492,22493
+resp_admissions_over60,ISPA lansia (>60 th),2,-0.0092,0.007,-0.9128,-2.2687,0.4619,0.1921,22493
+resp_admissions_over60,ISPA lansia (>60 th),3,0.0035,0.0069,0.3466,-1.0097,1.7215,0.6182,22493
+resp_admissions_over60,ISPA lansia (>60 th),4,-0.0024,0.0068,-0.2348,-1.5617,1.1099,0.7307,22493
+resp_admissions_over60,ISPA lansia (>60 th),5,0.0016,0.007,0.1604,-1.208,1.5479,0.8193,22493
+resp_admissions_over60,ISPA lansia (>60 th),6,-0.0041,0.0073,-0.4057,-1.8124,1.0213,0.5755,22493
+resp_admissions_over60,ISPA lansia (>60 th),7,0.0084,0.005,0.8391,-0.1436,1.8314,0.0945,22493
+resp_admissions_over60,ISPA lansia (>60 th),kumulatif 0-7,0.1255,0.0011,13.3662,13.1247,13.6083,0.0,22493
+asthma_emergency_cases,Darurat asma,0,0.1188,0.0056,12.6195,11.3994,13.8529,0.0,22493
+asthma_emergency_cases,Darurat asma,1,0.0025,0.0086,0.2519,-1.4247,1.9569,0.77,22493
+asthma_emergency_cases,Darurat asma,2,-0.0016,0.0091,-0.1553,-1.9176,1.6388,0.8642,22493
+asthma_emergency_cases,Darurat asma,3,0.009,0.009,0.9059,-0.8524,2.6953,0.3147,22493
+asthma_emergency_cases,Darurat asma,4,-0.0105,0.0089,-1.0401,-2.7499,0.6997,0.2397,22493
+asthma_emergency_cases,Darurat asma,5,0.0054,0.0092,0.5365,-1.2509,2.3564,0.5588,22493
+asthma_emergency_cases,Darurat asma,6,-0.0002,0.0093,-0.0216,-1.8363,1.8267,0.9816,22493
+asthma_emergency_cases,Darurat asma,7,0.0014,0.0064,0.1433,-1.1131,1.4156,0.8241,22493
+asthma_emergency_cases,Darurat asma,kumulatif 0-7,0.1249,0.0015,13.3076,12.9821,13.634,0.0,22493
+copd_admissions,PPOK,0,0.1259,0.0054,13.4189,12.2211,14.6294,0.0,22493
+copd_admissions,PPOK,1,0.0046,0.0081,0.4621,-1.1203,2.0699,0.5692,22493
+copd_admissions,PPOK,2,-0.0128,0.0083,-1.2673,-2.8522,0.3433,0.1224,22493
+copd_admissions,PPOK,3,0.008,0.0082,0.8037,-0.8122,2.446,0.3316,22493
+copd_admissions,PPOK,4,-0.0014,0.0081,-0.1374,-1.7076,1.4578,0.8649,22493
+copd_admissions,PPOK,5,0.0014,0.0083,0.1437,-1.4735,1.7874,0.8628,22493
+copd_admissions,PPOK,6,0.0008,0.0086,0.0758,-1.592,1.772,0.9296,22493
+copd_admissions,PPOK,7,0.0024,0.0058,0.2403,-0.9017,1.3955,0.6814,22493
+copd_admissions,PPOK,kumulatif 0-7,0.129,0.0013,13.7688,13.469,14.0693,0.0,22493
+resp,Pernapasan umum (semua umur),0,0.1061,0.0032,11.194,10.4987,11.8937,0.0,22493
+resp,Pernapasan umum (semua umur),1,0.0029,0.0048,0.2931,-0.6405,1.2353,0.5397,22493
+resp,Pernapasan umum (semua umur),2,-0.0059,0.0048,-0.5873,-1.5248,0.3591,0.223,22493
+resp,Pernapasan umum (semua umur),3,-0.0001,0.0048,-0.0053,-0.9391,0.9373,0.9911,22493
+resp,Pernapasan umum (semua umur),4,-0.0038,0.0047,-0.3837,-1.3062,0.5474,0.418,22493
+resp,Pernapasan umum (semua umur),5,-0.0025,0.0049,-0.2507,-1.2014,0.7091,0.6074,22493
+resp,Pernapasan umum (semua umur),6,0.0066,0.005,0.6593,-0.3213,1.6497,0.1883,22493
+resp,Pernapasan umum (semua umur),7,0.0013,0.0034,0.1274,-0.5401,0.7994,0.7091,22493
+resp,Pernapasan umum (semua umur),kumulatif 0-7,0.1046,0.0007,11.0243,10.8661,11.1827,0.0,22493
+cvd,Kardiovaskular,0,0.0477,0.005,4.8873,3.8598,5.9249,0.0,22493
+cvd,Kardiovaskular,1,0.0029,0.0076,0.2856,-1.1933,1.7867,0.7067,22493
+cvd,Kardiovaskular,2,-0.0129,0.0079,-1.2858,-2.8005,0.2525,0.1009,22493
+cvd,Kardiovaskular,3,0.0064,0.0079,0.6434,-0.9093,2.2205,0.4188,22493
+cvd,Kardiovaskular,4,0.0058,0.0079,0.5847,-0.9519,2.1451,0.4579,22493
+cvd,Kardiovaskular,5,0.0004,0.008,0.0371,-1.5134,1.6119,0.9629,22493
+cvd,Kardiovaskular,6,-0.0087,0.0081,-0.8617,-2.4327,0.7346,0.2883,22493
+cvd,Kardiovaskular,7,0.0076,0.0056,0.7635,-0.3371,1.8762,0.1747,22493
+cvd,Kardiovaskular,kumulatif 0-7,0.0492,0.0012,5.0422,4.8006,5.2844,0.0,22493
+death,Kematian,0,0.0634,0.01,6.5472,4.4812,8.6539,0.0,22493
+death,Kematian,1,0.0033,0.015,0.326,-2.5897,3.329,0.8288,22493
+death,Kematian,2,-0.0051,0.0156,-0.5072,-3.4998,2.5782,0.7442,22493
+death,Kematian,3,0.0025,0.0156,0.2497,-2.7678,3.3608,0.8729,22493
+death,Kematian,4,0.0099,0.0154,0.9963,-2.0131,4.0982,0.5206,22493
+death,Kematian,5,-0.0235,0.0159,-2.3227,-5.3148,0.7639,0.1387,22493
+death,Kematian,6,0.0057,0.0164,0.5693,-2.6119,3.8545,0.7292,22493
+death,Kematian,7,0.0078,0.0112,0.7796,-1.4163,3.0243,0.4896,22493
+death,Kematian,kumulatif 0-7,0.0639,0.0023,6.6025,6.1193,7.0878,0.0,22493

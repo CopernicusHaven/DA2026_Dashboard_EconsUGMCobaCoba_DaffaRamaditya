@@ -1,0 +1,346 @@
+{
+ "ringkasan": [
+  [
+   "ringkasan__stasiun.png",
+   "Stasiun",
+   360,
+   1474
+  ],
+  [
+   "ringkasan__filter.png",
+   "filter",
+   1000,
+   40
+  ],
+  [
+   "ringkasan__kpi.png",
+   "kpi",
+   1000,
+   115
+  ],
+  [
+   "ringkasan__peta.png",
+   "peta",
+   1000,
+   454
+  ],
+  [
+   "ringkasan__pm2_5_per_pulau.png",
+   "PM2.5 per Pulau",
+   1000,
+   548
+  ],
+  [
+   "ringkasan__kategori_ispu_per_pulau.png",
+   "Kategori ISPU per Pulau",
+   1000,
+   527
+  ]
+ ],
+ "kondisi": [
+  [
+   "kondisi__stasiun.png",
+   "Stasiun",
+   360,
+   1474
+  ],
+  [
+   "kondisi__filter.png",
+   "filter",
+   1000,
+   40
+  ],
+  [
+   "kondisi__kpi.png",
+   "kpi",
+   1000,
+   115
+  ],
+  [
+   "kondisi__peringkat_stasiun.png",
+   "Peringkat Stasiun",
+   1000,
+   728
+  ],
+  [
+   "kondisi__kategori_ispu_per_stasiun.png",
+   "Kategori ISPU per Stasiun",
+   1000,
+   707
+  ],
+  [
+   "kondisi__baku_mutu_dan_iku.png",
+   "Baku Mutu dan IKU",
+   1000,
+   623
+  ],
+  [
+   "kondisi__tren_bulanan.png",
+   "Tren Bulanan",
+   1000,
+   568
+  ],
+  [
+   "kondisi__perbandingan_2024_2026.png",
+   "Perbandingan 2024–2026",
+   1000,
+   707
+  ]
+ ],
+ "kritis": [
+  [
+   "kritis__stasiun.png",
+   "Stasiun",
+   360,
+   1474
+  ],
+  [
+   "kritis__filter.png",
+   "filter",
+   1000,
+   40
+  ],
+  [
+   "kritis__kpi.png",
+   "kpi",
+   1000,
+   115
+  ],
+  [
+   "kritis__pola_per_jam.png",
+   "Pola per Jam",
+   1000,
+   523
+  ],
+  [
+   "kritis__hari_kerja_dan_akhir_pekan.png",
+   "Hari Kerja dan Akhir Pekan",
+   1000,
+   523
+  ],
+  [
+   "kritis__pola_per_bulan.png",
+   "Pola per Bulan",
+   1000,
+   703
+  ],
+  [
+   "kritis__episode_kabut_asap.png",
+   "Episode Kabut Asap",
+   1000,
+   527
+  ],
+  [
+   "kritis__peringkat_wilayah_kritis.png",
+   "Peringkat Wilayah Kritis",
+   1000,
+   607
+  ],
+  [
+   "kritis__karakteristik_kawasan.png",
+   "Karakteristik Kawasan",
+   1000,
+   320
+  ]
+ ],
+ "faktor": [
+  [
+   "faktor__stasiun.png",
+   "Stasiun",
+   360,
+   1474
+  ],
+  [
+   "faktor__filter.png",
+   "filter",
+   1000,
+   40
+  ],
+  [
+   "faktor__kpi.png",
+   "kpi",
+   1000,
+   115
+  ],
+  [
+   "faktor__tingkat_kepentingan_faktor.png",
+   "Tingkat Kepentingan Faktor",
+   1000,
+   507
+  ],
+  [
+   "faktor__korelasi_dengan_cuaca.png",
+   "Korelasi dengan Cuaca",
+   1000,
+   507
+  ],
+  [
+   "faktor__lalu_lintas_dan_polutan.png",
+   "Lalu Lintas dan Polutan",
+   1000,
+   623
+  ],
+  [
+   "faktor__pengaruh_arah_angin.png",
+   "Pengaruh Arah Angin",
+   1000,
+   663
+  ]
+ ],
+ "kesehatan": [
+  [
+   "kesehatan__stasiun.png",
+   "Stasiun",
+   360,
+   1474
+  ],
+  [
+   "kesehatan__filter.png",
+   "filter",
+   1000,
+   40
+  ],
+  [
+   "kesehatan__kpi.png",
+   "kpi",
+   1000,
+   115
+  ],
+  [
+   "kesehatan__paparan_dan_kasus_harian.png",
+   "Paparan dan Kasus Harian",
+   1000,
+   664
+  ],
+  [
+   "kesehatan__kasus_saat_kabut_asap.png",
+   "Kasus Saat Kabut Asap",
+   1000,
+   487
+  ],
+  [
+   "kesehatan__efek_per_hari_jeda.png",
+   "Efek per Hari Jeda",
+   1000,
+   487
+  ],
+  [
+   "kesehatan__risiko_per_kategori_ispu.png",
+   "Risiko per Kategori ISPU",
+   1000,
+   528
+  ],
+  [
+   "kesehatan__kasus_akibat_pm2_5.png",
+   "Kasus Akibat PM2.5",
+   1000,
+   487
+  ],
+  [
+   "kesehatan__balita_dan_lansia.png",
+   "Balita dan Lansia",
+   1000,
+   359
+  ]
+ ],
+ "jaringan": [
+  [
+   "jaringan__stasiun.png",
+   "Stasiun",
+   360,
+   1474
+  ],
+  [
+   "jaringan__filter.png",
+   "filter",
+   1000,
+   40
+  ],
+  [
+   "jaringan__kpi.png",
+   "kpi",
+   1000,
+   115
+  ],
+  [
+   "jaringan__peta.png",
+   "peta",
+   1000,
+   534
+  ],
+  [
+   "jaringan__skor_prioritas_stasiun.png",
+   "Skor Prioritas Stasiun",
+   1000,
+   667
+  ],
+  [
+   "jaringan__cakupan_per_pulau.png",
+   "Cakupan per Pulau",
+   1000,
+   320
+  ]
+ ],
+ "petunjuk": [
+  [
+   "petunjuk__satuan.png",
+   "Satuan",
+   920,
+   299
+  ],
+  [
+   "petunjuk__konversi_satuan.png",
+   "Konversi Satuan",
+   920,
+   491
+  ],
+  [
+   "petunjuk__pengolahan_data.png",
+   "Pengolahan Data",
+   920,
+   324
+  ],
+  [
+   "petunjuk__indeks_kualitas_udara.png",
+   "Indeks Kualitas Udara",
+   920,
+   319
+  ],
+  [
+   "petunjuk__batas_kategori_ispu_g_m.png",
+   "Batas Kategori ISPU (µg/m³)",
+   920,
+   316
+  ],
+  [
+   "petunjuk__baku_mutu_dan_pedoman_who_g_m.png",
+   "Baku Mutu dan Pedoman WHO (µg/m³)",
+   920,
+   387
+  ],
+  [
+   "petunjuk__waktu_dan_wilayah_kritis.png",
+   "Waktu dan Wilayah Kritis",
+   920,
+   299
+  ],
+  [
+   "petunjuk__faktor_penyebab.png",
+   "Faktor Penyebab",
+   920,
+   319
+  ],
+  [
+   "petunjuk__dampak_kesehatan.png",
+   "Dampak Kesehatan",
+   920,
+   438
+  ],
+  [
+   "petunjuk__jaringan_pemantauan.png",
+   "Jaringan Pemantauan",
+   920,
+   319
+  ]
+ ]
+}

@@ -1,0 +1,27 @@
+stasiun,dirtiest_sector,dirtiest_pm25,cleanest_sector,cleanest_pm25,sector_ratio,tipe_lokasi,pulau,selisih_pct
+BGL-01,B,25.79,BD,25.47,1.01,Perkotaan,Sumatera,1.0
+BGR-01,BD,13.26,S,13.22,1.0,Latar bersih,Jawa,0.0
+BGR-02,BD,19.24,S,19.23,1.0,Tepi jalan,Jawa,0.0
+BJB-01,TG,43.37,U,42.6,1.02,Gambut / karhutla,Kalimantan,2.0
+BTM-01,TG,35.75,B,35.11,1.02,Industri,Sumatera,2.0
+IDP-01,U,10.37,B,7.65,1.35,Latar bersih,Sumatera,35.0
+JKT-01,B,48.32,S,48.0,1.01,Perkotaan,Jawa,1.0
+JKT-02,TL,60.19,BL,59.84,1.01,Industri,Jawa,1.0
+JKT-03,TL,54.15,T,53.96,1.0,Tepi jalan,Jawa,0.0
+JMB-01,TG,29.99,T,29.38,1.02,Gambut / karhutla,Sumatera,2.0
+KTB-01,B,18.18,T,17.72,1.03,Latar bersih,Sumatera,3.0
+KTG-01,S,25.45,TG,25.37,1.0,Perkotaan,Kalimantan,0.0
+KTG-02,S,25.03,TG,24.99,1.0,Gambut / karhutla,Kalimantan,0.0
+MDN-01,T,54.32,U,52.67,1.03,Perkotaan,Sumatera,3.0
+MER-01,S,18.33,TL,13.74,1.33,Latar bersih,Papua,33.0
+MLG-01,T,30.84,B,30.42,1.01,Perkotaan,Jawa,1.0
+MRS-01,TG,37.03,B,36.57,1.01,Industri,Sulawesi,1.0
+PKN-01,TG,22.41,T,22.25,1.01,Gambut / karhutla,Kalimantan,1.0
+PKU-01,BD,32.58,T,31.85,1.02,Gambut / karhutla,Sumatera,2.0
+PLB-01,S,60.93,T,48.12,1.27,Gambut / karhutla,Sumatera,27.0
+PLU-01,T,11.32,BD,11.18,1.01,Latar bersih,Sulawesi,1.0
+PSW-01,B,48.29,TG,47.86,1.01,Perkotaan,Sumatera,1.0
+SM2-01,BL,76.28,B,72.21,1.06,Industri,Kalimantan,6.0
+SRG-01,T,18.57,B,18.26,1.02,Latar bersih,Papua,2.0
+STG-01,TG,21.82,BD,21.51,1.01,Gambut / karhutla,Kalimantan,1.0
+YKY-01,BL,40.78,B,38.44,1.06,Perkotaan,Jawa,6.0

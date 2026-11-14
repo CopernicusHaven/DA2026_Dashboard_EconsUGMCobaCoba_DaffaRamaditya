@@ -1,0 +1,27 @@
+station,peak_hour_pm25,peak_value,low_hour_pm25,low_value,peak_to_low_ratio,site_category,island
+BGL-01,7,38.69,13,21.22,1.82,Perkotaan,Sumatera
+BGR-01,18,15.57,1,12.34,1.26,Latar Bersih,Jawa
+BGR-02,7,21.57,1,18.38,1.17,Tepi Jalan (Lalu Lintas),Jawa
+BJB-01,8,56.57,0,29.34,1.93,Gambut / Karhutla,Kalimantan
+BTM-01,8,53.81,15,29.51,1.82,Industri,Sumatera
+IDP-01,5,17.56,9,3.82,4.6,Latar Bersih,Sumatera
+JKT-01,19,58.13,14,39.99,1.45,Perkotaan,Jawa
+JKT-02,17,70.25,14,51.99,1.35,Industri,Jawa
+JKT-03,9,64.2,14,45.97,1.4,Tepi Jalan (Lalu Lintas),Jawa
+JMB-01,8,45.05,14,24.6,1.83,Gambut / Karhutla,Sumatera
+KTB-01,7,24.33,14,15.87,1.53,Latar Bersih,Sumatera
+KTG-01,10,25.62,4,25.22,1.02,Perkotaan,Kalimantan
+KTG-02,13,25.27,22,24.66,1.02,Gambut / Karhutla,Kalimantan
+MDN-01,9,77.24,0,32.31,2.39,Perkotaan,Sumatera
+MER-01,13,19.2,1,12.96,1.48,Latar Bersih,Papua
+MLG-01,7,46.51,14,25.29,1.84,Perkotaan,Jawa
+MRS-01,6,55.75,13,30.51,1.83,Industri,Sulawesi
+PKN-01,8,33.77,13,18.5,1.83,Gambut / Karhutla,Kalimantan
+PKU-01,6,49.26,13,26.89,1.83,Gambut / Karhutla,Sumatera
+PLB-01,18,74.74,12,48.43,1.54,Gambut / Karhutla,Sumatera
+PLU-01,7,17.12,13,9.28,1.85,Latar Bersih,Sulawesi
+PSW-01,6,66.18,12,38.85,1.7,Perkotaan,Sumatera
+SM2-01,12,83.71,3,63.42,1.32,Industri,Kalimantan
+SRG-01,6,27.86,13,15.2,1.83,Latar Bersih,Papua
+STG-01,8,32.25,14,18.0,1.79,Gambut / Karhutla,Kalimantan
+YKY-01,7,70.44,2,29.75,2.37,Perkotaan,Jawa

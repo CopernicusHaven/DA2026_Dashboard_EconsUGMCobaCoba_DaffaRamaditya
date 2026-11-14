@@ -1,0 +1,19 @@
+pollutant,factor,spearman_r,p_value,n_stasiun
+pm25,traffic_intensity_per_h,0.7537,0.0,25
+pm25,distance_to_road_m,-0.6476,0.0005,25
+pm25,site_category (Kruskal-Wallis),,0.01,25
+pm10,traffic_intensity_per_h,0.7992,0.0,25
+pm10,distance_to_road_m,-0.6631,0.0003,25
+pm10,site_category (Kruskal-Wallis),,0.0074,25
+so2,traffic_intensity_per_h,0.3782,0.0623,25
+so2,distance_to_road_m,-0.4212,0.036,25
+so2,site_category (Kruskal-Wallis),,0.1336,25
+co,traffic_intensity_per_h,0.3412,0.0951,25
+co,distance_to_road_m,-0.3192,0.1199,25
+co,site_category (Kruskal-Wallis),,0.3619,25
+o3,traffic_intensity_per_h,0.0008,0.9971,25
+o3,distance_to_road_m,-0.0653,0.7565,25
+o3,site_category (Kruskal-Wallis),,0.4187,25
+no2,traffic_intensity_per_h,0.3624,0.075,25
+no2,distance_to_road_m,-0.3022,0.1421,25
+no2,site_category (Kruskal-Wallis),,0.2924,25

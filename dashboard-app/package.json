@@ -1,0 +1,27 @@
+{
+  "name": "da2026-dashboard-gelar-rasa",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Dashboard Analysis Gelar Rasa 2026 - kualitas udara & kesehatan Indonesia 2024-2026",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173 --strictPort"
+  },
+  "dependencies": {
+    "@fontsource/poppins": "5.3.0",
+    "echarts": "6.1.0",
+    "framer-motion": "14.9.0",
+    "katex": "0.16.22",
+    "leaflet": "1.9.4",
+    "leaflet.gridlayer.googlemutant": "0.16.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-leaflet": "5.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.1.2",
+    "vite": "8.3.5"
+  }
+}

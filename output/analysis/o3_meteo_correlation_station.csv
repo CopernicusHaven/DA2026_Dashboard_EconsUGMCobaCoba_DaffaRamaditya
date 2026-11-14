@@ -1,0 +1,157 @@
+station,scope,factor,spearman_r,p_value,n,site_category,island
+BGL-01,semua,temperature_c,-0.176,0.0,24307,Perkotaan,Sumatera
+BGL-01,semua,humidity_pct,0.0163,0.0109,24307,Perkotaan,Sumatera
+BGL-01,semua,wind_speed_ms,0.139,0.0,24307,Perkotaan,Sumatera
+BGL-01,non_kabut,temperature_c,-0.176,0.0,24307,Perkotaan,Sumatera
+BGL-01,non_kabut,humidity_pct,0.0163,0.0109,24307,Perkotaan,Sumatera
+BGL-01,non_kabut,wind_speed_ms,0.139,0.0,24307,Perkotaan,Sumatera
+BGR-01,semua,temperature_c,0.0339,0.0,23688,Latar Bersih,Jawa
+BGR-01,semua,humidity_pct,-0.0302,0.0,23688,Latar Bersih,Jawa
+BGR-01,semua,wind_speed_ms,0.0132,0.0422,23688,Latar Bersih,Jawa
+BGR-01,non_kabut,temperature_c,0.0339,0.0,23688,Latar Bersih,Jawa
+BGR-01,non_kabut,humidity_pct,-0.0302,0.0,23688,Latar Bersih,Jawa
+BGR-01,non_kabut,wind_speed_ms,0.0132,0.0422,23688,Latar Bersih,Jawa
+BGR-02,semua,temperature_c,0.0352,0.0,23695,Tepi Jalan (Lalu Lintas),Jawa
+BGR-02,semua,humidity_pct,-0.0366,0.0,23695,Tepi Jalan (Lalu Lintas),Jawa
+BGR-02,semua,wind_speed_ms,-0.0013,0.8415,23695,Tepi Jalan (Lalu Lintas),Jawa
+BGR-02,non_kabut,temperature_c,0.0352,0.0,23695,Tepi Jalan (Lalu Lintas),Jawa
+BGR-02,non_kabut,humidity_pct,-0.0366,0.0,23695,Tepi Jalan (Lalu Lintas),Jawa
+BGR-02,non_kabut,wind_speed_ms,-0.0013,0.8415,23695,Tepi Jalan (Lalu Lintas),Jawa
+BJB-01,semua,temperature_c,0.398,0.0,17103,Gambut / Karhutla,Kalimantan
+BJB-01,semua,humidity_pct,-0.3795,0.0,17103,Gambut / Karhutla,Kalimantan
+BJB-01,semua,wind_speed_ms,0.0069,0.364,17103,Gambut / Karhutla,Kalimantan
+BJB-01,non_kabut,temperature_c,0.6726,0.0,12207,Gambut / Karhutla,Kalimantan
+BJB-01,non_kabut,humidity_pct,-0.6432,0.0,12207,Gambut / Karhutla,Kalimantan
+BJB-01,non_kabut,wind_speed_ms,0.0116,0.2008,12207,Gambut / Karhutla,Kalimantan
+BTM-01,semua,temperature_c,-0.128,0.0,24278,Industri,Sumatera
+BTM-01,semua,humidity_pct,0.0136,0.0337,24278,Industri,Sumatera
+BTM-01,semua,wind_speed_ms,0.1014,0.0,24278,Industri,Sumatera
+BTM-01,non_kabut,temperature_c,-0.2004,0.0,18313,Industri,Sumatera
+BTM-01,non_kabut,humidity_pct,0.021,0.0045,18313,Industri,Sumatera
+BTM-01,non_kabut,wind_speed_ms,0.1566,0.0,18313,Industri,Sumatera
+IDP-01,semua,temperature_c,-0.3642,0.0,24322,Latar Bersih,Sumatera
+IDP-01,semua,humidity_pct,0.4353,0.0,24322,Latar Bersih,Sumatera
+IDP-01,semua,wind_speed_ms,0.2875,0.0,24322,Latar Bersih,Sumatera
+IDP-01,non_kabut,temperature_c,-0.3642,0.0,24322,Latar Bersih,Sumatera
+IDP-01,non_kabut,humidity_pct,0.4353,0.0,24322,Latar Bersih,Sumatera
+IDP-01,non_kabut,wind_speed_ms,0.2875,0.0,24322,Latar Bersih,Sumatera
+JKT-01,semua,temperature_c,-0.184,0.0,23454,Perkotaan,Jawa
+JKT-01,semua,humidity_pct,0.1837,0.0,23454,Perkotaan,Jawa
+JKT-01,semua,wind_speed_ms,-0.0063,0.332,23454,Perkotaan,Jawa
+JKT-01,non_kabut,temperature_c,-0.184,0.0,23454,Perkotaan,Jawa
+JKT-01,non_kabut,humidity_pct,0.1837,0.0,23454,Perkotaan,Jawa
+JKT-01,non_kabut,wind_speed_ms,-0.0063,0.332,23454,Perkotaan,Jawa
+JKT-02,semua,temperature_c,-0.1816,0.0,23480,Industri,Jawa
+JKT-02,semua,humidity_pct,0.1818,0.0,23480,Industri,Jawa
+JKT-02,semua,wind_speed_ms,-0.0031,0.6324,23480,Industri,Jawa
+JKT-02,non_kabut,temperature_c,-0.1816,0.0,23480,Industri,Jawa
+JKT-02,non_kabut,humidity_pct,0.1818,0.0,23480,Industri,Jawa
+JKT-02,non_kabut,wind_speed_ms,-0.0031,0.6324,23480,Industri,Jawa
+JKT-03,semua,temperature_c,-0.1813,0.0,23470,Tepi Jalan (Lalu Lintas),Jawa
+JKT-03,semua,humidity_pct,0.1765,0.0,23470,Tepi Jalan (Lalu Lintas),Jawa
+JKT-03,semua,wind_speed_ms,-0.0009,0.8922,23470,Tepi Jalan (Lalu Lintas),Jawa
+JKT-03,non_kabut,temperature_c,-0.1813,0.0,23470,Tepi Jalan (Lalu Lintas),Jawa
+JKT-03,non_kabut,humidity_pct,0.1765,0.0,23470,Tepi Jalan (Lalu Lintas),Jawa
+JKT-03,non_kabut,wind_speed_ms,-0.0009,0.8922,23470,Tepi Jalan (Lalu Lintas),Jawa
+JMB-01,semua,temperature_c,-0.1206,0.0,24264,Gambut / Karhutla,Sumatera
+JMB-01,semua,humidity_pct,0.0156,0.0153,24264,Gambut / Karhutla,Sumatera
+JMB-01,semua,wind_speed_ms,0.0941,0.0,24264,Gambut / Karhutla,Sumatera
+JMB-01,non_kabut,temperature_c,-0.1987,0.0,18144,Gambut / Karhutla,Sumatera
+JMB-01,non_kabut,humidity_pct,0.0261,0.0004,18144,Gambut / Karhutla,Sumatera
+JMB-01,non_kabut,wind_speed_ms,0.1568,0.0,18144,Gambut / Karhutla,Sumatera
+KTB-01,semua,temperature_c,-0.0981,0.0,24305,Latar Bersih,Sumatera
+KTB-01,semua,humidity_pct,0.0042,0.5082,24305,Latar Bersih,Sumatera
+KTB-01,semua,wind_speed_ms,0.0835,0.0,24305,Latar Bersih,Sumatera
+KTB-01,non_kabut,temperature_c,-0.0996,0.0,24163,Latar Bersih,Sumatera
+KTB-01,non_kabut,humidity_pct,0.0045,0.4889,24163,Latar Bersih,Sumatera
+KTB-01,non_kabut,wind_speed_ms,0.0842,0.0,24163,Latar Bersih,Sumatera
+KTG-01,semua,temperature_c,0.0061,0.3506,23506,Perkotaan,Kalimantan
+KTG-01,semua,humidity_pct,-0.0084,0.1987,23506,Perkotaan,Kalimantan
+KTG-01,semua,wind_speed_ms,-0.002,0.7534,23506,Perkotaan,Kalimantan
+KTG-01,non_kabut,temperature_c,0.0057,0.4412,18106,Perkotaan,Kalimantan
+KTG-01,non_kabut,humidity_pct,-0.0166,0.0252,18106,Perkotaan,Kalimantan
+KTG-01,non_kabut,wind_speed_ms,0.0006,0.9345,18106,Perkotaan,Kalimantan
+KTG-02,semua,temperature_c,0.0033,0.608,23524,Gambut / Karhutla,Kalimantan
+KTG-02,semua,humidity_pct,0.0005,0.9353,23524,Gambut / Karhutla,Kalimantan
+KTG-02,semua,wind_speed_ms,0.0019,0.7714,23524,Gambut / Karhutla,Kalimantan
+KTG-02,non_kabut,temperature_c,0.0028,0.7055,17865,Gambut / Karhutla,Kalimantan
+KTG-02,non_kabut,humidity_pct,0.0001,0.9883,17865,Gambut / Karhutla,Kalimantan
+KTG-02,non_kabut,wind_speed_ms,0.0112,0.1333,17865,Gambut / Karhutla,Kalimantan
+MDN-01,semua,temperature_c,0.654,0.0,16640,Perkotaan,Sumatera
+MDN-01,semua,humidity_pct,-0.6377,0.0,16640,Perkotaan,Sumatera
+MDN-01,semua,wind_speed_ms,0.0026,0.7354,16640,Perkotaan,Sumatera
+MDN-01,non_kabut,temperature_c,0.654,0.0,16640,Perkotaan,Sumatera
+MDN-01,non_kabut,humidity_pct,-0.6377,0.0,16640,Perkotaan,Sumatera
+MDN-01,non_kabut,wind_speed_ms,0.0026,0.7354,16640,Perkotaan,Sumatera
+MER-01,semua,temperature_c,0.5449,0.0,4891,Latar Bersih,Papua
+MER-01,semua,humidity_pct,-0.5465,0.0,4891,Latar Bersih,Papua
+MER-01,semua,wind_speed_ms,0.3375,0.0,4891,Latar Bersih,Papua
+MER-01,non_kabut,temperature_c,0.5449,0.0,4891,Latar Bersih,Papua
+MER-01,non_kabut,humidity_pct,-0.5465,0.0,4891,Latar Bersih,Papua
+MER-01,non_kabut,wind_speed_ms,0.3375,0.0,4891,Latar Bersih,Papua
+MLG-01,semua,temperature_c,-0.1817,0.0,24291,Perkotaan,Jawa
+MLG-01,semua,humidity_pct,0.0239,0.0002,24291,Perkotaan,Jawa
+MLG-01,semua,wind_speed_ms,0.1404,0.0,24291,Perkotaan,Jawa
+MLG-01,non_kabut,temperature_c,-0.1817,0.0,24291,Perkotaan,Jawa
+MLG-01,non_kabut,humidity_pct,0.0239,0.0002,24291,Perkotaan,Jawa
+MLG-01,non_kabut,wind_speed_ms,0.1404,0.0,24291,Perkotaan,Jawa
+MRS-01,semua,temperature_c,-0.1852,0.0,24265,Industri,Sulawesi
+MRS-01,semua,humidity_pct,0.0227,0.0004,24265,Industri,Sulawesi
+MRS-01,semua,wind_speed_ms,0.144,0.0,24265,Industri,Sulawesi
+MRS-01,non_kabut,temperature_c,-0.1852,0.0,24265,Industri,Sulawesi
+MRS-01,non_kabut,humidity_pct,0.0227,0.0004,24265,Industri,Sulawesi
+MRS-01,non_kabut,wind_speed_ms,0.144,0.0,24265,Industri,Sulawesi
+PKN-01,semua,temperature_c,-0.1116,0.0,24286,Gambut / Karhutla,Kalimantan
+PKN-01,semua,humidity_pct,0.0117,0.0693,24286,Gambut / Karhutla,Kalimantan
+PKN-01,semua,wind_speed_ms,0.082,0.0,24286,Gambut / Karhutla,Kalimantan
+PKN-01,non_kabut,temperature_c,-0.1894,0.0,18131,Gambut / Karhutla,Kalimantan
+PKN-01,non_kabut,humidity_pct,0.0214,0.004,18131,Gambut / Karhutla,Kalimantan
+PKN-01,non_kabut,wind_speed_ms,0.1423,0.0,18131,Gambut / Karhutla,Kalimantan
+PKU-01,semua,temperature_c,-0.1191,0.0,24300,Gambut / Karhutla,Sumatera
+PKU-01,semua,humidity_pct,0.0144,0.0248,24300,Gambut / Karhutla,Sumatera
+PKU-01,semua,wind_speed_ms,0.0952,0.0,24300,Gambut / Karhutla,Sumatera
+PKU-01,non_kabut,temperature_c,-0.1988,0.0,18115,Gambut / Karhutla,Sumatera
+PKU-01,non_kabut,humidity_pct,0.0238,0.0014,18115,Gambut / Karhutla,Sumatera
+PKU-01,non_kabut,wind_speed_ms,0.1541,0.0,18115,Gambut / Karhutla,Sumatera
+PLB-01,semua,temperature_c,-0.1814,0.0,18452,Gambut / Karhutla,Sumatera
+PLB-01,semua,humidity_pct,0.1022,0.0,18452,Gambut / Karhutla,Sumatera
+PLB-01,semua,wind_speed_ms,0.0024,0.7477,18452,Gambut / Karhutla,Sumatera
+PLB-01,non_kabut,temperature_c,-0.221,0.0,16621,Gambut / Karhutla,Sumatera
+PLB-01,non_kabut,humidity_pct,0.1247,0.0,16621,Gambut / Karhutla,Sumatera
+PLB-01,non_kabut,wind_speed_ms,0.0011,0.8827,16621,Gambut / Karhutla,Sumatera
+PLU-01,semua,temperature_c,-0.1563,0.0,24290,Latar Bersih,Sulawesi
+PLU-01,semua,humidity_pct,0.0115,0.0726,24290,Latar Bersih,Sulawesi
+PLU-01,semua,wind_speed_ms,0.1261,0.0,24290,Latar Bersih,Sulawesi
+PLU-01,non_kabut,temperature_c,-0.1563,0.0,24290,Latar Bersih,Sulawesi
+PLU-01,non_kabut,humidity_pct,0.0115,0.0726,24290,Latar Bersih,Sulawesi
+PLU-01,non_kabut,wind_speed_ms,0.1261,0.0,24290,Latar Bersih,Sulawesi
+PSW-01,semua,temperature_c,-0.1485,0.0,24294,Perkotaan,Sumatera
+PSW-01,semua,humidity_pct,0.0646,0.0,24294,Perkotaan,Sumatera
+PSW-01,semua,wind_speed_ms,0.0078,0.2247,24294,Perkotaan,Sumatera
+PSW-01,non_kabut,temperature_c,-0.2185,0.0,18738,Perkotaan,Sumatera
+PSW-01,non_kabut,humidity_pct,0.0953,0.0,18738,Perkotaan,Sumatera
+PSW-01,non_kabut,wind_speed_ms,-0.0061,0.4071,18738,Perkotaan,Sumatera
+SM2-01,semua,temperature_c,0.243,0.0,20767,Industri,Kalimantan
+SM2-01,semua,humidity_pct,-0.2328,0.0,20767,Industri,Kalimantan
+SM2-01,semua,wind_speed_ms,0.0037,0.5925,20767,Industri,Kalimantan
+SM2-01,non_kabut,temperature_c,0.2672,0.0,19736,Industri,Kalimantan
+SM2-01,non_kabut,humidity_pct,-0.256,0.0,19736,Industri,Kalimantan
+SM2-01,non_kabut,wind_speed_ms,0.007,0.3263,19736,Industri,Kalimantan
+SRG-01,semua,temperature_c,-0.1675,0.0,24277,Latar Bersih,Papua
+SRG-01,semua,humidity_pct,0.0139,0.0307,24277,Latar Bersih,Papua
+SRG-01,semua,wind_speed_ms,0.1292,0.0,24277,Latar Bersih,Papua
+SRG-01,non_kabut,temperature_c,-0.1675,0.0,24277,Latar Bersih,Papua
+SRG-01,non_kabut,humidity_pct,0.0139,0.0307,24277,Latar Bersih,Papua
+SRG-01,non_kabut,wind_speed_ms,0.1292,0.0,24277,Latar Bersih,Papua
+STG-01,semua,temperature_c,-0.1121,0.0,24299,Gambut / Karhutla,Kalimantan
+STG-01,semua,humidity_pct,0.0143,0.0256,24299,Gambut / Karhutla,Kalimantan
+STG-01,semua,wind_speed_ms,0.0885,0.0,24299,Gambut / Karhutla,Kalimantan
+STG-01,non_kabut,temperature_c,-0.1762,0.0,18844,Gambut / Karhutla,Kalimantan
+STG-01,non_kabut,humidity_pct,0.0208,0.0043,18844,Gambut / Karhutla,Kalimantan
+STG-01,non_kabut,wind_speed_ms,0.1392,0.0,18844,Gambut / Karhutla,Kalimantan
+YKY-01,semua,temperature_c,-0.0395,0.0,24291,Perkotaan,Jawa
+YKY-01,semua,humidity_pct,0.0923,0.0,24291,Perkotaan,Jawa
+YKY-01,semua,wind_speed_ms,0.1244,0.0,24291,Perkotaan,Jawa
+YKY-01,non_kabut,temperature_c,-0.0395,0.0,24291,Perkotaan,Jawa
+YKY-01,non_kabut,humidity_pct,0.0923,0.0,24291,Perkotaan,Jawa
+YKY-01,non_kabut,wind_speed_ms,0.1244,0.0,24291,Perkotaan,Jawa

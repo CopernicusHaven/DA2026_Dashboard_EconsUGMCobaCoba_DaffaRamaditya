@@ -1,0 +1,17 @@
+outcome,model,RR_per10,RR_low,RR_high
+ISPA balita (<5 th),"utama: rentang ≤150,4 (df waktu 12)",1.1353,1.1329,1.1378
+ISPA balita (<5 th),"rentang ≤150,4, df waktu 6",1.1383,1.1361,1.1406
+ISPA balita (<5 th),"rentang ≤250,4",1.1272,1.1249,1.1295
+ISPA balita (<5 th),seluruh rentang (termasuk kabut ekstrem),1.022,1.0214,1.0227
+ISPA lansia (>60 th),"utama: rentang ≤150,4 (df waktu 12)",1.1306,1.1284,1.1329
+ISPA lansia (>60 th),"rentang ≤150,4, df waktu 6",1.1332,1.1312,1.1353
+ISPA lansia (>60 th),"rentang ≤250,4",1.1225,1.1204,1.1246
+ISPA lansia (>60 th),seluruh rentang (termasuk kabut ekstrem),1.0229,1.0223,1.0236
+Pernapasan umum (semua umur),"utama: rentang ≤150,4 (df waktu 12)",1.1086,1.1071,1.1101
+Pernapasan umum (semua umur),"rentang ≤150,4, df waktu 6",1.1098,1.1084,1.1112
+Pernapasan umum (semua umur),"rentang ≤250,4",1.1039,1.1025,1.1053
+Pernapasan umum (semua umur),seluruh rentang (termasuk kabut ekstrem),1.0209,1.0204,1.0213
+Kematian,"utama: rentang ≤150,4 (df waktu 12)",1.065,1.0605,1.0694
+Kematian,"rentang ≤150,4, df waktu 6",1.0645,1.0604,1.0686
+Kematian,"rentang ≤250,4",1.0629,1.0587,1.067
+Kematian,seluruh rentang (termasuk kabut ekstrem),1.0304,1.0294,1.0313

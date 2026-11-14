@@ -1,0 +1,11 @@
+faktor,importance,share_pct
+Musim (bulan),0.65,41.684
+Tipe lokasi,0.334,21.417
+Pulau,0.157,10.074
+Intensitas lalu lintas,0.133,8.548
+Jarak ke jalan raya,0.124,7.951
+Kelembapan,0.06,3.824
+Suhu,0.056,3.581
+Kecepatan angin,0.026,1.656
+Arah angin,0.02,1.262
+Hari dalam minggu,0.0,0.002

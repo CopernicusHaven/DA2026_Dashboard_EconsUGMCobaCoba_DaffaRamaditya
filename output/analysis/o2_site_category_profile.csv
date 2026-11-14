@@ -1,0 +1,6 @@
+site_category,n_stasiun,stasiun,pm25,pm10,no2,co,so2,o3,pct_hari_lewat_bm24jam_pm25,rasio_puncak_vs_terendah_harian,kemarau_vs_hujan_pm25_pct,hari_kabut_asap_per_stasiun,akhir_pekan_vs_hari_kerja_no2_pct
+Perkotaan,7,"BGL-01, JKT-01, KTG-01, MDN-01, MLG-01, PSW-01, YKY-01",45.63,65.79,29.04,699.66,10.26,22.97,16.063192152347465,1.8,85.51,66.71,-0.2
+Tepi Jalan (Lalu Lintas),2,"BGR-02, JKT-03",36.65,57.3,40.01,1200.89,14.76,31.81,17.288801571709232,1.29,3.82,0.0,-0.08
+Industri,4,"BTM-01, JKT-02, MRS-01, SM2-01",55.83,87.59,31.63,794.11,14.55,21.28,34.79760548773185,1.58,66.24,75.5,-0.07
+Gambut / Karhutla,7,"BJB-01, JMB-01, KTG-02, PKN-01, PKU-01, PLB-01, STG-01",51.34,70.64,22.13,486.6,7.93,17.24,25.489983097388876,1.68,176.9,221.0,-0.3
+Latar Bersih,6,"BGR-01, IDP-01, KTB-01, MER-01, PLU-01, SRG-01",14.49,22.21,17.41,354.66,6.51,18.68,0.09823182711198429,2.09,54.22,1.0,-0.08

@@ -1,0 +1,28 @@
+hospital_id,nama_rumah_sakit,station,exposure_station,island,provinsi,kelas_faskes,kapasitas_tempat_tidur,pm25_mean,resp_u5_daily,resp_o60_daily,resp_daily,cvd_daily,death_daily,resp_per100beds
+RS-XXX-01,RSUD XXX Gambir,JKT-01,JKT-01,Jawa,DKI Jakarta,Tipe B,300.0,48.09,13.39,16.88,53.03,9.66,3.57,17.68
+RS-XXX-02,RSUD XXX Cilincing,JKT-02,JKT-02,Jawa,DKI Jakarta,Tipe B,250.0,60.06,14.16,17.65,56.11,10.27,3.81,22.45
+RS-XXX-03,RSUD XXX Cengkareng,JKT-03,JKT-03,Jawa,DKI Jakarta,Tipe B,280.0,54.06,13.58,17.26,54.45,9.98,3.72,19.45
+RS-XXX-04,RSUD XXX Jekan Raya,KTG-01,KTG-01,Kalimantan,Kalimantan Tengah,Tipe B,220.0,60.99,9.76,10.98,42.77,7.35,2.36,19.44
+RS-XXX-05,RSUD XXX Mentawa Baru,KTG-02,KTG-02,Kalimantan,Kalimantan Tengah,Tipe C,150.0,61.06,9.57,10.99,42.3,7.6,2.38,28.2
+RS-XXX-06,RS Paru XXX Cisarua,BGR-01,BGR-01,Jawa,Jawa Barat,Tipe A (Khusus Paru),200.0,13.23,2.78,3.83,21.4,3.08,1.04,10.7
+RS-XXX-07,RSUD XXX Bogor Tengah,BGR-02,BGR-02,Jawa,Jawa Barat,Tipe B,260.0,19.24,2.89,3.86,21.74,3.1,1.04,8.36
+RS-XXX-08,RSUD XXX Sleman,YKY-01,YKY-01,Jawa,D.I. Yogyakarta,Tipe B,250.0,39.74,8.05,9.67,29.96,10.26,2.05,11.98
+RS-XXX-09,RSUD XXX Indrapuri,IDP-01,IDP-01,Sumatera,Aceh,Tipe C,120.0,9.34,1.8,2.47,8.25,3.99,1.0,6.88
+RS-XXX-10,RSUD XXX Agam,KTB-01,KTB-01,Sumatera,Sumatera Barat,Tipe B,180.0,18.65,4.71,5.77,19.34,7.19,1.57,10.75
+RS-XXX-11,RSUD XXX Pekanbaru,PKU-01,PKU-01,Sumatera,Riau,Tipe B,180.0,47.09,7.97,9.4,28.04,7.86,1.85,15.58
+RS-XXX-12,RSUD XXX Kota Jambi,JMB-01,JMB-01,Sumatera,Jambi,Tipe B,180.0,44.46,7.56,8.99,27.11,7.81,1.79,15.06
+RS-XXX-13,RSUD XXX Batam,BTM-01,BTM-01,Sumatera,Kepulauan Riau,Tipe B,180.0,47.57,8.06,9.49,28.43,7.89,1.83,15.79
+RS-XXX-14,RSUD XXX Bengkulu,BGL-01,BGL-01,Sumatera,Bengkulu,Tipe B,180.0,25.57,4.49,5.56,18.98,7.11,1.54,10.55
+RS-XXX-15,RSUD XXX Sorong,SRG-01,SRG-01,Papua,Papua Barat Daya,Tipe B,180.0,18.38,4.04,5.01,17.53,6.98,1.49,9.74
+RS-XXX-16,RSUD XXX Malang,MLG-01,MLG-01,Jawa,Jawa Timur,Tipe B,180.0,30.69,5.09,6.34,20.55,7.27,1.62,11.42
+RS-XXX-17,RSUD XXX Maros,MRS-01,MRS-01,Sulawesi,Sulawesi Selatan,Tipe B,180.0,36.83,6.1,7.45,23.33,7.47,1.67,12.96
+RS-XXX-18,RSUD XXX Poso,PLU-01,PLU-01,Sulawesi,Sulawesi Tengah,Tipe B,180.0,11.26,4.1,5.0,17.55,6.92,1.53,9.75
+RS-XXX-19,RSUD XXX Sintang,STG-01,STG-01,Kalimantan,Kalimantan Barat,Tipe B,180.0,38.24,7.05,8.44,25.76,7.68,1.79,14.31
+RS-XXX-20,RSUD XXX Pangkalan Bun,PKN-01,PKN-01,Kalimantan,Kalimantan Tengah,Tipe B,180.0,45.28,8.14,9.62,28.55,7.93,1.83,15.86
+RS-XXX-21,RSUD XXX Palembang,PLB-01,PLB-01,Sumatera,Sumatera Selatan,Tipe B,220.0,63.07,12.51,14.83,42.53,11.06,2.8,19.33
+RS-XXX-22,RSUD XXX Pesawaran,PSW-01,PSW-01,Sumatera,Lampung,Tipe C,160.0,60.09,10.1,12.14,35.01,9.48,2.19,21.88
+RS-XXX-23,RSUD XXX Merauke,MER-01,MER-01,Papua,Papua Selatan,Tipe C,150.0,15.4,2.95,2.91,14.1,4.92,1.0,9.4
+RS-XXX-24,RSUP XXX Medan,MDN-01,MDN-01,Sumatera,Sumatera Utara,Tipe A,720.0,54.1,4.66,5.54,14.58,11.06,3.18,2.02
+RS-XXX-25,RSUD XXX Samarinda,SM2-01,SM2-01,Kalimantan,Kalimantan Timur,Tipe A,600.0,59.78,4.47,5.28,13.93,9.52,2.39,2.32
+RS-XXX-26,RSUD XXX Banjarbaru,BJB-01,BJB-01,Kalimantan,Kalimantan Selatan,Tipe B,300.0,58.32,3.36,3.97,10.49,6.6,1.91,3.5
+RS-XXX-27,RSUD XXX Muaro Jambi,JMB-02,JMB-02,Sumatera,Jambi,Tipe C,120.0,,1.53,1.77,4.41,2.98,0.72,3.68

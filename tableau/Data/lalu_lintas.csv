@@ -1,0 +1,26 @@
+stasiun,pm25,no2,co,pm10,traffic_intensity_per_h,distance_to_road_m,tipe_lokasi,pulau
+BGL-01,20.82,19.8,350.05,31.12,950.0,60.0,Perkotaan,Sumatera
+BGR-01,13.24,20.0,565.21,20.71,350.0,120.0,Latar bersih,Jawa
+BGR-02,19.22,20.04,564.41,30.07,2400.0,10.0,Tepi jalan,Jawa
+BJB-01,43.08,31.3,563.42,62.44,1400.0,45.0,Gambut / karhutla,Kalimantan
+BTM-01,31.65,19.76,349.69,47.32,2200.0,25.0,Industri,Sumatera
+IDP-01,8.49,10.98,160.35,14.21,200.0,150.0,Latar bersih,Sumatera
+JKT-01,46.06,56.1,1588.24,72.03,1850.0,45.0,Perkotaan,Jawa
+JKT-02,57.96,61.97,1739.13,90.64,1400.0,25.0,Industri,Jawa
+JKT-03,52.01,60.0,1836.9,81.32,3200.0,6.0,Tepi jalan,Jawa
+JMB-01,26.65,19.8,350.2,39.85,1600.0,40.0,Gambut / karhutla,Sumatera
+KTB-01,9.99,19.79,350.07,14.93,150.0,200.0,Latar bersih,Sumatera
+KTG-01,21.96,21.93,672.71,27.14,450.0,60.0,Perkotaan,Kalimantan
+KTG-02,21.97,22.02,672.88,27.16,850.0,30.0,Gambut / karhutla,Kalimantan
+MDN-01,48.36,37.64,697.43,72.5,2850.0,35.0,Perkotaan,Sumatera
+MLG-01,24.96,19.8,349.7,37.35,1400.0,45.0,Perkotaan,Jawa
+MRS-01,29.98,19.79,350.09,44.84,1900.0,30.0,Industri,Sulawesi
+PKN-01,20.01,19.79,349.92,29.92,700.0,35.0,Gambut / karhutla,Kalimantan
+PKU-01,29.12,19.8,349.95,43.58,1800.0,35.0,Gambut / karhutla,Sumatera
+PLB-01,36.15,22.42,449.77,51.74,1950.0,30.0,Gambut / karhutla,Sumatera
+PLU-01,9.19,19.82,350.17,13.75,50.0,250.0,Latar bersih,Sulawesi
+PSW-01,41.74,20.69,444.35,59.71,1850.0,35.0,Perkotaan,Sumatera
+SM2-01,41.4,24.94,682.48,71.43,1650.0,40.0,Industri,Kalimantan
+SRG-01,14.93,19.81,350.19,22.31,600.0,80.0,Latar bersih,Papua
+STG-01,18.32,19.82,349.87,27.41,450.0,50.0,Gambut / karhutla,Kalimantan
+YKY-01,30.32,27.28,551.85,44.63,1600.0,40.0,Perkotaan,Jawa

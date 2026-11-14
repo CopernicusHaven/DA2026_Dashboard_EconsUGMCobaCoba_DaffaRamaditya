@@ -1,0 +1,136 @@
+stasiun,pulau,tipe_lokasi,dipakai,komponen,urutan,nilai,skor_prioritas
+JKT-01,Jawa,Perkotaan,1,Polusi (25%),1,13.95,31.846
+JKT-01,Jawa,Perkotaan,1,Kabut asap (20%),2,0.0,31.846
+JKT-01,Jawa,Perkotaan,1,Beban kesehatan (20%),3,11.96,31.846
+JKT-01,Jawa,Perkotaan,1,Defisit data (20%),4,0.8,31.846
+JKT-01,Jawa,Perkotaan,1,Keterisolasian (15%),5,5.145,31.846
+JKT-02,Jawa,Industri,1,Polusi (25%),1,18.25,40.691
+JKT-02,Jawa,Industri,1,Kabut asap (20%),2,0.0,40.691
+JKT-02,Jawa,Industri,1,Beban kesehatan (20%),3,15.6,40.691
+JKT-02,Jawa,Industri,1,Defisit data (20%),4,0.78,40.691
+JKT-02,Jawa,Industri,1,Keterisolasian (15%),5,6.06,40.691
+JKT-03,Jawa,Tepi jalan,1,Polusi (25%),1,16.075,35.325
+JKT-03,Jawa,Tepi jalan,1,Kabut asap (20%),2,0.0,35.325
+JKT-03,Jawa,Tepi jalan,1,Beban kesehatan (20%),3,13.32,35.325
+JKT-03,Jawa,Tepi jalan,1,Defisit data (20%),4,0.78,35.325
+JKT-03,Jawa,Tepi jalan,1,Keterisolasian (15%),5,5.145,35.325
+KTG-01,Kalimantan,Perkotaan,1,Polusi (25%),1,18.675,60.753
+KTG-01,Kalimantan,Perkotaan,1,Kabut asap (20%),2,18.06,60.753
+KTG-01,Kalimantan,Perkotaan,1,Beban kesehatan (20%),3,13.3,60.753
+KTG-01,Kalimantan,Perkotaan,1,Defisit data (20%),4,0.76,60.753
+KTG-01,Kalimantan,Perkotaan,1,Keterisolasian (15%),5,9.945,60.753
+KTG-02,Kalimantan,Gambut / karhutla,1,Polusi (25%),1,18.525,68.135
+KTG-02,Kalimantan,Gambut / karhutla,1,Kabut asap (20%),2,18.92,68.135
+KTG-02,Kalimantan,Gambut / karhutla,1,Beban kesehatan (20%),3,20.0,68.135
+KTG-02,Kalimantan,Gambut / karhutla,1,Defisit data (20%),4,0.74,68.135
+KTG-02,Kalimantan,Gambut / karhutla,1,Keterisolasian (15%),5,9.945,68.135
+BGR-01,Jawa,Latar bersih,1,Polusi (25%),1,1.4,14.852
+BGR-01,Jawa,Latar bersih,1,Kabut asap (20%),2,0.0,14.852
+BGR-01,Jawa,Latar bersih,1,Beban kesehatan (20%),3,6.62,14.852
+BGR-01,Jawa,Latar bersih,1,Defisit data (20%),4,0.6,14.852
+BGR-01,Jawa,Latar bersih,1,Keterisolasian (15%),5,6.225,14.852
+BGR-02,Jawa,Tepi jalan,1,Polusi (25%),1,3.55,15.229
+BGR-02,Jawa,Tepi jalan,1,Kabut asap (20%),2,0.0,15.229
+BGR-02,Jawa,Tepi jalan,1,Beban kesehatan (20%),3,4.84,15.229
+BGR-02,Jawa,Tepi jalan,1,Defisit data (20%),4,0.6,15.229
+BGR-02,Jawa,Tepi jalan,1,Keterisolasian (15%),5,6.225,15.229
+YKY-01,Jawa,Perkotaan,1,Polusi (25%),1,10.925,30.243
+YKY-01,Jawa,Perkotaan,1,Kabut asap (20%),2,0.0,30.243
+YKY-01,Jawa,Perkotaan,1,Beban kesehatan (20%),3,7.6,30.243
+YKY-01,Jawa,Perkotaan,1,Defisit data (20%),4,0.12,30.243
+YKY-01,Jawa,Perkotaan,1,Keterisolasian (15%),5,11.58,30.243
+IDP-01,Sumatera,Latar bersih,1,Polusi (25%),1,0.0,16.489
+IDP-01,Sumatera,Latar bersih,1,Kabut asap (20%),2,0.0,16.489
+IDP-01,Sumatera,Latar bersih,1,Beban kesehatan (20%),3,3.7,16.489
+IDP-01,Sumatera,Latar bersih,1,Defisit data (20%),4,0.1,16.489
+IDP-01,Sumatera,Latar bersih,1,Keterisolasian (15%),5,12.675,16.489
+KTB-01,Sumatera,Latar bersih,1,Polusi (25%),1,3.35,21.051
+KTB-01,Sumatera,Latar bersih,1,Kabut asap (20%),2,0.46,21.051
+KTB-01,Sumatera,Latar bersih,1,Beban kesehatan (20%),3,6.66,21.051
+KTB-01,Sumatera,Latar bersih,1,Defisit data (20%),4,0.1,21.051
+KTB-01,Sumatera,Latar bersih,1,Keterisolasian (15%),5,10.47,21.051
+PKU-01,Sumatera,Gambut / karhutla,1,Polusi (25%),1,13.575,54.508
+PKU-01,Sumatera,Gambut / karhutla,1,Kabut asap (20%),2,20.0,54.508
+PKU-01,Sumatera,Gambut / karhutla,1,Beban kesehatan (20%),3,10.36,54.508
+PKU-01,Sumatera,Gambut / karhutla,1,Defisit data (20%),4,0.1,54.508
+PKU-01,Sumatera,Gambut / karhutla,1,Keterisolasian (15%),5,10.47,54.508
+JMB-01,Sumatera,Gambut / karhutla,1,Polusi (25%),1,12.625,42.577
+JMB-01,Sumatera,Gambut / karhutla,1,Kabut asap (20%),2,19.84,42.577
+JMB-01,Sumatera,Gambut / karhutla,1,Beban kesehatan (20%),3,9.96,42.577
+JMB-01,Sumatera,Gambut / karhutla,1,Defisit data (20%),4,0.14,42.577
+JMB-01,Sumatera,Gambut / karhutla,1,Keterisolasian (15%),5,0.0,42.577
+BTM-01,Sumatera,Industri,1,Polusi (25%),1,13.75,55.699
+BTM-01,Sumatera,Industri,1,Kabut asap (20%),2,19.3,55.699
+BTM-01,Sumatera,Industri,1,Beban kesehatan (20%),3,10.52,55.699
+BTM-01,Sumatera,Industri,1,Defisit data (20%),4,0.12,55.699
+BTM-01,Sumatera,Industri,1,Keterisolasian (15%),5,12.0,55.699
+BGL-01,Sumatera,Perkotaan,1,Polusi (25%),1,5.85,24.307
+BGL-01,Sumatera,Perkotaan,1,Kabut asap (20%),2,0.0,24.307
+BGL-01,Sumatera,Perkotaan,1,Beban kesehatan (20%),3,6.52,24.307
+BGL-01,Sumatera,Perkotaan,1,Defisit data (20%),4,0.1,24.307
+BGL-01,Sumatera,Perkotaan,1,Keterisolasian (15%),5,11.865,24.307
+SRG-01,Papua,Latar bersih,1,Polusi (25%),1,3.25,24.135
+SRG-01,Papua,Latar bersih,1,Kabut asap (20%),2,0.0,24.135
+SRG-01,Papua,Latar bersih,1,Beban kesehatan (20%),3,5.9,24.135
+SRG-01,Papua,Latar bersih,1,Defisit data (20%),4,0.12,24.135
+SRG-01,Papua,Latar bersih,1,Keterisolasian (15%),5,14.865,24.135
+MLG-01,Jawa,Perkotaan,1,Polusi (25%),1,7.675,26.554
+MLG-01,Jawa,Perkotaan,1,Kabut asap (20%),2,0.0,26.554
+MLG-01,Jawa,Perkotaan,1,Beban kesehatan (20%),3,7.18,26.554
+MLG-01,Jawa,Perkotaan,1,Defisit data (20%),4,0.12,26.554
+MLG-01,Jawa,Perkotaan,1,Keterisolasian (15%),5,11.58,26.554
+MRS-01,Sulawesi,Industri,1,Polusi (25%),1,9.9,30.828
+MRS-01,Sulawesi,Industri,1,Kabut asap (20%),2,0.0,30.828
+MRS-01,Sulawesi,Industri,1,Beban kesehatan (20%),3,8.36,30.828
+MRS-01,Sulawesi,Industri,1,Defisit data (20%),4,0.14,30.828
+MRS-01,Sulawesi,Industri,1,Keterisolasian (15%),5,12.45,30.828
+PLU-01,Sulawesi,Latar bersih,1,Polusi (25%),1,0.7,19.058
+PLU-01,Sulawesi,Latar bersih,1,Kabut asap (20%),2,0.0,19.058
+PLU-01,Sulawesi,Latar bersih,1,Beban kesehatan (20%),3,5.9,19.058
+PLU-01,Sulawesi,Latar bersih,1,Defisit data (20%),4,0.12,19.058
+PLU-01,Sulawesi,Latar bersih,1,Keterisolasian (15%),5,12.345,19.058
+STG-01,Kalimantan,Gambut / karhutla,1,Polusi (25%),1,10.375,49.583
+STG-01,Kalimantan,Gambut / karhutla,1,Kabut asap (20%),2,17.68,49.583
+STG-01,Kalimantan,Gambut / karhutla,1,Beban kesehatan (20%),3,9.38,49.583
+STG-01,Kalimantan,Gambut / karhutla,1,Defisit data (20%),4,0.1,49.583
+STG-01,Kalimantan,Gambut / karhutla,1,Keterisolasian (15%),5,12.03,49.583
+PKN-01,Kalimantan,Gambut / karhutla,1,Polusi (25%),1,12.925,53.998
+PKN-01,Kalimantan,Gambut / karhutla,1,Kabut asap (20%),2,19.92,53.998
+PKN-01,Kalimantan,Gambut / karhutla,1,Beban kesehatan (20%),3,10.58,53.998
+PKN-01,Kalimantan,Gambut / karhutla,1,Defisit data (20%),4,0.12,53.998
+PKN-01,Kalimantan,Gambut / karhutla,1,Keterisolasian (15%),5,10.455,53.998
+PLB-01,Sumatera,Gambut / karhutla,1,Polusi (25%),1,20.1,56.554
+PLB-01,Sumatera,Gambut / karhutla,1,Kabut asap (20%),2,7.34,56.554
+PLB-01,Sumatera,Gambut / karhutla,1,Beban kesehatan (20%),3,13.22,56.554
+PLB-01,Sumatera,Gambut / karhutla,1,Defisit data (20%),4,4.9,56.554
+PLB-01,Sumatera,Gambut / karhutla,1,Keterisolasian (15%),5,10.995,56.554
+PSW-01,Sumatera,Perkotaan,1,Polusi (25%),1,18.25,62.713
+PSW-01,Sumatera,Perkotaan,1,Kabut asap (20%),2,18.0,62.713
+PSW-01,Sumatera,Perkotaan,1,Beban kesehatan (20%),3,15.18,62.713
+PSW-01,Sumatera,Perkotaan,1,Defisit data (20%),4,0.12,62.713
+PSW-01,Sumatera,Perkotaan,1,Keterisolasian (15%),5,11.175,62.713
+MER-01,Papua,Latar bersih,1,Polusi (25%),1,3.0312,48.823
+MER-01,Papua,Latar bersih,1,Kabut asap (20%),2,,48.823
+MER-01,Papua,Latar bersih,1,Beban kesehatan (20%),3,7.05,48.823
+MER-01,Papua,Latar bersih,1,Defisit data (20%),4,20.0,48.823
+MER-01,Papua,Latar bersih,1,Keterisolasian (15%),5,18.75,48.823
+MDN-01,Sumatera,Perkotaan,1,Polusi (25%),1,20.0938,43.908
+MDN-01,Sumatera,Perkotaan,1,Kabut asap (20%),2,,43.908
+MDN-01,Sumatera,Perkotaan,1,Beban kesehatan (20%),3,0.0,43.908
+MDN-01,Sumatera,Perkotaan,1,Defisit data (20%),4,7.975,43.908
+MDN-01,Sumatera,Perkotaan,1,Keterisolasian (15%),5,15.8437,43.908
+SM2-01,Kalimantan,Industri,1,Polusi (25%),1,25.0,44.588
+SM2-01,Kalimantan,Industri,1,Kabut asap (20%),2,4.02,44.588
+SM2-01,Kalimantan,Industri,1,Beban kesehatan (20%),3,0.22,44.588
+SM2-01,Kalimantan,Industri,1,Defisit data (20%),4,3.0,44.588
+SM2-01,Kalimantan,Industri,1,Keterisolasian (15%),5,12.345,44.588
+BJB-01,Kalimantan,Gambut / karhutla,1,Polusi (25%),1,17.625,51.36
+BJB-01,Kalimantan,Gambut / karhutla,1,Kabut asap (20%),2,15.76,51.36
+BJB-01,Kalimantan,Gambut / karhutla,1,Beban kesehatan (20%),3,1.12,51.36
+BJB-01,Kalimantan,Gambut / karhutla,1,Defisit data (20%),4,6.0,51.36
+BJB-01,Kalimantan,Gambut / karhutla,1,Keterisolasian (15%),5,10.86,51.36
+JMB-02,Sumatera,Gambut / karhutla,0,Polusi (25%),1,,38.475
+JMB-02,Sumatera,Gambut / karhutla,0,Kabut asap (20%),2,,38.475
+JMB-02,Sumatera,Gambut / karhutla,0,Beban kesehatan (20%),3,2.2909,38.475
+JMB-02,Sumatera,Gambut / karhutla,0,Defisit data (20%),4,36.1818,38.475
+JMB-02,Sumatera,Gambut / karhutla,0,Keterisolasian (15%),5,0.0,38.475

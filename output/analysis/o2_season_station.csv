@@ -1,0 +1,27 @@
+station,Hujan (Nov-Apr),Kemarau (Mei-Okt),dry_vs_wet_pct,peak_month,peak_month_pm25,site_category,island
+BGL-01,20.82,29.86,43.45,8,33.09,Perkotaan,Sumatera
+BGR-01,13.24,13.23,-0.13,3,13.29,Latar Bersih,Jawa
+BGR-02,19.22,19.25,0.13,7,19.32,Tepi Jalan (Lalu Lintas),Jawa
+BJB-01,43.08,69.55,61.46,9,96.4,Gambut / Karhutla,Kalimantan
+BTM-01,31.65,61.95,95.76,9,85.22,Industri,Sumatera
+IDP-01,8.49,10.11,19.1,6,11.06,Latar Bersih,Sumatera
+JKT-01,46.06,49.92,8.37,7,52.0,Perkotaan,Jawa
+JKT-02,57.96,61.97,6.92,7,64.05,Industri,Jawa
+JKT-03,52.01,55.92,7.52,10,58.06,Tepi Jalan (Lalu Lintas),Jawa
+JMB-01,26.65,60.55,127.23,9,89.74,Gambut / Karhutla,Sumatera
+KTB-01,9.99,26.48,165.2,10,42.19,Latar Bersih,Sumatera
+KTG-01,21.96,96.22,338.14,10,234.87,Perkotaan,Kalimantan
+KTG-02,21.97,96.34,338.45,10,234.77,Gambut / Karhutla,Kalimantan
+MDN-01,48.36,59.07,22.15,6,64.14,Perkotaan,Sumatera
+MER-01,,15.4,,6,15.83,Latar Bersih,Papua
+MLG-01,24.96,35.85,43.63,9,39.67,Perkotaan,Jawa
+MRS-01,29.98,43.01,43.46,8,47.63,Industri,Sulawesi
+PKN-01,20.01,68.09,240.2,10,119.88,Gambut / Karhutla,Kalimantan
+PKU-01,29.12,63.31,117.42,9,91.97,Gambut / Karhutla,Sumatera
+PLB-01,36.15,89.15,146.61,8,141.05,Gambut / Karhutla,Sumatera
+PLU-01,9.19,13.13,42.91,9,14.5,Latar Bersih,Sulawesi
+PSW-01,41.74,76.66,83.67,9,100.25,Perkotaan,Sumatera
+SM2-01,41.4,90.6,118.82,10,205.74,Industri,Kalimantan
+SRG-01,14.93,21.49,44.0,8,23.79,Latar Bersih,Papua
+STG-01,18.32,56.23,206.91,9,91.02,Gambut / Karhutla,Kalimantan
+YKY-01,30.32,48.25,59.15,8,53.5,Perkotaan,Jawa

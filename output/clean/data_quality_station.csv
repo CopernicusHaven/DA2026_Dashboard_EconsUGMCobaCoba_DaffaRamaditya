@@ -1,0 +1,28 @@
+station,raw_rows,expected_hours,hours_with_record,hours_valid_pm25,completeness_pm25_pct,completeness_temp_pct,status_operasional,used_in_analysis,note
+BGL-01,24432,24432,24432,24307,99.5,99.5,Active,True,
+BGR-01,24432,24432,24432,23688,97.0,98.0,Active,True,
+BGR-02,24432,24432,24432,23695,97.0,98.0,Active,True,
+BJB-01,24432,24432,24432,17103,70.0,100.0,Active,True,Kelengkapan PM2.5 < 75%: rata-rata tahunan dilaporkan dengan catatan (data tidak representatif penuh)
+BTM-01,24432,24432,24432,24278,99.4,99.4,Active,True,
+IDP-01,24432,24432,24432,24322,99.5,99.5,Active,True,
+JKT-01,24432,24432,24432,23454,96.0,97.5,Active,True,
+JKT-02,24432,24432,24432,23480,96.1,97.5,Active,True,
+JKT-03,24432,24432,24432,23470,96.1,97.6,Active,True,
+JMB-01,24432,24432,24432,24264,99.3,99.3,Active,True,
+JMB-02,24432,24432,24208,121,0.5,0.5,Defective,False,"Sensor DEFECTIVE (status_operasional); hanya 0,5% jam valid; timestamp rusak. Dikeluarkan dari analisis."
+KTB-01,24432,24432,24432,24305,99.5,99.5,Active,True,
+KTG-01,24432,24432,24432,23506,96.2,97.6,Active,True,
+KTG-02,24432,24432,24432,23524,96.3,97.7,Active,True,
+MDN-01,20800,24432,20800,16640,68.1,78.3,Intermittent,True,Kelengkapan PM2.5 < 75%: rata-rata tahunan dilaporkan dengan catatan (data tidak representatif penuh)
+MER-01,24432,24432,24432,4891,20.0,40.0,Intermittent,True,Kelengkapan PM2.5 < 75%: rata-rata tahunan dilaporkan dengan catatan (data tidak representatif penuh)
+MLG-01,24432,24432,24432,24291,99.4,99.4,Active,True,
+MRS-01,24432,24432,24432,24265,99.3,99.3,Active,True,
+PKN-01,24432,24432,24432,24286,99.4,99.4,Active,True,
+PKU-01,24432,24432,24432,24300,99.5,99.5,Active,True,
+PLB-01,36381,24432,24432,18452,75.5,80.3,Intermittent,True,
+PLU-01,24432,24432,24432,24290,99.4,99.4,Active,True,
+PSW-01,24432,24432,24432,24294,99.4,99.4,Active,True,
+SM2-01,24432,24432,24432,20767,85.0,93.0,Active,True,
+SRG-01,24432,24432,24432,24277,99.4,99.4,Active,True,
+STG-01,24432,24432,24432,24299,99.5,99.5,Active,True,
+YKY-01,24432,24432,24432,24291,99.4,99.4,Active,True,

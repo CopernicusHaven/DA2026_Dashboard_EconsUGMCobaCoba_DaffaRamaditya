@@ -1,0 +1,343 @@
+station,rule,column,n_affected,note
+BGL-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:02:10
+BGL-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,125,SUSPECT
+BGL-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,125,SUSPECT
+BGL-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,125,SUSPECT
+BGL-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,125,SUSPECT
+BGL-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,125,SUSPECT
+BGL-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,125,SUSPECT
+BGL-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,125,
+BGL-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,125,
+BGL-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,125,
+BGL-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,125,
+BGR-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,744,"CALIBRATING, SUSPECT"
+BGR-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,744,"CALIBRATING, SUSPECT"
+BGR-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,744,"CALIBRATING, SUSPECT"
+BGR-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,744,"CALIBRATING, SUSPECT"
+BGR-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,744,"CALIBRATING, SUSPECT"
+BGR-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,744,"CALIBRATING, SUSPECT"
+BGR-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,488,
+BGR-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,488,
+BGR-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,488,
+BGR-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,488,
+BGR-02,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,737,"CALIBRATING, SUSPECT"
+BGR-02,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,737,"CALIBRATING, SUSPECT"
+BGR-02,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,737,"CALIBRATING, SUSPECT"
+BGR-02,QC flag bukan VALID -> polutan dibuang,co_ug_m3,737,"CALIBRATING, SUSPECT"
+BGR-02,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,737,"CALIBRATING, SUSPECT"
+BGR-02,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,737,"CALIBRATING, SUSPECT"
+BGR-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,484,
+BGR-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,484,
+BGR-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,484,
+BGR-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,484,
+BJB-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:01:15.420000
+BJB-01,Konversi satuan ppm -> ug/m3 (x1184.9),pm25_ppm,24432,
+BJB-01,Konversi satuan ppm -> ug/m3 (x1184.9),pm10_ppm,24432,
+BJB-01,Konversi satuan ppm -> ug/m3 (x2620.3),so2_ppm,24432,
+BJB-01,Konversi satuan ppm -> ug/m3 (x1145.6),co_ppm,24432,
+BJB-01,Konversi satuan ppm -> ug/m3 (x1963.1),o3_ppm,24432,
+BJB-01,Konversi satuan ppm -> ug/m3 (x1881.6),no2_ppm,24432,
+BJB-01,Flatline >= 6 jam nilai identik (sensor macet) -> NaN,pm25_ug_m3,7329,"nilai: {398.9447: 4886, 4.147: 2443}"
+BJB-01,Flatline >= 6 jam nilai identik (sensor macet) -> NaN,pm10_ug_m3,7329,"nilai: {578.8076: 4886, 6.1613: 2443}"
+BJB-01,Flatline >= 6 jam nilai identik (sensor macet) -> NaN,so2_ug_m3,7329,"nilai: {39.3043: 4886, 2.6203: 2443}"
+BJB-01,Flatline >= 6 jam nilai identik (sensor macet) -> NaN,co_ug_m3,7329,"nilai: {2806.728: 4886, 206.2086: 2443}"
+BJB-01,Flatline >= 6 jam nilai identik (sensor macet) -> NaN,o3_ug_m3,7329,"nilai: {15.7049: 4886, 7.8524: 2443}"
+BJB-01,Flatline >= 6 jam nilai identik (sensor macet) -> NaN,no2_ug_m3,7329,"nilai: {65.8565: 4886, 9.4081: 2443}"
+BTM-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:11:44.900000
+BTM-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,154,SUSPECT
+BTM-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,154,SUSPECT
+BTM-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,154,SUSPECT
+BTM-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,154,SUSPECT
+BTM-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,154,SUSPECT
+BTM-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,154,SUSPECT
+BTM-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,154,
+BTM-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,154,
+BTM-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,154,
+BTM-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,154,
+IDP-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,110,SUSPECT
+IDP-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,110,SUSPECT
+IDP-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,110,SUSPECT
+IDP-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,110,SUSPECT
+IDP-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,110,SUSPECT
+IDP-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,110,SUSPECT
+IDP-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,110,
+IDP-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,110,
+IDP-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,110,
+IDP-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,110,
+JKT-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,978,"CALIBRATING, SUSPECT"
+JKT-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,978,"CALIBRATING, SUSPECT"
+JKT-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,978,"CALIBRATING, SUSPECT"
+JKT-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,978,"CALIBRATING, SUSPECT"
+JKT-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,978,"CALIBRATING, SUSPECT"
+JKT-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,978,"CALIBRATING, SUSPECT"
+JKT-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,611,
+JKT-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,611,
+JKT-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,611,
+JKT-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,611,
+JKT-02,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,952,"CALIBRATING, SUSPECT"
+JKT-02,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,952,"CALIBRATING, SUSPECT"
+JKT-02,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,952,"CALIBRATING, SUSPECT"
+JKT-02,QC flag bukan VALID -> polutan dibuang,co_ug_m3,952,"CALIBRATING, SUSPECT"
+JKT-02,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,952,"CALIBRATING, SUSPECT"
+JKT-02,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,952,"CALIBRATING, SUSPECT"
+JKT-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,609,
+JKT-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,609,
+JKT-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,609,
+JKT-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,609,
+JKT-03,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,962,"CALIBRATING, SUSPECT"
+JKT-03,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,962,"CALIBRATING, SUSPECT"
+JKT-03,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,962,"CALIBRATING, SUSPECT"
+JKT-03,QC flag bukan VALID -> polutan dibuang,co_ug_m3,962,"CALIBRATING, SUSPECT"
+JKT-03,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,962,"CALIBRATING, SUSPECT"
+JKT-03,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,962,"CALIBRATING, SUSPECT"
+JKT-03,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,596,
+JKT-03,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,596,
+JKT-03,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,596,
+JKT-03,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,596,
+JMB-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:04:29.500000
+JMB-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,168,SUSPECT
+JMB-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,168,SUSPECT
+JMB-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,168,SUSPECT
+JMB-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,168,SUSPECT
+JMB-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,168,SUSPECT
+JMB-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,168,SUSPECT
+JMB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,168,
+JMB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,168,
+JMB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,168,
+JMB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,168,
+JMB-02,"qc_flag di luar kategori metadata_sensors (CALIBRATING, MISSING, SUSPECT, VALID) -> diperlakukan tidak valid",qc_flag,20963,"PARSER_FAIL:3633, FATAL_ERR:3546, GARBAGE:3537, COMM_LOST:3433, CORRUPT:3425, SENSOR_DEAD:3389"
+JMB-02,Timestamp invalid (unparseable / 1970 epoch / di luar periode / end<=start) -> baris dibuang,timestamp,224,
+JMB-02,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24300,median offset 0 days 00:05:12.100000
+JMB-02,"Token non-numerik (kode error, #VALUE!, inf) -> NaN",pm25_ug_m3,7163,
+JMB-02,"Token non-numerik (kode error, #VALUE!, inf) -> NaN",pm10_ug_m3,7156,
+JMB-02,"Token non-numerik (kode error, #VALUE!, inf) -> NaN",so2_ug_m3,7114,
+JMB-02,"Token non-numerik (kode error, #VALUE!, inf) -> NaN",co_ug_m3,7206,
+JMB-02,"Token non-numerik (kode error, #VALUE!, inf) -> NaN",o3_ug_m3,7149,
+JMB-02,"Token non-numerik (kode error, #VALUE!, inf) -> NaN",no2_ug_m3,7110,
+JMB-02,"Token non-numerik (kode error, #VALUE!, inf) -> NaN",temperature_c,124,
+JMB-02,"Token non-numerik (kode error, #VALUE!, inf) -> NaN",humidity_pct,149,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,pm25_ug_m3,884,
+JMB-02,"Di luar batas fisik [0, 2000] -> NaN",pm25_ug_m3,11483,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,pm10_ug_m3,881,
+JMB-02,"Di luar batas fisik [0, 3000] -> NaN",pm10_ug_m3,6627,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,so2_ug_m3,7596,
+JMB-02,"Di luar batas fisik [0, 2600] -> NaN",so2_ug_m3,4855,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,co_ug_m3,7499,
+JMB-02,"Di luar batas fisik [0, 60000] -> NaN",co_ug_m3,4855,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,o3_ug_m3,5781,
+JMB-02,"Di luar batas fisik [0, 1200] -> NaN",o3_ug_m3,6627,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,no2_ug_m3,957,
+JMB-02,"Di luar batas fisik [0, 3800] -> NaN",no2_ug_m3,11482,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,temperature_c,12939,
+JMB-02,"Di luar batas fisik [10, 45] -> NaN",temperature_c,7342,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,humidity_pct,10860,
+JMB-02,"Di luar batas fisik [1, 100] -> NaN",humidity_pct,9396,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,wind_speed_ms,15455,
+JMB-02,"Di luar batas fisik [0, 40] -> NaN",wind_speed_ms,4855,
+JMB-02,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,wind_direction_deg,15455,
+JMB-02,"Di luar batas fisik [0, 360] -> NaN",wind_direction_deg,8538,
+JMB-02,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,4855,"COMM_LOST, CORRUPT, FATAL_ERR, GARBAGE, PARSER_FAIL, SENSOR_DEAD, SUSPECT"
+JMB-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,94,
+JMB-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,94,
+JMB-02,Jam tanpa rekaman di file asli (gap) -> dibiarkan kosong; tidak ditambahkan ke output & tidak diimputasi,datetime,224,
+KTB-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:01:14.250000
+KTB-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,127,SUSPECT
+KTB-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,127,SUSPECT
+KTB-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,127,SUSPECT
+KTB-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,127,SUSPECT
+KTB-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,127,SUSPECT
+KTB-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,127,SUSPECT
+KTB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,127,
+KTB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,127,
+KTB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,127,
+KTB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,127,
+KTG-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,926,"CALIBRATING, SUSPECT"
+KTG-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,926,"CALIBRATING, SUSPECT"
+KTG-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,926,"CALIBRATING, SUSPECT"
+KTG-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,926,"CALIBRATING, SUSPECT"
+KTG-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,926,"CALIBRATING, SUSPECT"
+KTG-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,926,"CALIBRATING, SUSPECT"
+KTG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,594,
+KTG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,594,
+KTG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,594,
+KTG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,594,
+KTG-01,Spike terisolasi 1 jam (>5x kedua jam tetangga & selisih >200) -> NaN,co_ug_m3,3,
+KTG-02,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,908,"CALIBRATING, SUSPECT"
+KTG-02,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,908,"CALIBRATING, SUSPECT"
+KTG-02,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,908,"CALIBRATING, SUSPECT"
+KTG-02,QC flag bukan VALID -> polutan dibuang,co_ug_m3,908,"CALIBRATING, SUSPECT"
+KTG-02,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,908,"CALIBRATING, SUSPECT"
+KTG-02,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,908,"CALIBRATING, SUSPECT"
+KTG-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,570,
+KTG-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,570,
+KTG-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,570,
+KTG-02,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,570,
+KTG-02,Spike terisolasi 1 jam (>5x kedua jam tetangga & selisih >200) -> NaN,co_ug_m3,7,
+MDN-01,"qc_flag di luar kategori metadata_sensors (CALIBRATING, MISSING, SUSPECT, VALID) -> diperlakukan tidak valid",qc_flag,1456,"WARMUP:832, MAINTENANCE:624"
+MDN-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,20800,median offset 0 days 00:04:18.250000
+MDN-01,Konversi satuan ppm -> ug/m3 (x1184.9),pm25_ppm,20176,
+MDN-01,Konversi satuan ppm -> ug/m3 (x1184.9),pm10_ppm,20176,
+MDN-01,Konversi satuan ppm -> ug/m3 (x2620.3),so2_ppm,20176,
+MDN-01,Konversi satuan ppm -> ug/m3 (x1145.6),co_ppm,20176,
+MDN-01,Konversi satuan ppm -> ug/m3 (x1963.1),o3_ppm,20176,
+MDN-01,Konversi satuan ppm -> ug/m3 (x1881.6),no2_ppm,20176,
+MDN-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,3536,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+MDN-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,3536,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+MDN-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,3536,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+MDN-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,3536,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+MDN-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,3536,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+MDN-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,3536,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+MDN-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,1664,
+MDN-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,1664,
+MDN-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,1664,
+MDN-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,1664,
+MDN-01,Jam tanpa rekaman di file asli (gap) -> dibiarkan kosong; tidak ditambahkan ke output & tidak diimputasi,datetime,3632,
+MER-01,"qc_flag di luar kategori metadata_sensors (CALIBRATING, MISSING, SUSPECT, VALID) -> diperlakukan tidak valid",qc_flag,3667,"WARMUP:2443, MAINTENANCE:1224"
+MER-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:05:12.100000
+MER-01,"Di luar batas fisik [0, 2000] -> NaN",pm25_ug_m3,1780,
+MER-01,"Di luar batas fisik [0, 2600] -> NaN",so2_ug_m3,1780,
+MER-01,"Di luar batas fisik [10, 45] -> NaN",temperature_c,749,
+MER-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,7983,"CALIBRATING, MAINTENANCE, MISSING, SUSPECT, WARMUP"
+MER-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,9763,"CALIBRATING, MAINTENANCE, MISSING, SUSPECT, WARMUP"
+MER-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,7983,"CALIBRATING, MAINTENANCE, MISSING, SUSPECT, WARMUP"
+MER-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,9763,"CALIBRATING, MAINTENANCE, MISSING, SUSPECT, WARMUP"
+MER-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,9763,"CALIBRATING, MAINTENANCE, MISSING, SUSPECT, WARMUP"
+MER-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,9763,"CALIBRATING, MAINTENANCE, MISSING, SUSPECT, WARMUP"
+MER-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,4138,
+MER-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,4887,
+MER-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,4887,
+MER-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,4887,
+MLG-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:01:49.800000
+MLG-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,141,SUSPECT
+MLG-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,141,SUSPECT
+MLG-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,141,SUSPECT
+MLG-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,141,SUSPECT
+MLG-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,141,SUSPECT
+MLG-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,141,SUSPECT
+MLG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,141,
+MLG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,141,
+MLG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,141,
+MLG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,141,
+MRS-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:04:18.600000
+MRS-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,167,SUSPECT
+MRS-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,167,SUSPECT
+MRS-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,167,SUSPECT
+MRS-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,167,SUSPECT
+MRS-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,167,SUSPECT
+MRS-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,167,SUSPECT
+MRS-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,167,
+MRS-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,167,
+MRS-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,167,
+MRS-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,167,
+PKN-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:01:14.200000
+PKN-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,146,SUSPECT
+PKN-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,146,SUSPECT
+PKN-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,146,SUSPECT
+PKN-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,146,SUSPECT
+PKN-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,146,SUSPECT
+PKN-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,146,SUSPECT
+PKN-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,146,
+PKN-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,146,
+PKN-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,146,
+PKN-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,146,
+PKU-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:00:00.120000
+PKU-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,132,SUSPECT
+PKU-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,132,SUSPECT
+PKU-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,132,SUSPECT
+PKU-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,132,SUSPECT
+PKU-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,132,SUSPECT
+PKU-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,132,SUSPECT
+PKU-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,132,
+PKU-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,132,
+PKU-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,132,
+PKU-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,132,
+PLB-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,11949,median offset 0 days 00:00:00
+PLB-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,3798,"CALIBRATING, MISSING, SUSPECT"
+PLB-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,3798,"CALIBRATING, MISSING, SUSPECT"
+PLB-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,3798,"CALIBRATING, MISSING, SUSPECT"
+PLB-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,3798,"CALIBRATING, MISSING, SUSPECT"
+PLB-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,3798,"CALIBRATING, MISSING, SUSPECT"
+PLB-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,3798,"CALIBRATING, MISSING, SUSPECT"
+PLB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,2202,
+PLB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,2202,
+PLB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,2202,
+PLB-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,2202,
+PLB-01,Jendela 15 menit diagregasi ke rata-rata jam (min. 3 dari 4 valid),all,15933,
+PLU-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:00:40.150000
+PLU-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,142,SUSPECT
+PLU-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,142,SUSPECT
+PLU-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,142,SUSPECT
+PLU-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,142,SUSPECT
+PLU-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,142,SUSPECT
+PLU-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,142,SUSPECT
+PLU-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,142,
+PLU-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,142,
+PLU-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,142,
+PLU-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,142,
+PSW-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:03:45.350000
+PSW-01,Konversi satuan ppm -> ug/m3 (x1184.9),pm25_ppm,24432,
+PSW-01,Konversi satuan ppm -> ug/m3 (x1184.9),pm10_ppm,24432,
+PSW-01,Konversi satuan ppm -> ug/m3 (x2620.3),so2_ppm,24432,
+PSW-01,Konversi satuan ppm -> ug/m3 (x1145.6),co_ppm,24432,
+PSW-01,Konversi satuan ppm -> ug/m3 (x1963.1),o3_ppm,24432,
+PSW-01,Konversi satuan ppm -> ug/m3 (x1881.6),no2_ppm,24432,
+PSW-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,138,SUSPECT
+PSW-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,138,SUSPECT
+PSW-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,138,SUSPECT
+PSW-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,138,SUSPECT
+PSW-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,138,SUSPECT
+PSW-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,138,SUSPECT
+PSW-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,138,
+PSW-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,138,
+PSW-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,138,
+PSW-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,138,
+SM2-01,"qc_flag di luar kategori metadata_sensors (CALIBRATING, MISSING, SUSPECT, VALID) -> diperlakukan tidak valid",qc_flag,1222,"MAINTENANCE:733, WARMUP:489"
+SM2-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:02:40.180000
+SM2-01,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,pm25_ug_m3,1039,
+SM2-01,Nilai sentinel kode logger (-9999/-999/-99/999/999.9/9999) -> NaN,pm10_ug_m3,1039,
+SM2-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,1893,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+SM2-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,1893,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+SM2-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,3665,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+SM2-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,3665,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+SM2-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,3665,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+SM2-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,3665,"CALIBRATING, MAINTENANCE, SUSPECT, WARMUP"
+SM2-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,1710,
+SM2-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,1710,
+SM2-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,1710,
+SM2-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,1710,
+SRG-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:11:22.750000
+SRG-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,155,SUSPECT
+SRG-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,155,SUSPECT
+SRG-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,155,SUSPECT
+SRG-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,155,SUSPECT
+SRG-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,155,SUSPECT
+SRG-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,155,SUSPECT
+SRG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,155,
+SRG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,155,
+SRG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,155,
+SRG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,155,
+STG-01,Clock drift (offset menit/detik dari jam bulat) -> dibulatkan ke jam terdekat,timestamp,24432,median offset 0 days 00:02:45.600000
+STG-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,133,SUSPECT
+STG-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,133,SUSPECT
+STG-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,133,SUSPECT
+STG-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,133,SUSPECT
+STG-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,133,SUSPECT
+STG-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,133,SUSPECT
+STG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,133,
+STG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,133,
+STG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,133,
+STG-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,133,
+YKY-01,QC flag bukan VALID -> polutan dibuang,pm25_ug_m3,141,SUSPECT
+YKY-01,QC flag bukan VALID -> polutan dibuang,pm10_ug_m3,141,SUSPECT
+YKY-01,QC flag bukan VALID -> polutan dibuang,so2_ug_m3,141,SUSPECT
+YKY-01,QC flag bukan VALID -> polutan dibuang,co_ug_m3,141,SUSPECT
+YKY-01,QC flag bukan VALID -> polutan dibuang,o3_ug_m3,141,SUSPECT
+YKY-01,QC flag bukan VALID -> polutan dibuang,no2_ug_m3,141,SUSPECT
+YKY-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,temperature_c,141,
+YKY-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,humidity_pct,141,
+YKY-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_speed_ms,141,
+YKY-01,QC flag SUSPECT/MISSING/error -> meteorologi dibuang,wind_direction_deg,141,
+HLT-01,Tanggal di luar periode AQMS (2023-12-31) -> dibuang,date,5,
+HLT-01,Kolom 'time' dihitung per-RS (tidak seragam) -> diganti day_index global,time,5090,
+HLT-01,"resp (pernapasan umum semua umur) < ISPA balita + ISPA lansia: ditandai, tidak diubah/dibuang",resp,92,
+HLT-01,"RS-XXX-27: stasiun pasangan JMB-02 defective -> tanpa data paparan, tidak dimodelkan (tanpa proksi)",exposure_station,1018,

@@ -1,0 +1,7 @@
+parameter,basis_ppm,massa_molar_g_per_mol,volume_molar_L,faktor_ug_m3_per_ppm,rumus,keterangan,stasiun_terdampak
+pm25,ppmw (fraksi massa terhadap udara),28.97,24.45,1184.87,ug/m3 = ppm x 28.97 x 1000 / 24.45,"massa molar udara kering 28,97 -> setara ppm(massa) x densitas udara 1,185 kg/m3 (25 C, 1 atm)","BJB-01, MDN-01, PSW-01"
+pm10,ppmw (fraksi massa terhadap udara),28.97,24.45,1184.87,ug/m3 = ppm x 28.97 x 1000 / 24.45,"massa molar udara kering 28,97 -> setara ppm(massa) x densitas udara 1,185 kg/m3 (25 C, 1 atm)","BJB-01, MDN-01, PSW-01"
+so2,ppmv (fraksi volume gas),64.066,24.45,2620.29,ug/m3 = ppm x 64.066 x 1000 / 24.45,berat molekul gas,"BJB-01, MDN-01, PSW-01"
+co,ppmv (fraksi volume gas),28.01,24.45,1145.6,ug/m3 = ppm x 28.01 x 1000 / 24.45,berat molekul gas,"BJB-01, MDN-01, PSW-01"
+o3,ppmv (fraksi volume gas),47.998,24.45,1963.11,ug/m3 = ppm x 47.998 x 1000 / 24.45,berat molekul gas,"BJB-01, MDN-01, PSW-01"
+no2,ppmv (fraksi volume gas),46.0055,24.45,1881.62,ug/m3 = ppm x 46.0055 x 1000 / 24.45,berat molekul gas,"BJB-01, MDN-01, PSW-01"

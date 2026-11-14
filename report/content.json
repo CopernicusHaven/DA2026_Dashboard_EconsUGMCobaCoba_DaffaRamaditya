@@ -1,0 +1,1395 @@
+{
+"config": {
+"team": "Econs UGM Coba-Coba",
+"leader": "[Nama Lengkap Ketua Tim]",
+"members": [
+"[Nama Lengkap Anggota 1]",
+"[Nama Lengkap Anggota 2]"
+],
+"institution": "[NAMA INSTANSI PESERTA]",
+"title_lines": [
+"MEMBACA UDARA INDONESIA MELALUI DATA:",
+"KUALITAS UDARA DAN DAMPAKNYA TERHADAP",
+"KESEHATAN DI LIMA PULAU, 2024–2026"
+],
+"leader_file": "NamaKetua",
+"dashboard_url": "[tautan dashboard]",
+"github_url": "[tautan repository GitHub (opsional)]"
+},
+"blocks": [
+{
+"t": "chapter",
+"num": "I",
+"title": "PENGANTAR PROYEK"
+},
+{
+"t": "h2",
+"num": "1.1",
+"title": "Konteks Permasalahan"
+},
+{
+"t": "p",
+"text": "Pencemaran udara, terutama partikel halus PM2.5, adalah salah satu risiko lingkungan terbesar bagi kesehatan. Partikel berdiameter kurang dari 2,5 µm dapat masuk jauh ke saluran pernapasan, sehingga Organisasi Kesehatan Dunia menetapkan pedoman rata-rata tahunan PM2.5 hanya 5 µg/m³ (World Health Organization, 2021). Indonesia menetapkan baku mutu tahunan 15 µg/m³ dan baku mutu 24 jam 55 µg/m³ melalui PP Nomor 22 Tahun 2021, serta mengomunikasikan mutu udara harian kepada masyarakat melalui Indeks Standar Pencemar Udara (ISPU) sesuai Permen LHK Nomor 14 Tahun 2020."
+},
+{
+"t": "p",
+"text": "Proyek ini menganalisis dataset sintetis dari panitia Gelar Rasa 2026 yang mencakup rekaman polutan dan cuaca per jam dari 27 stasiun pemantau kualitas udara (AQMS) di lima pulau besar, kasus kesehatan harian dari 27 rumah sakit rujukan, serta tabel master dan metadata, untuk periode 1 Januari 2024 sampai 14 Oktober 2026. Data tersebut menunjukkan bahwa masalahnya nyata. Rata-rata PM2.5 dari 26 stasiun yang datanya layak adalah <b>40,9 µg/m³</b>, hampir tiga kali baku mutu tahunan, dan 23 stasiun melampaui baku mutu tersebut. Sebanyak <b>17,6%</b> hari-stasiun berkategori ISPU Tidak Sehat atau lebih buruk, dan tercatat <b>2.322</b> hari-stasiun kabut asap. Pada periode yang sama, 27 rumah sakit mencatat <b>186.167</b> rawat inap ISPA pada balita."
+},
+{
+"t": "p",
+"text": "Masalah ini tidak seragam. Sebagian wilayah tercemar sepanjang tahun karena aktivitas perkotaan dan industri, sedangkan wilayah lain tercemar secara musiman karena kebakaran hutan dan lahan gambut. Karena itu, pengambil keputusan memerlukan alat yang dapat menunjukkan <i>kapan</i>, <i>di mana</i>, <i>mengapa</i>, dan <i>seberapa besar dampaknya</i> secara bersamaan, sesuai tema \"From Roots to Clarity: Revealing Meaningful Insight Through Data\"."
+},
+{
+"t": "h2",
+"num": "1.2",
+"title": "Pokok Permasalahan"
+},
+{
+"t": "p",
+"text": "Pertanyaan analisis yang dijawab melalui dashboard adalah sebagai berikut."
+},
+{
+"t": "numbers",
+"items": [
+"Bagaimana kondisi kualitas udara antarstasiun dan antarpulau dibandingkan dengan baku mutu nasional dan pedoman WHO, serta bagaimana kecenderungannya selama 2024–2026?",
+"Kapan dan di mana pencemaran paling kritis bila ditinjau menurut jam, hari kerja dan akhir pekan, musim, dan episode kabut asap, serta bagaimana perbedaannya antara kawasan perkotaan, industri, dan latar bersih?",
+"Faktor apa yang paling memengaruhi variasi konsentrasi polutan: suhu, kelembapan, kecepatan dan arah angin, intensitas lalu lintas, jarak ke jalan raya, atau tipe lokasi?",
+"Seberapa besar kenaikan PM2.5 berhubungan dengan kasus ISPA, asma, PPOK, kardiovaskular, dan kematian, berapa lama efek jedanya, dan kelompok mana yang lebih rentan, balita atau lansia?",
+"Apakah jaringan pemantauan saat ini memadai, dan wilayah mana yang perlu diprioritaskan untuk penambahan titik pantau?"
+],
+"start": 1
+},
+{
+"t": "h2",
+"num": "1.3",
+"title": "Sasaran Proyek"
+},
+{
+"t": "p",
+"text": "Setiap pertanyaan dijawab oleh satu halaman dashboard dengan sasaran berikut."
+},
+{
+"t": "numbers",
+"items": [
+"<b>Kondisi Udara:</b> memeringkat stasiun dan pulau terhadap baku mutu dan pedoman WHO, menghitung IKU, dan menandai stasiun yang memburuk.",
+"<b>Waktu Kritis:</b> menemukan jam puncak, bulan kritis, episode kabut asap, dan wilayah dengan skor kritis tertinggi.",
+"<b>Penyebab:</b> mengukur kontribusi setiap faktor dengan model Random Forest dan korelasi, lalu menentukan faktor utama.",
+"<b>Kesehatan:</b> mengestimasi kenaikan kasus per 10 µg/m³ PM2.5, efek jeda 0–7 hari, risiko per kategori ISPU, dan perbedaan kerentanan balita dan lansia.",
+"<b>Jaringan:</b> menilai keandalan alat, celah antarstasiun, dan skor prioritas penambahan titik pantau."
+],
+"start": 1
+},
+{
+"t": "p",
+"text": "Seluruhnya disajikan dalam satu dashboard web interaktif yang dapat dibuka tanpa login, dengan filter yang berlaku di semua halaman dan halaman Petunjuk Pengukuran yang menjelaskan setiap satuan dan definisi."
+},
+{
+"t": "chapter",
+"num": "II",
+"title": "RANCANGAN PELAKSANAAN"
+},
+{
+"t": "h2",
+"num": "2.1",
+"title": "Karakteristik Dataset"
+},
+{
+"t": "p",
+"text": "Dataset terdiri atas 33 berkas yang saling terhubung melalui kode stasiun, sensor, dan rumah sakit (<i>station</i>, <i>location_id</i>, <i>sensor_id</i>, <i>hospital_id</i>). Ringkasannya disajikan pada Tabel 2.1."
+},
+{
+"t": "table",
+"num": "2.1",
+"caption": "Karakteristik dataset",
+"head": [
+"Kelompok",
+"Berkas",
+"Variabel dan tipe data",
+"Ukuran"
+],
+"rows": [
+[
+"Data udara",
+"27 berkas [KODE]_[Lokasi]_AQMS.csv",
+"PM2.5, PM10, SO<sub>2</sub>, CO, O<sub>3</sub>, NO<sub>2</sub> (numerik, µg/m³ atau ppm), suhu, kelembapan, kecepatan dan arah angin (numerik), qc_flag (kategorik), timestamp (waktu)",
+"24.432 jam per stasiun, 655.808 jam terekam"
+],
+[
+"Data kesehatan",
+"HLT-01_health_outcomes_daily.csv",
+"ISPA balita, ISPA lansia, darurat asma, PPOK, pernapasan umum, kardiovaskular, kematian (cacah), suhu, titik embun, kelembapan",
+"27.491 baris (27 RS × ±1.018 hari)"
+],
+[
+"Tabel master",
+"sites.csv, sensors.csv, hospitals.csv",
+"Lokasi, tipe lokasi, intensitas lalu lintas, jarak ke jalan raya, alat ukur, satuan logger, kapasitas tempat tidur",
+"27 baris per tabel"
+],
+[
+"Metadata",
+"metadata_sensors.csv, metadata_dates.csv",
+"Spesifikasi instrumen, periode dan resolusi rekaman",
+"16 dan 27 baris"
+]
+],
+"widths": [
+0.15,
+0.25,
+0.42,
+0.18
+],
+"align": [
+"L",
+"L",
+"L",
+"L"
+]
+},
+{
+"t": "p",
+"text": "Kondisi awal data menunjukkan beberapa hal yang memengaruhi analisis. Tiga stasiun (BJB-01, MDN-01, PSW-01) mengekspor polutan dalam ppm, bukan µg/m³. Stasiun JMB-02 berstatus rusak dengan hanya 0,5% baris valid. Sebanyak 17 stasiun mengalami pergeseran jam (<i>clock drift</i>), PLB-01 mencampur resolusi 15 menit dan 1 jam, dan MDN-01 kehilangan 3.632 jam. Distribusi PM2.5 harian sangat menceng ke kanan (median 31,0 µg/m³, rata-rata 39,9 µg/m³, maksimum 1.127,6 µg/m³), sehingga rata-rata stasiun dihitung dari data per jam dan kategori ISPU dipakai untuk membaca hari ekstrem."
+},
+{
+"t": "h2",
+"num": "2.2",
+"title": "Perangkat yang Digunakan"
+},
+{
+"t": "p",
+"text": "Pengolahan dan analisis data memakai <b>Python 3.13</b> dengan pandas dan NumPy (pengolahan), SciPy (uji statistik), statsmodels (regresi quasi-Poisson dan model jeda), scikit-learn (Random Forest dan <i>permutation importance</i>), serta matplotlib (grafik eksplorasi). Python dipilih karena seluruh proses dapat direproduksi dari data mentah, setiap langkah pembersihan tercatat otomatis, dan model deret waktu kesehatan-lingkungan tidak tersedia di alat spreadsheet."
+},
+{
+"t": "p",
+"text": "Dashboard dibangun sebagai aplikasi web dengan <b>React 19</b> (antarmuka), <b>Vite 8</b> (build), <b>ECharts 6</b> (grafik interaktif), <b>Leaflet 1.9</b> dengan peta dasar Google Maps dan cadangan Esri (peta), serta Framer Motion (transisi). Kombinasi ini dipilih karena memberi kendali penuh atas tata letak, interaksi, dan alur cerita. Hasil build berupa situs statis sehingga dapat dibuka juri tanpa login, dan dashboard membaca berkas hasil analisis yang sama dengan laporan sehingga angka di keduanya identik."
+},
+{
+"t": "h2",
+"num": "2.3",
+"title": "Preprocessing Data"
+},
+{
+"t": "p",
+"text": "Tiga prinsip dipegang selama pembersihan: berkas asli tidak pernah diubah, tidak ada data yang ditambahkan (jam kosong tidak diimputasi dan tidak dipinjam dari stasiun lain), dan setiap tindakan dicatat beserta jumlah nilai yang terdampak. Masalah utama dan penanganannya dirangkum pada Tabel 2.2."
+},
+{
+"t": "table",
+"num": "2.2",
+"caption": "Masalah kualitas data dan penanganannya",
+"head": [
+"Masalah",
+"Stasiun",
+"Skala",
+"Penanganan dan dampak"
+],
+"rows": [
+[
+"Satuan ppm",
+"BJB-01, MDN-01, PSW-01",
+"3 stasiun × 6 polutan",
+"Dikonversi ke µg/m³ dengan satu rumus (Tabel 2.3)"
+],
+[
+"Pergeseran jam (<i>clock drift</i>)",
+"17 stasiun",
+"423.529 baris",
+"Dibulatkan ke jam terdekat agar setiap jam terhitung sekali"
+],
+[
+"Resolusi campuran 15 menit",
+"PLB-01",
+"15.933 baris",
+"Dirata-rata per jam bila minimal 3 dari 4 nilai valid"
+],
+[
+"Sensor rusak, kode galat, tahun 1970",
+"JMB-02",
+"24.432 baris",
+"Dikeluarkan dari analisis, RS-XXX-27 tidak dimodelkan"
+],
+[
+"Nilai sentinel (−9999, 999, dan lainnya)",
+"JMB-02, SM2-01, MER-01",
+"80.385 nilai",
+"Dijadikan kosong"
+],
+[
+"Sensor macet (nilai identik berjam-jam)",
+"BJB-01",
+"7.329 jam",
+"Nilai identik ≥6 jam berturut-turut dijadikan kosong"
+],
+[
+"qc_flag selain VALID",
+"Semua",
+"171.439 nilai",
+"Polutan hanya memakai VALID"
+],
+[
+"Di luar batas fisik dan lonjakan tunggal",
+"MER-01, JMB-02, KTG-01/02",
+"±60 ribu nilai",
+"Dijadikan kosong"
+],
+[
+"Tanggal di luar periode, resp &lt; balita + lansia",
+"HLT-01",
+"5 baris, 92 baris",
+"Dibuang, dan ditandai tanpa diubah"
+]
+],
+"widths": [
+0.27,
+0.2,
+0.16,
+0.37
+],
+"align": [
+"L",
+"L",
+"L",
+"L"
+]
+},
+{
+"t": "p",
+"text": "Konversi satuan ditentukan peserta sesuai jawaban panitia pada sesi tanya jawab. Seluruh nilai ppm dikonversi pada 25 °C dan 1 atm dengan rumus µg/m³ = ppm × M × 1000 ÷ 24,45 (Seinfeld &amp; Pandis, 2016). Gas memakai massa molekulnya, sedangkan PM yang tidak memiliki massa molekul dibaca sebagai fraksi massa terhadap udara kering (M = 28,97 g/mol)."
+},
+{
+"t": "table",
+"num": "2.3",
+"caption": "Faktor konversi ppm ke µg/m³",
+"head": [
+"Parameter",
+"Basis ppm",
+"M (g/mol)",
+"Faktor per ppm"
+],
+"rows": [
+[
+"SO<sub>2</sub>",
+"Volume",
+"64,066",
+"2.620,3"
+],
+[
+"CO",
+"Volume",
+"28,010",
+"1.145,6"
+],
+[
+"O<sub>3</sub>",
+"Volume",
+"47,998",
+"1.963,1"
+],
+[
+"NO<sub>2</sub>",
+"Volume",
+"46,006",
+"1.881,6"
+],
+[
+"PM2.5, PM10",
+"Massa terhadap udara",
+"28,970",
+"1.184,9"
+]
+],
+"widths": [
+0.22,
+0.34,
+0.2,
+0.24
+],
+"align": [
+"L",
+"L",
+"R",
+"R"
+]
+},
+{
+"t": "p",
+"text": "Setelah dikonversi, gas di PSW-01 setara dengan stasiun berpola serupa (SO<sub>2</sub> 7,5 dibanding 7,0 µg/m³, NO<sub>2</sub> 20,7 dibanding 19,8 µg/m³), sedangkan konversi sederhana ×1000 menghasilkan nilai 1,8–2,5 kali lebih rendah. Hasil akhirnya adalah 655.808 jam terekam, dengan PM2.5 valid 91,7% di luar JMB-02. Turunan yang dibentuk meliputi rata-rata harian (minimal 18 dari 24 jam valid), ISPU harian, penanda baku mutu 24 jam, episode kabut asap (minimal 3 hari berturut-turut dengan PM2.5 di atas 55,4 µg/m³ dan dua kali median musim hujan stasiun itu), PM2.5 berjeda 0–7 hari untuk tiap rumah sakit, serta IKU tahunan dari NO<sub>2</sub> dan SO<sub>2</sub> (Permen LHK Nomor 27 Tahun 2021)."
+},
+{
+"t": "h2",
+"num": "2.4",
+"title": "Prosedur Perancangan Visualisasi"
+},
+{
+"t": "p",
+"text": "Dashboard disusun mengikuti alur dari gambaran besar ke akar masalah, ke dampak, lalu ke solusi. Halaman Ringkasan memuat kartu indikator dan peta, lalu setiap pertanyaan analisis mendapat satu halaman: Kondisi, Waktu Kritis, Penyebab, Kesehatan, dan Jaringan. Halaman Petunjuk Pengukuran memuat seluruh satuan, rumus, dan definisi. Jenis grafik dipilih sesuai kebutuhan analisis seperti pada Tabel 2.4."
+},
+{
+"t": "table",
+"num": "2.4",
+"caption": "Pemilihan jenis grafik",
+"head": [
+"Kebutuhan analisis",
+"Jenis grafik",
+"Alasan"
+],
+"rows": [
+[
+"Perbandingan antarstasiun dan pulau",
+"Batang horizontal berurut",
+"Mudah membandingkan panjang dan membaca nama stasiun"
+],
+[
+"Komposisi kategori ISPU",
+"Batang 100% bertumpuk",
+"Menunjukkan porsi hari tiap kategori dalam satu batang"
+],
+[
+"Sebaran wilayah",
+"Peta titik",
+"Warna menunjukkan kategori, ukuran menunjukkan besaran"
+],
+[
+"Tren dan pola waktu",
+"Garis bulanan dan per jam",
+"Menampilkan perubahan berurutan dan jam puncak"
+],
+[
+"Pola bulanan per stasiun",
+"<i>Heatmap</i> stasiun × bulan",
+"Musim kabut terlihat sebagai blok warna"
+],
+[
+"Episode kabut asap",
+"Linimasa (<i>Gantt</i>)",
+"Menunjukkan awal, lama, dan stasiun setiap episode"
+],
+[
+"Hubungan antarvariabel",
+"Diagram pencar dan batang kepentingan",
+"Menunjukkan arah dan kekuatan hubungan"
+],
+[
+"Efek kesehatan",
+"Batang per jeda dan per kategori",
+"Membandingkan besar efek antarhari dan antarkategori"
+]
+],
+"widths": [
+0.31,
+0.29,
+0.4
+],
+"align": [
+"L",
+"L",
+"L"
+]
+},
+{
+"t": "p",
+"text": "Tata letak dibuat konsisten di semua halaman. Bilah navigasi melayang di bagian atas, baris filter berada di bawahnya, diikuti empat kartu indikator berisi judul dan angka, lalu satu kartu untuk setiap grafik, tabel, atau peta. Panel daftar stasiun berada di sisi kiri pada layar lebar dan pindah ke bawah pada layar kecil. Warna mengikuti tiga aturan: palet ISPU yang sama di semua grafik (biru Baik, abu-abu Sedang, merah bertingkat Tidak Sehat sampai Berbahaya), satu warna tetap untuk setiap pulau dan setiap tipe lokasi, serta teks hitam pada mode terang dan putih pada mode gelap dengan satu jenis huruf, Helvetica. Garis baku mutu dan pedoman WHO ditampilkan sebagai garis putus-putus dengan keterangan di bawah grafik."
+},
+{
+"t": "p",
+"text": "Fitur interaktif yang disiapkan adalah filter Pulau, Tipe Lokasi, Musim, dan Tahun (termasuk rentang tanggal) yang berlaku di semua halaman, panel stasiun untuk memeringkat dan membandingkan hingga enam stasiun, panel detail stasiun yang terbuka dari peta, grafik, atau tabel, pemilih polutan, jenis kasus, rumah sakit, dan tahun pada grafik tertentu, tooltip, zoom peta, tabel yang dapat diurutkan, mode terang dan gelap, serta tampilan yang menyesuaikan ponsel dan tablet."
+},
+{
+"t": "chapter",
+"num": "III",
+"title": "HASIL DAN ANALISIS"
+},
+{
+"t": "h2",
+"num": "3.1",
+"title": "Exploratory Data Analysis"
+},
+{
+"t": "p",
+"text": "Eksplorasi awal dilakukan pada 23.862 hari-stasiun yang memiliki rata-rata PM2.5 harian valid dari 26 stasiun. Statistik deskriptif setiap polutan disajikan pada Tabel 3.1."
+},
+{
+"t": "table",
+"num": "3.1",
+"caption": "Statistik deskriptif polutan harian (µg/m³)",
+"head": [
+"Polutan",
+"Rata-rata",
+"Median",
+"Persentil 95",
+"Maksimum"
+],
+"rows": [
+[
+"PM2.5",
+"39,9",
+"31,0",
+"97,0",
+"1.127,6"
+],
+[
+"PM10",
+"58,1",
+"45,8",
+"138,5",
+"1.391,0"
+],
+[
+"NO<sub>2</sub>",
+"25,9",
+"20,2",
+"60,6",
+"66,6"
+],
+[
+"SO<sub>2</sub>",
+"9,9",
+"7,3",
+"22,7",
+"34,0"
+],
+[
+"CO",
+"624,8",
+"360,9",
+"1.794,1",
+"7.606,6"
+],
+[
+"O<sub>3</sub>",
+"20,4",
+"13,9",
+"36,4",
+"41,5"
+]
+],
+"widths": [
+0.24,
+0.19,
+0.19,
+0.19,
+0.19
+],
+"align": [
+"L",
+"R",
+"R",
+"R",
+"R"
+]
+},
+{
+"t": "p",
+"text": "Tiga temuan eksplorasi menentukan isi dashboard. Pertama, PM2.5 dan PM10 memiliki ekor kanan yang panjang (kemencengan PM2.5 10,1). Rata-rata lebih tinggi dari median dan nilai ekstrem hanya muncul di Sumatera dan Kalimantan (Gambar 3.1), sehingga dashboard menampilkan kategori ISPU, filter musim, dan halaman khusus episode kabut asap, bukan hanya rata-rata. Kedua, sebaran per pulau sangat berbeda. Papua dan Sulawesi hampir seluruhnya di bawah baku mutu 24 jam, Jawa tinggi tetapi stabil, sedangkan Kalimantan memiliki median sedang dengan lonjakan sampai di atas 1.000 µg/m³. Karena itu, pulau menjadi filter utama dan warna tetap di semua grafik."
+},
+{
+"t": "figure",
+"num": "3.1",
+"caption": "Distribusi PM2.5 harian per pulau (skala logaritma)",
+"paths": [
+"eda_pm25_distribusi.png"
+],
+"w": 0.94,
+"maxh": 170
+},
+{
+"t": "p",
+"text": "Ketiga, korelasi Spearman antarvariabel harian (Gambar 3.2) menunjukkan PM2.5 hampir identik dengan PM10 (ρ = 0,99), sedangkan CO, NO<sub>2</sub>, dan SO<sub>2</sub> saling berkorelasi kuat (ρ 0,77–0,85) karena ketiganya tinggi di stasiun yang sama, terutama Jakarta. Korelasi gabungan ini terutama mencerminkan perbedaan antarstasiun, bukan pengaruh cuaca. Oleh sebab itu, faktor penyebab dianalisis dengan korelasi di dalam setiap stasiun, perbandingan antarstasiun pada musim hujan, dan model Random Forest, lalu hasilnya ditampilkan di halaman Penyebab."
+},
+{
+"t": "figure",
+"num": "3.2",
+"caption": "Korelasi Spearman antara polutan dan cuaca harian",
+"paths": [
+"eda_korelasi.png"
+],
+"w": 0.5,
+"maxh": 210
+},
+{
+"t": "h2",
+"num": "3.2",
+"title": "Gambaran Umum dan Fitur Utama Dashboard"
+},
+{
+"t": "p",
+"text": "Dashboard dibuka dengan halaman pembuka berisi logo Gelar Rasa, judul \"Membaca udara [pulau] melalui data\", tombol Buka dashboard, dan tautan Petunjuk Pengukuran (Gambar 3.3 kiri). Setelah dibuka, setiap halaman memiliki susunan yang sama (Gambar 3.4)."
+},
+{
+"t": "figure",
+"num": "3.3",
+"caption": "Halaman pembuka (kiri) dan panel detail stasiun KTG-01 (kanan)",
+"paths": [
+"opening.png",
+"drawer.png"
+],
+"w": 1.0,
+"maxh": 170
+},
+{
+"t": "figure",
+"num": "3.4",
+"caption": "Tampilan halaman Ringkasan pada layar laptop",
+"paths": [
+"ringkasan_top.png"
+],
+"w": 0.94,
+"maxh": 235
+},
+{
+"t": "numbers",
+"items": [
+"<b>Bilah navigasi</b> di bagian atas berisi logo (kembali ke halaman pembuka), enam halaman analisis, halaman Petunjuk Pengukuran, dan sakelar mode terang/gelap. Bilah ini tersembunyi saat pengguna menggulir melewati kartu indikator dan muncul kembali saat menggulir ke atas. Pada ponsel, menu berpindah ke tombol Menu.",
+"<b>Baris filter</b> berisi Pulau, Tipe Lokasi, Musim, dan Tahun. Pilihan berlaku di semua halaman sehingga pengguna dapat mengikuti satu wilayah dari kondisi sampai dampak kesehatan.",
+"<b>Kartu indikator</b> menampilkan empat angka utama setiap halaman, misalnya rata-rata PM2.5, hari tidak sehat, hari kabut asap, dan kasus ISPA balita pada Ringkasan. Angkanya berubah mengikuti filter.",
+"<b>Panel stasiun</b> memeringkat 26 stasiun dari yang tertinggi atau terbersih. Kotak centang dipakai untuk membandingkan hingga enam stasiun, dan klik nama stasiun membuka panel detail berisi PM2.5 harian, kategori ISPU, pola per jam, lokasi, alat, dan rumah sakit pasangan.",
+"<b>Kartu grafik</b> berisi satu grafik, tabel, atau peta dengan judul, tooltip, dan pengendali seperti pemilih polutan. Tidak ada teks di atas grafik selain keterangan garis acuan di bawahnya.",
+"<b>Petunjuk Pengukuran</b> menjelaskan satuan, konversi, pengolahan data, ISPU, IKU, baku mutu, dan setiap metode."
+],
+"start": 1
+},
+{
+"t": "p",
+"text": "Tangkapan layar lengkap ketujuh halaman disajikan pada Lampiran 3."
+},
+{
+"t": "h2",
+"num": "3.3",
+"title": "Telaah dan Penafsiran Visualisasi"
+},
+{
+"t": "h3",
+"num": "3.3.1",
+"title": "Visualisasi 1: Peta PM2.5 per Stasiun"
+},
+{
+"t": "figure",
+"num": "3.5",
+"caption": "Peta rata-rata PM2.5 per stasiun (halaman Ringkasan)",
+"paths": [
+"ringkasan__peta.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Titik terbesar dan berwarna merah berkumpul di Sumatera bagian selatan (Palembang, Pesawaran), Kalimantan (Palangka Raya, Sampit, Samarinda, Banjarbaru), serta pesisir utara Jakarta. Titik biru (kategori Baik) hanya ada di Aceh Besar, Poso, dan Bogor. Seluruh 26 stasiun rata-rata 40,9 µg/m³ dan 23 di antaranya melampaui baku mutu tahunan 15 µg/m³."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Pencemaran terkonsentrasi di dua jenis wilayah, yaitu kota besar dengan industri dan lalu lintas padat serta wilayah gambut yang rawan terbakar. Peta ini menjadi titik masuk: pengguna melihat sebarannya, lalu mengklik titik untuk membuka detail stasiun."
+},
+{
+"t": "h3",
+"num": "3.3.2",
+"title": "Visualisasi 2: PM2.5 per Pulau"
+},
+{
+"t": "figure",
+"num": "3.6",
+"caption": "Rata-rata PM2.5 per pulau",
+"paths": [
+"ringkasan__pm2_5_per_pulau.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Kalimantan memiliki rata-rata tertinggi (57,1 µg/m³), diikuti Sumatera (41,3), Jawa (37,9), Sulawesi (24,0), dan Papua (17,2). Kelima pulau berada di atas baku mutu tahunan 15 µg/m³."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Tidak ada pulau yang memenuhi baku mutu, sehingga masalahnya bersifat nasional. Kalimantan dan Sumatera tinggi karena kabut asap musiman, sedangkan Jawa tinggi karena sumber perkotaan dan industri yang menetap."
+},
+{
+"t": "h3",
+"num": "3.3.3",
+"title": "Visualisasi 3: Kategori ISPU per Pulau"
+},
+{
+"t": "figure",
+"num": "3.7",
+"caption": "Porsi hari menurut kategori ISPU per pulau",
+"paths": [
+"ringkasan__kategori_ispu_per_pulau.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Dari seluruh hari-stasiun, 17,8% Baik, 64,6% Sedang, 16,6% Tidak Sehat, 0,6% Sangat Tidak Sehat, dan 0,4% Berbahaya. Kalimantan hanya memiliki 1,4% hari Baik dan merupakan satu-satunya pulau dengan hari Berbahaya (1,8%). Sulawesi memiliki porsi hari Baik tertinggi (50,0%)."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Kategori Tidak Sehat ke atas di Kalimantan dan Sumatera terjadi pada musim kemarau, sedangkan di Jawa tersebar sepanjang tahun. Perbedaan ini menentukan jenis tindakan, yaitu kesiapsiagaan musiman di wilayah gambut dan pengendalian emisi rutin di wilayah perkotaan."
+},
+{
+"t": "h3",
+"num": "3.3.4",
+"title": "Visualisasi 4: Peringkat Stasiun"
+},
+{
+"t": "figure",
+"num": "3.8",
+"caption": "Peringkat stasiun menurut rata-rata PM2.5 dengan garis baku mutu dan WHO",
+"paths": [
+"kondisi__peringkat_stasiun.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> SM2-01 (Samarinda) tertinggi dengan 78,8 µg/m³, diikuti PLB-01 (65,2), KTG-01 (61,2), KTG-02 (60,8), PSW-01 (60,1), dan JKT-02 (60,1). Hanya IDP-01 (9,3), PLU-01 (11,3), dan BGR-01 (13,2) yang berada di bawah 15 µg/m³, dan tidak ada stasiun yang memenuhi pedoman WHO 5 µg/m³."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Stasiun teratas terbagi dua: stasiun industri dan perkotaan yang tinggi sepanjang tahun (SM2-01, JKT-02) dan stasiun gambut yang tinggi karena kabut asap (PLB-01, KTG-01/02). Pemilih polutan memungkinkan perbandingan yang sama untuk PM10, SO<sub>2</sub>, CO, O<sub>3</sub>, dan NO<sub>2</sub>."
+},
+{
+"t": "h3",
+"num": "3.3.5",
+"title": "Visualisasi 5: Baku Mutu dan IKU"
+},
+{
+"t": "figure",
+"num": "3.9",
+"caption": "Tabel rata-rata tahunan, baku mutu, dan IKU per stasiun (2025)",
+"paths": [
+"kondisi__baku_mutu_dan_iku.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Pada setiap tahun 2024–2026, hanya 3 stasiun yang memenuhi baku mutu tahunan PM2.5. Tiga stasiun Jakarta melampaui baku mutu NO<sub>2</sub> tahunan (50 µg/m³) dan sedikit melampaui O<sub>3</sub> (35 µg/m³) setiap tahun. IKU berkategori Kurang di JKT-01 dan JKT-03 serta Sangat Kurang di JKT-02, sedangkan 21 stasiun berkategori Baik."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> IKU hanya memakai gas, sehingga wilayah kabut asap tetap berkategori Baik walaupun PM2.5-nya tinggi. Karena itu, IKU perlu dibaca bersama ISPU. Titik merah pada tabel membantu pengguna langsung melihat parameter yang melanggar."
+},
+{
+"t": "h3",
+"num": "3.3.6",
+"title": "Visualisasi 6: Tren Bulanan"
+},
+{
+"t": "figure",
+"num": "3.10",
+"caption": "Tren rata-rata PM2.5 bulanan per pulau, 2024–2026",
+"paths": [
+"kondisi__tren_bulanan.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Garis Jawa, Sulawesi, dan Papua datar sepanjang periode. Kalimantan dan Sumatera melonjak setiap Agustus–Oktober, dan lonjakannya membesar: rata-rata bulanan Kalimantan mencapai 113,7 µg/m³ pada September 2025 dan 437,2 µg/m³ pada Oktober 2026. Sebanyak 12 dari 26 stasiun memburuk lebih dari 10% dari 2024 ke 2026, seluruhnya di Sumatera dan Kalimantan."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Kenaikan hampir seluruhnya berasal dari musim kabut asap, karena tingkat dasar musim hujan stabil. Pengecualiannya adalah SM2-01 yang tingkat dasarnya naik sekitar 23% per tahun, sehingga perlu penelusuran sumber emisi lokal."
+},
+{
+"t": "h3",
+"num": "3.3.7",
+"title": "Visualisasi 7: Pola per Jam"
+},
+{
+"t": "figure",
+"num": "3.11",
+"caption": "Rata-rata PM2.5 per jam menurut tipe lokasi",
+"paths": [
+"kritis__pola_per_jam.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Semua tipe lokasi memiliki dua puncak, sekitar pukul 07.00 dan 18.00 WIB. NO<sub>2</sub> di tepi jalan naik dari 36,8 menjadi 49,1 µg/m³ pada jam puncak. Rata-rata hari kerja dan akhir pekan hampir sama (PM2.5 33,5 dibanding 33,4 µg/m³, NO<sub>2</sub> 25,7 dibanding 25,7 µg/m³)."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Puncak pagi dan sore sejalan dengan jam berangkat dan pulang kerja. Karena akhir pekan tidak lebih bersih, pengendalian lalu lintas perlu berlaku tujuh hari seminggu pada jam puncak, bukan hanya pada hari kerja."
+},
+{
+"t": "h3",
+"num": "3.3.8",
+"title": "Visualisasi 8: Pola per Bulan"
+},
+{
+"t": "figure",
+"num": "3.12",
+"caption": "Rata-rata PM2.5 per stasiun dan bulan",
+"paths": [
+"kritis__pola_per_bulan.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Blok warna gelap muncul pada Agustus–Oktober di KTG-01, KTG-02, PKN-01, STG-01, PLB-01, dan stasiun Sumatera lainnya. Di stasiun gambut, PM2.5 musim kemarau naik 177% dibanding musim hujan, sedangkan di tepi jalan Jakarta dan Bogor hanya 4%."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Bulan kritis adalah Agustus–Oktober dan hanya berlaku untuk wilayah gambut. Informasi ini menjadi dasar jadwal kesiapsiagaan kabut asap, yaitu persiapan sejak Juli sebelum puncak."
+},
+{
+"t": "h3",
+"num": "3.3.9",
+"title": "Visualisasi 9: Episode Kabut Asap"
+},
+{
+"t": "figure",
+"num": "3.13",
+"caption": "Linimasa episode kabut asap per stasiun",
+"paths": [
+"kritis__episode_kabut_asap.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Terdapat 84 episode: 38 pada 2024, 30 pada 2025, dan 16 pada 2026. Jumlahnya turun tetapi episodenya makin panjang. Episode di KTG-01 dan KTG-02 pada 2026 berlangsung 106 hari tanpa putus (1 Juli–14 Oktober), dengan PM2.5 harian tertinggi 1.128 µg/m³ (kategori Berbahaya)."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Kabut asap bergeser dari banyak episode pendek menjadi sedikit episode yang sangat panjang dan pekat. Di KTG-01/02, CO ikut naik 150% saat episode, konsisten dengan kebakaran di dekat stasiun. Di Batam dan Pekanbaru, PM2.5 naik tanpa kenaikan CO, konsisten dengan asap kiriman dari wilayah lain."
+},
+{
+"t": "h3",
+"num": "3.3.10",
+"title": "Visualisasi 10: Tingkat Kepentingan Faktor"
+},
+{
+"t": "figure",
+"num": "3.14",
+"caption": "Kepentingan faktor dalam model Random Forest PM2.5 harian",
+"paths": [
+"faktor__tingkat_kepentingan_faktor.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Musim (bulan) menyumbang 41,7% kepentingan, diikuti tipe lokasi (21,4%), pulau (10,1%), intensitas lalu lintas (8,5%), dan jarak ke jalan raya (8,0%). Kelembapan, suhu, kecepatan angin, dan arah angin masing-masing di bawah 4%, dan hari dalam minggu 0%. Model menjelaskan 87% variasi PM2.5 harian pada data uji 2026 (R² = 0,87)."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Variasi PM2.5 terutama ditentukan oleh kapan (musim kabut) dan di mana (tipe lokasi), bukan oleh cuaca harian. Cuaca hanya kuat memengaruhi O<sub>3</sub>, yang naik saat suhu tinggi di seluruh 26 stasiun. Arah angin berpengaruh lebih dari 10% hanya di tiga stasiun."
+},
+{
+"t": "h3",
+"num": "3.3.11",
+"title": "Visualisasi 11: Lalu Lintas dan Polutan"
+},
+{
+"t": "figure",
+"num": "3.15",
+"caption": "Hubungan intensitas lalu lintas dan PM2.5 musim hujan antarstasiun",
+"paths": [
+"faktor__lalu_lintas_dan_polutan.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Di luar musim kabut, stasiun dengan lalu lintas lebih padat memiliki PM2.5 lebih tinggi (Spearman ρ = 0,75, p &lt; 0,001). Kenaikan lalu lintas 10% berkaitan dengan kenaikan PM2.5 sekitar 4,8%. Jarak ke jalan raya berkorelasi negatif (ρ = −0,65), tetapi tidak bermakna setelah lalu lintas dikontrol."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Lalu lintas adalah sumber utama perbedaan PM2.5 antarstasiun pada musim hujan, sehingga pengendalian kendaraan adalah tindakan yang paling relevan untuk wilayah perkotaan. Ukuran titik (jarak ke jalan) membantu memisahkan stasiun tepi jalan dari stasiun latar."
+},
+{
+"t": "h3",
+"num": "3.3.12",
+"title": "Visualisasi 12: Efek per Hari Jeda"
+},
+{
+"t": "figure",
+"num": "3.16",
+"caption": "Kenaikan kasus ISPA balita per 10 µg/m³ PM2.5 menurut hari jeda",
+"paths": [
+"kesehatan__efek_per_hari_jeda.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Setiap kenaikan PM2.5 sebesar 10 µg/m³ meningkatkan rawat inap ISPA balita 13,6% pada hari yang sama (jeda 0). Efek pada jeda 1–7 hari kecil dan tidak bermakna, sehingga efek kumulatif tujuh hari (13,8%) hampir sama dengan jeda 0. Pola serupa terlihat pada ISPA lansia (13,8%), PPOK (13,4%), kematian (6,5%), dan kardiovaskular (4,9%)."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Dampak polusi pada kesehatan muncul pada hari yang sama, sehingga peringatan dini harus disampaikan pada hari itu juga, bukan keesokan harinya. Saat kabut asap, kasus ISPA balita rata-rata naik 155% dibanding hari biasa."
+},
+{
+"t": "h3",
+"num": "3.3.13",
+"title": "Visualisasi 13: Risiko per Kategori ISPU"
+},
+{
+"t": "figure",
+"num": "3.17",
+"caption": "Risiko relatif kasus menurut kategori ISPU dibanding hari Baik",
+"paths": [
+"kesehatan__risiko_per_kategori_ispu.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Risiko ISPA balita naik bertahap: 1,15 kali pada hari Sedang, 2,08 kali pada Tidak Sehat, 3,38 kali pada Sangat Tidak Sehat, dan 3,93 kali pada Berbahaya. Kematian dan kardiovaskular hampir datar sampai Sangat Tidak Sehat, lalu melonjak sekitar 7,4 kali pada kategori Berbahaya."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Balita sedikit lebih sensitif daripada lansia (13,7% dibanding 13,2% per 10 µg/m³, z = 2,9), tetapi lansia menyumbang kasus lebih banyak. Secara keseluruhan, sekitar 42.708 kasus ISPA balita (26,0%) tidak akan terjadi bila PM2.5 berada pada kategori Baik."
+},
+{
+"t": "h3",
+"num": "3.3.14",
+"title": "Visualisasi 14: Peta Jaringan Pemantauan"
+},
+{
+"t": "figure",
+"num": "3.18",
+"caption": "Sebaran stasiun menurut keandalan alat dan celah antarstasiun",
+"paths": [
+"jaringan__peta.png"
+],
+"w": 0.94,
+"maxh": 190
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> Hanya 21 dari 27 stasiun yang andal, dan stasiun memantau 21 provinsi. Celah terlebar berada di Papua (SRG-01 ke MER-01, 1.319 km), Sumatera bagian utara (PKU-01 ke MDN-01, 453 km), Kalimantan (KTG-01 ke SM2-01, 409 km), Jawa (BGR-01 ke YKY-01, 394 km), dan Sulawesi (MRS-01 ke PLU-01, 378 km). Sebaliknya, lima stasiun Jawa berkumpul di Jakarta–Bogor."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Jaringan belum memadai. Wilayah yang luas tidak terpantau, sementara wilayah lain memiliki stasiun yang berdekatan. Garis merah putus-putus pada peta langsung menunjukkan lokasi yang paling membutuhkan titik pantau baru."
+},
+{
+"t": "h3",
+"num": "3.3.15",
+"title": "Visualisasi 15: Skor Prioritas Stasiun"
+},
+{
+"t": "figure",
+"num": "3.19",
+"caption": "Skor prioritas penguatan pemantauan per stasiun",
+"paths": [
+"jaringan__skor_prioritas_stasiun.png"
+],
+"w": 0.94,
+"maxh": 215
+},
+{
+"t": "p",
+"text": "<b>Analisis.</b> KTG-02 memiliki skor tertinggi (68), diikuti PSW-01 (63), KTG-01 (61), PLB-01 (57), dan BTM-01 (56). Skor disusun dari polusi (25%), kabut asap (20%), beban kesehatan per 100 tempat tidur (20%), defisit data (20%), dan keterisolasian (15%)."
+},
+{
+"t": "p",
+"text": "<b>Interpretasi.</b> Prioritas tertinggi ada di wilayah yang tercemar berat, sering berkabut asap, dan beban rumah sakitnya tinggi. Komponen yang kosong tidak diisi, dan bobotnya dibagi ulang ke komponen yang tersedia sehingga tidak ada data yang ditambahkan."
+},
+{
+"t": "chapter",
+"num": "IV",
+"title": "PENUTUP"
+},
+{
+"t": "h2",
+"num": "4.1",
+"title": "Kesimpulan"
+},
+{
+"t": "numbers",
+"items": [
+"<b>Kondisi kualitas udara.</b> Rata-rata PM2.5 26 stasiun adalah 40,9 µg/m³ dan 23 stasiun melampaui baku mutu tahunan. Kalimantan paling tercemar (57,1 µg/m³) dan Papua paling bersih (17,2 µg/m³). Jakarta juga melampaui baku mutu NO<sub>2</sub> dan O<sub>3</sub> tahunan dengan IKU Kurang sampai Sangat Kurang. Sebanyak 12 stasiun memburuk dari 2024 ke 2026, seluruhnya di Sumatera dan Kalimantan.",
+"<b>Waktu dan wilayah kritis.</b> Terdapat dua jenis masalah, yaitu pencemaran kronis perkotaan dan industri di Jakarta dengan puncak pukul 07.00 dan 18.00 WIB setiap hari, serta pencemaran musiman akibat karhutla di Sumatera dan Kalimantan pada Agustus–Oktober yang makin panjang dan pekat, dengan puncak 1.128 µg/m³ di Palangka Raya pada 2026.",
+"<b>Faktor penyebab.</b> Musim dan tipe lokasi paling menentukan variasi PM2.5 (63% kepentingan gabungan), dan di luar musim kabut intensitas lalu lintas menjelaskan perbedaan antarstasiun (ρ = 0,75). Cuaca hanya kuat memengaruhi O<sub>3</sub>.",
+"<b>Dampak kesehatan.</b> Setiap kenaikan 10 µg/m³ PM2.5 meningkatkan ISPA balita dan lansia sekitar 13–14% dan kematian sekitar 6–7% pada hari yang sama. Balita sedikit lebih sensitif, sedangkan lansia menyumbang kasus lebih banyak.",
+"<b>Jaringan pemantauan.</b> Jaringan belum memadai karena 6 dari 27 stasiun tidak andal dan terdapat celah 378–1.319 km. KTG-02, PSW-01, dan KTG-01 adalah prioritas utama penguatan."
+],
+"start": 1
+},
+{
+"t": "h2",
+"num": "4.2",
+"title": "Saran"
+},
+{
+"t": "numbers",
+"items": [
+"<b>Peringatan dini pada hari yang sama.</b> Peringatan ISPU perlu disampaikan pada hari paparan, dengan prioritas perlindungan balita dan kesiapan rawat inap lansia ketika ISPU mencapai Tidak Sehat.",
+"<b>Kesiapsiagaan kabut asap mulai Juli</b> di sembilan stasiun dengan sedikitnya 200 hari kabut asap, yaitu KTG-02, KTG-01, PKU-01, PKN-01, JMB-01, BTM-01, PSW-01, STG-01, dan BJB-01, termasuk tambahan kapasitas rumah sakit saat episode.",
+"<b>Pengendalian lalu lintas</b> pukul 07.00–08.00 dan 18.00–19.00 WIB setiap hari, terutama di Jakarta.",
+"<b>Perbaikan alat</b> dengan mengganti JMB-02, memulihkan MER-01, mengkalibrasi BJB-01 dan MDN-01, serta menyeragamkan ekspor logger ke µg/m³ per jam.",
+"<b>Penambahan titik pantau</b> pada celah terlebar di Papua, Sumatera bagian utara, Kalimantan, Jawa bagian tengah, dan Sulawesi, serta penelusuran sumber emisi di Samarinda (SM2-01).",
+"<b>Pengembangan dashboard</b> dengan data pemantauan waktu nyata agar peringatan terkirim otomatis."
+],
+"start": 1
+},
+{
+"t": "section",
+"title": "DAFTAR PUSTAKA"
+},
+{
+"t": "refs",
+"items": [
+"Bhaskaran, K., Gasparrini, A., Hajat, S., Smeeth, L., &amp; Armstrong, B. (2013). Time series regression studies in environmental epidemiology. <i>International Journal of Epidemiology, 42</i>(4), 1187–1195. https://doi.org/10.1093/ije/dyt092",
+"Breiman, L. (2001). Random forests. <i>Machine Learning, 45</i>(1), 5–32. https://doi.org/10.1023/A:1010933404324",
+"Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. <i>Computing in Science &amp; Engineering, 9</i>(3), 90–95. https://doi.org/10.1109/MCSE.2007.55",
+"Kementerian Lingkungan Hidup dan Kehutanan. (2020). <i>Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor P.14/MENLHK/SETJEN/KUM.1/7/2020 tentang Indeks Standar Pencemar Udara</i>.",
+"Kementerian Lingkungan Hidup dan Kehutanan. (2021). <i>Peraturan Menteri Lingkungan Hidup dan Kehutanan Nomor 27 Tahun 2021 tentang Indeks Kualitas Lingkungan Hidup</i>.",
+"Li, D., Mei, H., Shen, Y., Su, S., Zhang, W., Wang, J., Zu, M., &amp; Chen, W. (2018). ECharts: A declarative framework for rapid construction of web-based visualization. <i>Visual Informatics, 2</i>(2), 136–146. https://doi.org/10.1016/j.visinf.2018.04.011",
+"Mann, H. B. (1945). Nonparametric tests against trend. <i>Econometrica, 13</i>(3), 245–259. https://doi.org/10.2307/1907187",
+"McKinney, W. (2010). Data structures for statistical computing in Python. In S. van der Walt &amp; J. Millman (Eds.), <i>Proceedings of the 9th Python in Science Conference</i> (pp. 56–61). https://doi.org/10.25080/Majora-92bf1922-00a",
+"Panitia Gelar Rasa 2026. (2026). <i>Booklet case study Dashboard Analysis Gelar Rasa 2026</i>.",
+"Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., &amp; Duchesnay, É. (2011). Scikit-learn: Machine learning in Python. <i>Journal of Machine Learning Research, 12</i>, 2825–2830.",
+"Pemerintah Republik Indonesia. (2021). <i>Peraturan Pemerintah Nomor 22 Tahun 2021 tentang Penyelenggaraan Perlindungan dan Pengelolaan Lingkungan Hidup</i>.",
+"Schwartz, J. (2000). The distributed lag between air pollution and daily deaths. <i>Epidemiology, 11</i>(3), 320–326. https://doi.org/10.1097/00001648-200005000-00016",
+"Seabold, S., &amp; Perktold, J. (2010). Statsmodels: Econometric and statistical modeling with Python. In S. van der Walt &amp; J. Millman (Eds.), <i>Proceedings of the 9th Python in Science Conference</i> (pp. 92–96). https://doi.org/10.25080/Majora-92bf1922-011",
+"Seinfeld, J. H., &amp; Pandis, S. N. (2016). <i>Atmospheric chemistry and physics: From air pollution to climate change</i> (3rd ed.). Wiley.",
+"World Health Organization. (2021). <i>WHO global air quality guidelines: Particulate matter (PM2.5 and PM10), ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide</i>. https://www.who.int/publications/i/item/9789240034228"
+]
+},
+{
+"t": "section",
+"title": "LAMPIRAN"
+},
+{
+"t": "p",
+"text": "<b>Lampiran 1. Tautan Hasil Pengerjaan Dashboard</b>"
+},
+{
+"t": "p",
+"text": "Dashboard dapat dibuka tanpa login dan tanpa meminta akses melalui tautan berikut: [tautan dashboard]"
+},
+{
+"t": "p",
+"text": "<b>Lampiran 2. Tautan Repository GitHub</b>"
+},
+{
+"t": "p",
+"text": "Kode preprocessing, analisis, dan dashboard: [tautan repository GitHub (opsional)]"
+},
+{
+"t": "p",
+"text": "<b>Lampiran 3. Tangkapan Layar Halaman Dashboard</b>"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_ringkasan.png",
+"caption": "Halaman Ringkasan"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_kondisi_0.png",
+"caption": "Halaman Kondisi (bagian atas)"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_kondisi_1.png",
+"caption": "Halaman Kondisi (bagian bawah)"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_kritis_0.png",
+"caption": "Halaman Waktu Kritis (bagian atas)"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_kritis_1.png",
+"caption": "Halaman Waktu Kritis (bagian bawah)"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_faktor_0.png",
+"caption": "Halaman Penyebab (bagian atas)"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_faktor_1.png",
+"caption": "Halaman Penyebab (bagian bawah)"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_kesehatan_0.png",
+"caption": "Halaman Kesehatan (bagian atas)"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_kesehatan_1.png",
+"caption": "Halaman Kesehatan (bagian bawah)"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_jaringan.png",
+"caption": "Halaman Jaringan"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_petunjuk_0.png",
+"caption": "Halaman Petunjuk Pengukuran (bagian atas)"
+},
+{
+"t": "plainfig",
+"path": "/Users/daffaramaditya/Documents/gelarasa/report/figures/page_petunjuk_1.png",
+"caption": "Halaman Petunjuk Pengukuran (bagian bawah)"
+}
+],
+"toc": [
+[
+"toc",
+0,
+"BAB I PENGANTAR PROYEK",
+"1"
+],
+[
+"toc",
+1,
+"1.1&nbsp;&nbsp;Konteks Permasalahan",
+"1"
+],
+[
+"toc",
+1,
+"1.2&nbsp;&nbsp;Pokok Permasalahan",
+"1"
+],
+[
+"toc",
+1,
+"1.3&nbsp;&nbsp;Sasaran Proyek",
+"2"
+],
+[
+"toc",
+0,
+"BAB II RANCANGAN PELAKSANAAN",
+"3"
+],
+[
+"toc",
+1,
+"2.1&nbsp;&nbsp;Karakteristik Dataset",
+"3"
+],
+[
+"TabEntry",
+0,
+"Tabel 2.1&nbsp;&nbsp;Karakteristik dataset",
+"3"
+],
+[
+"toc",
+1,
+"2.2&nbsp;&nbsp;Perangkat yang Digunakan",
+"3"
+],
+[
+"toc",
+1,
+"2.3&nbsp;&nbsp;Preprocessing Data",
+"4"
+],
+[
+"TabEntry",
+0,
+"Tabel 2.2&nbsp;&nbsp;Masalah kualitas data dan penanganannya",
+"4"
+],
+[
+"TabEntry",
+0,
+"Tabel 2.3&nbsp;&nbsp;Faktor konversi ppm ke µg/m³",
+"4"
+],
+[
+"toc",
+1,
+"2.4&nbsp;&nbsp;Prosedur Perancangan Visualisasi",
+"5"
+],
+[
+"TabEntry",
+0,
+"Tabel 2.4&nbsp;&nbsp;Pemilihan jenis grafik",
+"5"
+],
+[
+"toc",
+0,
+"BAB III HASIL DAN ANALISIS",
+"7"
+],
+[
+"toc",
+1,
+"3.1&nbsp;&nbsp;Exploratory Data Analysis",
+"7"
+],
+[
+"TabEntry",
+0,
+"Tabel 3.1&nbsp;&nbsp;Statistik deskriptif polutan harian (µg/m³)",
+"7"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.1&nbsp;&nbsp;Distribusi PM2.5 harian per pulau (skala logaritma)",
+"7"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.2&nbsp;&nbsp;Korelasi Spearman antara polutan dan cuaca harian",
+"8"
+],
+[
+"toc",
+1,
+"3.2&nbsp;&nbsp;Gambaran Umum dan Fitur Utama Dashboard",
+"8"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.3&nbsp;&nbsp;Halaman pembuka (kiri) dan panel detail stasiun KTG-01 (kanan)",
+"8"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.4&nbsp;&nbsp;Tampilan halaman Ringkasan pada layar laptop",
+"9"
+],
+[
+"toc",
+1,
+"3.3&nbsp;&nbsp;Telaah dan Penafsiran Visualisasi",
+"9"
+],
+[
+"toc",
+2,
+"3.3.1&nbsp;&nbsp;Visualisasi 1: Peta PM2.5 per Stasiun",
+"10"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.5&nbsp;&nbsp;Peta rata-rata PM2.5 per stasiun (halaman Ringkasan)",
+"10"
+],
+[
+"toc",
+2,
+"3.3.2&nbsp;&nbsp;Visualisasi 2: PM2.5 per Pulau",
+"10"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.6&nbsp;&nbsp;Rata-rata PM2.5 per pulau",
+"10"
+],
+[
+"toc",
+2,
+"3.3.3&nbsp;&nbsp;Visualisasi 3: Kategori ISPU per Pulau",
+"11"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.7&nbsp;&nbsp;Porsi hari menurut kategori ISPU per pulau",
+"11"
+],
+[
+"toc",
+2,
+"3.3.4&nbsp;&nbsp;Visualisasi 4: Peringkat Stasiun",
+"12"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.8&nbsp;&nbsp;Peringkat stasiun menurut rata-rata PM2.5 dengan garis baku mutu dan WHO",
+"12"
+],
+[
+"toc",
+2,
+"3.3.5&nbsp;&nbsp;Visualisasi 5: Baku Mutu dan IKU",
+"12"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.9&nbsp;&nbsp;Tabel rata-rata tahunan, baku mutu, dan IKU per stasiun (2025)",
+"12"
+],
+[
+"toc",
+2,
+"3.3.6&nbsp;&nbsp;Visualisasi 6: Tren Bulanan",
+"13"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.10&nbsp;&nbsp;Tren rata-rata PM2.5 bulanan per pulau, 2024–2026",
+"13"
+],
+[
+"toc",
+2,
+"3.3.7&nbsp;&nbsp;Visualisasi 7: Pola per Jam",
+"14"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.11&nbsp;&nbsp;Rata-rata PM2.5 per jam menurut tipe lokasi",
+"14"
+],
+[
+"toc",
+2,
+"3.3.8&nbsp;&nbsp;Visualisasi 8: Pola per Bulan",
+"14"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.12&nbsp;&nbsp;Rata-rata PM2.5 per stasiun dan bulan",
+"14"
+],
+[
+"toc",
+2,
+"3.3.9&nbsp;&nbsp;Visualisasi 9: Episode Kabut Asap",
+"15"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.13&nbsp;&nbsp;Linimasa episode kabut asap per stasiun",
+"15"
+],
+[
+"toc",
+2,
+"3.3.10&nbsp;&nbsp;Visualisasi 10: Tingkat Kepentingan Faktor",
+"16"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.14&nbsp;&nbsp;Kepentingan faktor dalam model Random Forest PM2.5 harian",
+"16"
+],
+[
+"toc",
+2,
+"3.3.11&nbsp;&nbsp;Visualisasi 11: Lalu Lintas dan Polutan",
+"16"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.15&nbsp;&nbsp;Hubungan intensitas lalu lintas dan PM2.5 musim hujan antarstasiun",
+"16"
+],
+[
+"toc",
+2,
+"3.3.12&nbsp;&nbsp;Visualisasi 12: Efek per Hari Jeda",
+"17"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.16&nbsp;&nbsp;Kenaikan kasus ISPA balita per 10 µg/m³ PM2.5 menurut hari jeda",
+"17"
+],
+[
+"toc",
+2,
+"3.3.13&nbsp;&nbsp;Visualisasi 13: Risiko per Kategori ISPU",
+"18"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.17&nbsp;&nbsp;Risiko relatif kasus menurut kategori ISPU dibanding hari Baik",
+"18"
+],
+[
+"toc",
+2,
+"3.3.14&nbsp;&nbsp;Visualisasi 14: Peta Jaringan Pemantauan",
+"18"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.18&nbsp;&nbsp;Sebaran stasiun menurut keandalan alat dan celah antarstasiun",
+"18"
+],
+[
+"toc",
+2,
+"3.3.15&nbsp;&nbsp;Visualisasi 15: Skor Prioritas Stasiun",
+"19"
+],
+[
+"FigEntry",
+0,
+"Gambar 3.19&nbsp;&nbsp;Skor prioritas penguatan pemantauan per stasiun",
+"19"
+],
+[
+"toc",
+0,
+"BAB IV PENUTUP",
+"20"
+],
+[
+"toc",
+1,
+"4.1&nbsp;&nbsp;Kesimpulan",
+"20"
+],
+[
+"toc",
+1,
+"4.2&nbsp;&nbsp;Saran",
+"20"
+],
+[
+"toc",
+0,
+"DAFTAR PUSTAKA",
+"21"
+],
+[
+"toc",
+0,
+"LAMPIRAN",
+"23"
+]
+]
+}

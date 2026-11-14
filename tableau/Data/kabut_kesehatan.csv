@@ -1,0 +1,8 @@
+outcome,n_hospitals_with_haze,mean_normal,mean_haze,pct_increase,kasus
+ISPA balita (<5 th),12,6.015,15.367,155.47,ISPA balita
+ISPA lansia (>60 th),12,7.195,17.69,145.874,ISPA lansia
+Darurat asma,12,4.689,10.55,125.019,Darurat asma
+PPOK,12,3.78,9.653,155.405,PPOK
+Pernapasan umum (semua umur),12,23.507,50.549,115.04,Pernapasan umum
+Kardiovaskular,12,7.417,11.09,49.517,Kardiovaskular
+Kematian,12,1.8,3.129,73.817,Kematian

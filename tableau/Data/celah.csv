@@ -1,0 +1,23 @@
+pulau,station_a,station_b,jarak_km,kab_kota_a,kab_kota_b,titik_tengah_lat,titik_tengah_lon,pasangan
+Papua,SRG-01,MER-01,1318.655,Kota Sorong,Kabupaten Merauke,-4.702,135.853,SRG-01–MER-01
+Sumatera,PKU-01,MDN-01,452.927,Kota Pekanbaru,Kota Medan,2.028,100.158,PKU-01–MDN-01
+Sumatera,IDP-01,MDN-01,425.024,Kabupaten Aceh Besar,Kota Medan,4.497,97.162,IDP-01–MDN-01
+Kalimantan,KTG-01,SM2-01,408.909,Kota Palangka Raya,Kota Samarinda,-1.348,115.534,KTG-01–SM2-01
+Jawa,BGR-01,YKY-01,393.517,Kabupaten Bogor,Kabupaten Sleman,-7.214,108.648,BGR-01–YKY-01
+Sulawesi,MRS-01,PLU-01,378.337,Kabupaten Maros,Kabupaten Poso,-3.324,119.876,MRS-01–PLU-01
+Sumatera,JMB-01,BTM-01,310.962,Kota Jambi,Kota Batam,-0.253,103.883,JMB-01–BTM-01
+Kalimantan,STG-01,PKN-01,308.803,Kabupaten Sintang,Kabupaten Kotawaringin Barat,-1.319,111.577,STG-01–PKN-01
+Sumatera,PKU-01,BTM-01,304.582,Kota Pekanbaru,Kota Batam,0.795,102.796,PKU-01–BTM-01
+Sumatera,BGL-01,PLB-01,284.319,Kota Bengkulu,Kota Palembang,-3.402,103.506,BGL-01–PLB-01
+Sumatera,PLB-01,PSW-01,253.569,Kota Palembang,Kabupaten Pesawaran,-4.055,104.939,PLB-01–PSW-01
+Jawa,YKY-01,MLG-01,247.925,Kabupaten Sleman,Kabupaten Malang,-7.816,111.476,YKY-01–MLG-01
+Sumatera,PLB-01,JMB-02,186.467,Kota Palembang,Kabupaten Muaro Jambi,-2.288,104.173,PLB-01–JMB-02
+Kalimantan,KTG-01,BJB-01,175.191,Kota Palangka Raya,Kota Banjarbaru,-2.844,114.383,KTG-01–BJB-01
+Sumatera,KTB-01,PKU-01,144.613,Kabupaten Agam,Kota Pekanbaru,0.108,100.924,KTB-01–PKU-01
+Kalimantan,KTG-02,PKN-01,143.339,Kabupaten Kotawaringin Timur,Kabupaten Kotawaringin Barat,-2.62,112.316,KTG-02–PKN-01
+Kalimantan,KTG-01,KTG-02,112.028,Kota Palangka Raya,Kabupaten Kotawaringin Timur,-2.375,113.433,KTG-01–KTG-02
+Jawa,JKT-01,BGR-02,47.502,Kota Administrasi Jakarta Pusat,Kota Bogor,-6.389,106.818,JKT-01–BGR-02
+Jawa,BGR-01,BGR-02,18.155,Kabupaten Bogor,Kota Bogor,-6.65,106.876,BGR-01–BGR-02
+Jawa,JKT-01,JKT-02,16.74,Kota Administrasi Jakarta Pusat,Kota Administrasi Jakarta Utara,-6.144,106.896,JKT-01–JKT-02
+Jawa,JKT-01,JKT-03,10.719,Kota Administrasi Jakarta Pusat,Kota Administrasi Jakarta Barat,-6.164,106.78,JKT-01–JKT-03
+Sumatera,JMB-01,JMB-02,0.868,Kota Jambi,Kabupaten Muaro Jambi,-1.632,103.643,JMB-01–JMB-02
